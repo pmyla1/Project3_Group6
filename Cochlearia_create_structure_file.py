@@ -1,3 +1,9 @@
+###########################
+##This script was provided by Levi Yant (2024) and can be used to create a fastSTRUCTURE appropriate
+##structure file (ending in .str) from an input VCF file
+##usage: python Cochlearia_create_structure.py -v <path/to/VCF> -o <output/prefix> -s true 
+##the -s true flag creates pseudo-diploid data from polyploid data
+
 import os, sys, subprocess, argparse, random, numpy, csv, scipy, gzip
 
 def transpose(i, o=None, d=','):
