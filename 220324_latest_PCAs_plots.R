@@ -1,8 +1,9 @@
+#########################
+##This script was written by Luke Archer (2024) to produce PCA plots in R.
 ## Load vcf, run PCA, calculate K-means clustering, calculate matrix of geneic distances, run AMOVA
 ## Filip Kolar 2017, further edits by Sian Bray 2018 and Levi Yant 2022,3
 
 setwd("/Users/lukearcher/Desktop/")
-
 
 options(warn=1)
 
@@ -13,8 +14,6 @@ library(pegas)
 library(StAMPP)
 library(ade4)
 library(MASS)
-
-
 
 ##################### 
 # MODIFIED FUNCTIONS for TETRAPLOIDS
@@ -352,7 +351,7 @@ plot(tree1, typ="phylogram", show.tip=TRUE,cex=0.8)
 tiplabels(pch=20, col=aa.genlight$pop, cex=4)
 title("NJ tree of tetraploid A. lyrata")
 
-
+################################
 ##make a different PCA plot with colours
 myCol <- colorplot(pca.1$scores,pca.1$scores, transp=TRUE, cex=4)
 abline(h=0,v=0, col="grey")
@@ -399,7 +398,7 @@ aa.D.pop # populations
 Dgen_ind <- aa.D.ind.dist
 Dgen_pop <- aa.D.pop.dist
 
-################
+###################################
 ##Poly_SFS data
 new_lyrata_sfs<-read.csv("220324_SFS.csv",sep=",")
 head(new_lyrata_sfs)
@@ -411,8 +410,6 @@ lyrata_df$proportion<-new_lyrata_sfs/prop
 lyrata_df$bins<-1:201
 
 head(lyrata_df)
-
-
 
 lyrata_df<-as.data.frame(new_lyrata_sfs,number_sites)
 head(lyrata_df)
@@ -468,7 +465,7 @@ head(outliers)
 KEH_LIC_Fst$threshold<-KEH_LIC_Fst$`0.000000`>0.5
 KEH_LIC_Fst
 
-
+#####################
 mean_KEH_LIC_Fst<-mean(KEH_LIC_Fst$`0.000000`)
 outliers<-mean_KEH_LIC_Fst+1.5*IQR(KEH_LIC_Fst$`0.000000`)
 KEH_LIC_Fst$outliers<-outliers
