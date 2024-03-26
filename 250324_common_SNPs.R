@@ -1,5 +1,5 @@
-##############
-##This script can be used to compare the allele frequencies of common
+#############################
+##This R script was written by Luke Archer (2024) and can be used to compare the allele frequencies of common
 ##SNPs between Arabidopsis lyrata and Arabidopsis arenosa tetraploids.
 ##The input file is a .tsv file created using pandas pd.to_csv() with 
 ##columns containing allele frequencies in both A. lyrata and A. arenosa 
@@ -76,7 +76,7 @@ lyrata_mean8<-mean(chrom8$AF_lyrata)
 #####################################
 
 #########################################
-##PER CHROMOSOME INFORMATION IS REDUNDANT SO JUST PLOT OVERALL
+##PLOTS OF THE GENOME WIDE INFORMATION
 mean_arenosa<-mean(cleaned_arenosa_lyrata_AFs$AF_arenosa)
 mean_lyrata<-mean(cleaned_arenosa_lyrata_AFs$AF_lyrata)
 
