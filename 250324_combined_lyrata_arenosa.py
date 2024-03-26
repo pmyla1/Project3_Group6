@@ -1,8 +1,8 @@
-###python script to trim the arenosa_632.txt file to include only SNPs found in both arenosa_632.txt
-##and in lyrata_272_with_some_hybrids.txt
+###This python script was written by Luke Archer (2024) to trim the arenosa_632.txt
+##to include only SNPs found in both arenosa_632.txtand in lyrata_272_with_some_hybrids.txt
 ##Please change directory to the same folder as the text files to be merged
 
-#############
+###############
 ##IMPORT MODULES 
 import pandas as pd
 
