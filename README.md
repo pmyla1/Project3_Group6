@@ -79,6 +79,14 @@ This image was produced using the GUI [Omicsspeaks Structure Plot V2.0](http://o
 
 The input file is a comma separated value (CSV) file containing the individual name from the VCF (e.g BZD-01tl), followed by the population in the VCF (e.g. BZD), followed by the fastSTRUCTURE output for the genetic admixture proportions when K=2 (e.g 0.95,0.05).
 
+#### Example input file structure
+
+| BZD-01tl,BZD,0.99,0.01 |
+| BZD-02tl,BZD,0.98,0.02 |
+| HAB-01tl,HAB,0.60,0.40 |
+| HAB-02tl,HAB,0.55,0.45 |
+
+
 **Orange** bars represent ***A. arenosa*** whereas *green* bars represent ***A. lyrata***.
 
 Contrary to our expectations, when K = 2, **FRE** was estimated to be **pure *A. lyrata*** as opposed to a 50/50 hybrid. 
