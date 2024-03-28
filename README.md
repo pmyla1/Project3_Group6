@@ -2,6 +2,9 @@
 An introduction into manipulating **mixed ploidy VCF files** and obtaining various population genetics metrics from these files including **site frequency spectra**, **Fst**, etc.
 
 ## **Overview**
+Polyploidy and whole genome duplications (WGD) have occurred in various lineages throughout all kingdoms of life, including in animals such as *Xenopus laevis*, and are especially prevalent in plants. WGD is a major mutational process that disrupts ionomic, cellular, and meiotic processes, and neo-polyploids must overcome various challenges including genomic instability and chromosomal mis-segregation during meiosis (Bray et al., 2023). 
+
+
 The VCF file included **diploid** and **tetraploid** *Arabidopsis arenosa* and *Arabidopsis lyrata* populations sampled from **throughout Europe** (insert more geographical context here) including from a well-established **hybrid zone** in **Wachau** in the **Austrian Forealps**. 
 
 The aim of the project was to **select specific populations** from this **hybrid zone** and **control** populations from distinct locations and to look for **genetic admixture/hybridisation** between *A. arenosa* and *A. lyrata* **autotetraploid lineages**. One of the expectations was that the **site-frequency spectra** of the mixed ploidy VCF files containing admixed *A. arenosa* and *A. lyrata* **populations/hybrids** would show a **characteristic bimodal distribution** with peaks at low (~0.0-0.1) and high (~0.9-1.0) allele frequencies, and a smaller peak at intermediate (~0.4-0.6) allele frequencies. 
@@ -28,11 +31,15 @@ For support and documentation click on the following link [GATK](https://softwar
 #### 1) fastSTRUCTURE.
 #### fastSTRUCTURE depends on the following:
 [Numpy](https://numpy.org/)   
+
 [SciPy](https://scipy.org/) 
+
 [Cython](https://cython.org/) 
+
 [GNU Scientific Library](https://www.gnu.org/software/gsl/)  
 
 #### Obtaining the Source code from GitHub
+
 In order to successfully install fastSTRUCTURE you can follow the guidelines given on the fastSTRUCTURE GitHub page in the following link [fastSTRUCTURE](https://rajanil.github.io/fastStructure/).
 
 
