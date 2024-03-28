@@ -12,6 +12,17 @@ An algorithm to infer population structure: sourced from [fastSTRUCTURE](https:/
 Citation: Anil Raj, Matthew Stephens, and Jonathan K. Pritchard. fastSTRUCTURE: Variational Inference of Population Structure in Large SNP Data Sets , (Genetics) June 2014 197:573-589.
 ### **2) The Genome Analysis Toolkit (GATK) v4.2.2.0**. 
 For support and documentation go to [GATK](https://software.broadinstitute.org/gatk/) 
-### **3) R and RStudio - R version 4.3.1 (2023-06-16)** - Nickname Beagle Scouts 
+### **3) R and RStudio - R version 4.3.1 (2023-06-16)** - Nickname Beagle Scouts
+
+# Installation and Dependencies 
+### 1) fastSTRUCTURE.
+#### fastSTRUCTURE depends on the following:
+Numpy [Numpy](https://numpy.org/)
+SciPy [SciPy](https://scipy.org/)
+Cython [Cython](https://cython.org/)
+GNU Scientific Library [GNU Scientific Library](https://www.gnu.org/software/gsl/) 
+### Obtaining the Source code from GitHub
+In order to successfully install fastSTRUCTURE you can follow the guidelines given on the fastSTRUCTURE GitHub page in the following link [fastSTRUCTURE](https://rajanil.github.io/fastStructure/).
+
 
 
