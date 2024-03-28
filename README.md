@@ -8,16 +8,20 @@ Some of the genetic adaptations to WGD in polyploid lineages have been character
 
 There are **two main types** of polyploidy: **autopolyploids** (where all subgenomes are from the **same species** without hybridisation) and **allopolyploids** (where the subgenomes are inherited from **different species** through **hybridisation**). Autopolyploids and allopolyploids display distinct characteristic site frequency spectra (SFS). **Autopolyploid** SFS show a **Poisson distribution** with a **high proportion** of **low frequency** variants, whereas **allopolyploid** SFS have a characteristic **trimodal distribution** with **high proportions** of **low**, **intermediate**, and **high frequency** variants.
 
-## Example of an autopolyploid SFS
+### Example of an autopolyploid SFS
 
 ![lyrata_AF_spectrum](https://github.com/pmyla1/Project3_Group6/assets/151543531/54ede91e-def1-44f3-b91e-f4078e570b37)
 
 
+
 The VCF file included **diploid** and **tetraploid** *Arabidopsis arenosa* and *Arabidopsis lyrata* populations sampled from **throughout Europe** (insert more geographical context here) including from a well-established **hybrid zone** in **Wachau** in the **Austrian Forealps**. 
 
-The aim of the project was to **select specific populations** from the **Wachau hybrid zone** and **control** populations from distinct locations and to look for **genetic admixture/hybridisation** between *A. arenosa* and *A. lyrata* **autotetraploid lineages** to discover whether hybridisation had resulted in the formation of an **allopolyploid** lineage consisting of a **50/50 admixture** between *A. arenosa* and *A. lyrata*. We expected the **site-frequency spectra** of the mixed ploidy VCF containing admixed *A. arenosa* and *A. lyrata* **populations/hybrids** would show a **characteristic allopolyploid SFS** with peaks at low (~0.0-0.1), intermediate (~0.4-0.6), and high (~0.9-1.0) allele frequencies. 
+The **rationale** for this project was the discovery of **bidirectional gene flow** between **autotetraploid** lineages of *A. arenosa* and *A. lyrata* which may have **facilitated** the **stabilisation of polyploidy** post WGD (Marburger et al., 2019)[Nature Communications](https://www.nature.com/articles/s41467-019-13159-5). Our aim was to **select specific populations** from the **Wachau hybrid zone** and **control** populations from distinct locations and to look for **genetic admixture/hybridisation** between *A. arenosa* and *A. lyrata* **autotetraploid lineages** to discover whether hybridisation had resulted in the formation of an **allopolyploid** lineage consisting of a **50/50 admixture** between *A. arenosa* and *A. lyrata*. We expected the **site-frequency spectra** of the mixed ploidy VCF containing admixed *A. arenosa* and *A. lyrata* **populations/hybrids** would show a **characteristic allopolyploid SFS** with peaks at low (~0.0-0.1), intermediate (~0.4-0.6), and high (~0.9-1.0) allele frequencies. 
+
+
 
 ### Information on the *A. arenosa* and *A. lyrata* Populations in the VCF
+
 
 | Species        | Ploidy           | 3-letter pop code(s) |
 | ------------- |:-------------:| -----:|
@@ -25,6 +29,7 @@ The aim of the project was to **select specific populations** from the **Wachau 
 | pure *A. lyrata* | 4x | KAG, LIC, MOD, MAU |
 | pure *A. lyrata* | 2x | PIZ, PLE |
 | hybrid *A. arenosa* x *A. lyrata* | 4x | FRE, HAB, OCH |  
+
 
 
 ### **Software/Programs Used**
@@ -51,5 +56,9 @@ For support and documentation click on the following link [GATK](https://softwar
 
 In order to successfully install fastSTRUCTURE you can follow the guidelines given on the fastSTRUCTURE GitHub page in the following link [fastSTRUCTURE](https://rajanil.github.io/fastStructure/).
 
+
+## Scripts
+
+Some of the linked scripts were written on the HPC using various software packages on a shared conda environment, whereas others were written and executed on a local machine using other packages in a local miniconda environment. 
 
 
