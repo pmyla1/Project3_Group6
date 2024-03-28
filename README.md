@@ -91,7 +91,7 @@ Contrary to our expectations, when K = 2, **FRE** was estimated to be **pure *A.
 In order to determine whether there was **hybridisation** betweeen *A. arenosa* and *A. lyrata* and the subsequent **formation** of an **allotetraploid** lineage (2 subgenomes: one from *A. arenosa*, the other from *A. lyrata*), we were given **text files** containing **4-fold degenerate** single nucleotide polymorphism (SNP) data from a **larger number of samples** from both species. The **structure** of the input files can be seen **below**.
 
 | **CHROM** | **POS** | **REF** | **ALT** | **AF** | **AC** | **AN** |
-|:_________:|:________:|:______:|:_______:|:______:|:______:|:______:|
+| _________ |:________:| ______:| _______:| ______:| ______:| ______:|
 | scaffold_1 | 32 | C | A | 0.00053 | 1 | 1886 | 
 | scaffold_1 | 38 | A | T | 0.558 | 977 | 1750 |
 | scaffold_1 | 160 | C | A | 0.00974 | 18 | 1848 |
