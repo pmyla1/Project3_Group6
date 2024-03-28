@@ -14,10 +14,11 @@ There are **two main types** of polyploidy: **autopolyploids** (where all subgen
 
 
 
-The VCF file included **diploid** and **tetraploid** *Arabidopsis arenosa* and *Arabidopsis lyrata* populations sampled from **throughout Europe** (insert more geographical context here) including from a well-established **hybrid zone** in **Wachau** in the **Austrian Forealps**. 
+The VCF file included **diploid** and **tetraploid** *Arabidopsis arenosa* and *Arabidopsis lyrata* populations sampled from **throughout Europe** including lineages from the **Austrian Forealps** and others from a well-established **hybrid zone** in **Wachau**. 
 
-The **rationale** for this project was the discovery of **bidirectional gene flow** between **autotetraploid** lineages of *A. arenosa* and *A. lyrata* which may have **facilitated** the **stabilisation of polyploidy** post WGD (Marburger et al., 2019)[Nature Communications](https://www.nature.com/articles/s41467-019-13159-5). Our aim was to **select specific populations** from the **Wachau hybrid zone** and **control** populations from distinct locations and to look for **genetic admixture/hybridisation** between *A. arenosa* and *A. lyrata* **autotetraploid lineages** to discover whether hybridisation had resulted in the formation of an **allopolyploid** lineage consisting of a **50/50 admixture** between *A. arenosa* and *A. lyrata*. We expected the **site-frequency spectra** of the mixed ploidy VCF containing admixed *A. arenosa* and *A. lyrata* **populations/hybrids** would show a **characteristic allopolyploid SFS** with peaks at low (~0.0-0.1), intermediate (~0.4-0.6), and high (~0.9-1.0) allele frequencies. 
+The **rationale** for this project was the discovery of **bidirectional gene flow** between **autotetraploid** lineages of *A. arenosa* and *A. lyrata* which may have **facilitated** the **stabilisation of polyploidy** post WGD (Marburger et al., 2019)[Nature Communications](https://www.nature.com/articles/s41467-019-13159-5). Our aim was to **select specific populations** from the **Austrian Forealps** and the **Wachau hybrid zone** and to look for **genetic admixture/hybridisation** between *A. arenosa* and *A. lyrata* **autotetraploid lineages**. We wanted to discover **whether hybridisation** had resulted in the formation of an **allopolyploid** lineage consisting of a **50/50 admixture** between *A. arenosa* and *A. lyrata*. If there were 50/50 hybrids in the VCF, we expected the **site-frequency spectra** of the admixed *A. arenosa* and *A. lyrata* **populations/hybrids** to show a **characteristic allopolyploid SFS** with peaks at low (~0.0-0.1), intermediate (~0.4-0.6), and high (~0.9-1.0) allele frequencies. 
 
+## Example SFS of an allopolyploid
 
 
 ### Information on the *A. arenosa* and *A. lyrata* Populations in the VCF
@@ -35,9 +36,12 @@ The **rationale** for this project was the discovery of **bidirectional gene flo
 ### **Software/Programs Used**
 #### **1) fastSTRUCTURE**.
 An algorithm to infer population structure: sourced from [fastSTRUCTURE](https://rajanil.github.io/fastStructure/). 
+
 Citation: Anil Raj, Matthew Stephens, and Jonathan K. Pritchard. fastSTRUCTURE: Variational Inference of Population Structure in Large SNP Data Sets , (Genetics) June 2014 197:573-589.
+
 #### **2) The Genome Analysis Toolkit (GATK) v4.2.2.0**. 
 For support and documentation click on the following link [GATK](https://software.broadinstitute.org/gatk/) 
+
 #### **3) R and RStudio - R version 4.3.1 (2023-06-16)**
 
 
