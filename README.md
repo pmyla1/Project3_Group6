@@ -79,6 +79,9 @@ This image was produced using the GUI [Omicsspeaks Structure Plot V2.0](http://o
 
 The input file is a comma separated value (CSV) file containing the individual name from the VCF (e.g BZD-01tl), followed by the population in the VCF (e.g. BZD), followed by the fastSTRUCTURE output for the genetic admixture proportions when K=2 (e.g 0.95,0.05).
 
+You can find the link to the input file here [OmicsSpeaks input]
+[K2_omics_speaks_input.csv](https://github.com/pmyla1/Project3_Group6/files/14791197/K2_omics_speaks_input.csv)
+
 #### Example input file structure
 
   BZD-01tl,BZD,0.99,0.01
