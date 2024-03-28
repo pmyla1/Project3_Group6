@@ -82,17 +82,6 @@ The input file is a comma separated value (CSV) file containing the individual n
 You can find the link to the input file here [OmicsSpeaks input]
 [K2_omics_speaks_input.csv](https://github.com/pmyla1/Project3_Group6/files/14791197/K2_omics_speaks_input.csv)
 
-#### Example input file structure
-
-  BZD-01tl,BZD,0.99,0.01
-  
-  BZD-02tl,BZD,0.98,0.02
-  
-  HAB-01tl,HAB,0.60,0.40
-  
-  HAB-02tl,HAB,0.55,0.45
-
-
 **Orange** bars represent ***A. arenosa*** whereas *green* bars represent ***A. lyrata***.
 
 Contrary to our expectations, when K = 2, **FRE** was estimated to be **pure *A. lyrata*** as opposed to a 50/50 hybrid. 
