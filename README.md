@@ -9,12 +9,13 @@ Some of the genetic adaptations to WGD in polyploid lineages have been character
 There are **two main types** of polyploidy: **autopolyploids** (where all subgenomes are from the **same species** without hybridisation) and **allopolyploids** (where the subgenomes are inherited from **different species** through **hybridisation**). Autopolyploids and allopolyploids display distinct characteristic site frequency spectra (SFS). **Autopolyploid** SFS show a **Poisson distribution** with a **high proportion** of **low frequency** variants, whereas **allopolyploid** SFS have a characteristic **trimodal distribution** with **high proportions** of **low**, **intermediate**, and **high frequency** variants.
 
 ## Example of an autopolyploid SFS
-![plot](/Users/lukearcher/Desktop/230324_lyrata_arenosa/lyrata_AF_spectrum.png)  
+
+![lyrata_AF_spectrum](https://github.com/pmyla1/Project3_Group6/assets/151543531/54ede91e-def1-44f3-b91e-f4078e570b37)
 
 
 The VCF file included **diploid** and **tetraploid** *Arabidopsis arenosa* and *Arabidopsis lyrata* populations sampled from **throughout Europe** (insert more geographical context here) including from a well-established **hybrid zone** in **Wachau** in the **Austrian Forealps**. 
 
-The aim of the project was to **select specific populations** from this **hybrid zone** and **control** populations from distinct locations and to look for **genetic admixture/hybridisation** between *A. arenosa* and *A. lyrata* **autotetraploid lineages**. One of the expectations was that the **site-frequency spectra** of the mixed ploidy VCF files containing admixed *A. arenosa* and *A. lyrata* **populations/hybrids** would show a **characteristic bimodal distribution** with peaks at low (~0.0-0.1) and high (~0.9-1.0) allele frequencies, and a smaller peak at intermediate (~0.4-0.6) allele frequencies. 
+The aim of the project was to **select specific populations** from the **Wachau hybrid zone** and **control** populations from distinct locations and to look for **genetic admixture/hybridisation** between *A. arenosa* and *A. lyrata* **autotetraploid lineages** to discover whether hybridisation had resulted in the formation of an **allopolyploid** lineage consisting of a **50/50 admixture** between *A. arenosa* and *A. lyrata*. We expected the **site-frequency spectra** of the mixed ploidy VCF containing admixed *A. arenosa* and *A. lyrata* **populations/hybrids** would show a **characteristic allopolyploid SFS** with peaks at low (~0.0-0.1), intermediate (~0.4-0.6), and high (~0.9-1.0) allele frequencies. 
 
 ### Information on the *A. arenosa* and *A. lyrata* Populations in the VCF
 
