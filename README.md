@@ -86,7 +86,21 @@ You can find the link to the input file here [OmicsSpeaks input]
 
 Contrary to our expectations, when K = 2, **FRE** was estimated to be **pure *A. lyrata*** as opposed to a 50/50 hybrid. 
 
+### Allele frequency differences on a larger cohort of *A. arenosa* and *A. lyrata* samples
 
+In order to determine whether there was **hybridisation** betweeen *A. arenosa* and *A. lyrata* and the subsequent **formation** of an **allotetraploid** lineage (2 subgenomes: one from *A. arenosa*, the other from *A. lyrata*), we were given **text files** containing a **larger number of samples** from both species. The structure of the input files can be seen below.
 
+| CHROM | POS | REF | ALT | AF | AC | AN |
+| scaffold_1 | 32 | C | A | 0.00053 | 1 | 1886 | 
+| scaffold_1 | 38 | A | T | 0.558 | 977 | 1750 |
+| scaffold_1 | 160 | C | A | 0.00974 | 18 | 1848 |
+
+We obtained only the common/shared SNPs between both species by running the CommonSNPIdentifier.py script, and subsequently compared the allele frequencies between *A. arenosa* and *A. lyrata* at these common sites by calculating the allele frequency difference. Plots of the site frequency spectra per species and the allele frequency differences per chromosome can be seen below. 
+
+![AF_comparison_arenosa_lyrata](https://github.com/pmyla1/Project3_Group6/assets/151543531/2842671d-0638-4f1a-8751-3c0c3a9fbe6e)
+
+![Scaffold_1_4_AF_differences](https://github.com/pmyla1/Project3_Group6/assets/151543531/acf6270e-7352-4e9b-9ee9-d2bb3d71ac13)
+
+![Scaffold_5_8_AF_differences](https://github.com/pmyla1/Project3_Group6/assets/151543531/0bb713cf-12ac-467b-bb70-3886d2a3023f)
 
 
