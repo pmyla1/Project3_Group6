@@ -9,7 +9,7 @@ Some of the genetic adaptations to WGD in polyploid lineages have been character
 There are **two main types** of polyploidy: **autopolyploids** (where all subgenomes are from the **same species** without hybridisation) and **allopolyploids** (where the subgenomes are inherited from **different species** through **hybridisation**). Autopolyploids and allopolyploids display distinct characteristic site frequency spectra (SFS). **Autopolyploid** SFS show a **Poisson distribution** with a **high proportion** of **low frequency** variants, whereas **allopolyploid** SFS have a characteristic **trimodal distribution** with **high proportions** of **low**, **intermediate**, and **high frequency** variants.
 
 ## Example of an autopolyploid SFS
-[!alt text](/Users/lukearcher/Desktop/230324_lyrata_arenosa/lyrata_AF_spectrum.png) 
+![plot](/Users/lukearcher/Desktop/230324_lyrata_arenosa/lyrata_AF_spectrum.png)  
 
 
 The VCF file included **diploid** and **tetraploid** *Arabidopsis arenosa* and *Arabidopsis lyrata* populations sampled from **throughout Europe** (insert more geographical context here) including from a well-established **hybrid zone** in **Wachau** in the **Austrian Forealps**. 
