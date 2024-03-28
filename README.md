@@ -18,7 +18,7 @@ The VCF file included **diploid** and **tetraploid** *Arabidopsis arenosa* and *
 
 The **rationale** for this project was the discovery of **bidirectional gene flow** between **autotetraploid** lineages of *A. arenosa* and *A. lyrata* which may have **facilitated** the **stabilisation of polyploidy** post WGD (Marburger et al., 2019)[Nature Communications](https://www.nature.com/articles/s41467-019-13159-5). Our aim was to **select specific populations** from the **Austrian Forealps** and the **Wachau hybrid zone** and to look for **genetic admixture/hybridisation** between *A. arenosa* and *A. lyrata* **autotetraploid lineages**. We wanted to discover **whether hybridisation** had resulted in the formation of an **allopolyploid** lineage consisting of a **50/50 admixture** between *A. arenosa* and *A. lyrata*. If there were 50/50 hybrids in the VCF, we expected the **site-frequency spectra** of the admixed *A. arenosa* and *A. lyrata* **populations/hybrids** to show a **characteristic allopolyploid SFS** with peaks at low (~0.0-0.1), intermediate (~0.4-0.6), and high (~0.9-1.0) allele frequencies. 
 
-## Example SFS of an allopolyploid
+### Example of an allopolyploid SFS
 
 
 ### Information on the *A. arenosa* and *A. lyrata* Populations in the VCF
@@ -64,5 +64,21 @@ In order to successfully install fastSTRUCTURE you can follow the guidelines giv
 ## Scripts
 
 Some of the linked scripts were written on the HPC using various software packages on a shared conda environment, whereas others were written and executed on a local machine using other packages in a local miniconda environment. 
+
+
+## Phylogenetic analyses with SplitsTree
+
+
+## Population structure analysis
+
+### Structure plot of the tetraploid lineages with K = 2 
+
+![K2_structure_plot](https://github.com/pmyla1/Project3_Group6/assets/151543531/cc49ac45-9aaa-494e-a258-691b162e312e)
+
+**Orange** bars represent ***A. arenosa*** whereas *green* bars represent ***A. lyrata***.
+Contrary to our expectations, when K =2, **FRE** was estimated to be **pure *A. lyrata*** as opposed to a 50/50 hybrid. 
+
+
+
 
 
