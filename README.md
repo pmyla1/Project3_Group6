@@ -75,8 +75,13 @@ Some of the linked scripts were written on the HPC using various software packag
 
 ![K2_structure_plot](https://github.com/pmyla1/Project3_Group6/assets/151543531/cc49ac45-9aaa-494e-a258-691b162e312e)
 
+This image was produced using the GUI [Omicsspeaks Structure Plot V2.0](http://omicsspeaks.com/strplot2/). 
+
+The input file is a comma separated value (CSV) file containing the individual name from the VCF (e.g BZD-01tl), followed by the population in the VCF (e.g. BZD), followed by the fastSTRUCTURE output for the genetic admixture proportions when K=2 (e.g 0.95,0.05).
+
 **Orange** bars represent ***A. arenosa*** whereas *green* bars represent ***A. lyrata***.
-Contrary to our expectations, when K =2, **FRE** was estimated to be **pure *A. lyrata*** as opposed to a 50/50 hybrid. 
+
+Contrary to our expectations, when K = 2, **FRE** was estimated to be **pure *A. lyrata*** as opposed to a 50/50 hybrid. 
 
 
 
