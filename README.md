@@ -82,8 +82,11 @@ The input file is a comma separated value (CSV) file containing the individual n
 #### Example input file structure
 
   BZD-01tl,BZD,0.99,0.01
+  
   BZD-02tl,BZD,0.98,0.02
+  
   HAB-01tl,HAB,0.60,0.40
+  
   HAB-02tl,HAB,0.55,0.45
 
 
