@@ -22,8 +22,9 @@ The aim of the project was to **select specific populations** from the **Wachau 
 | Species        | Ploidy           | 3-letter pop code(s) |
 | ------------- |:-------------:| -----:|
 | pure *A. arenosa* | 4x | KEH, BZD |
-| pure *A. lyrata*  | 4x | KAG, LIC, MOD, MAU |
-| *A. arenosa* x *A. lyrata* hybrids | 4x | FRE, HAB, OCH |  
+| pure *A. lyrata* | 4x | KAG, LIC, MOD, MAU |
+| pure *A. lyrata* | 2x | PIZ, PLE |
+| hybrid *A. arenosa* x *A. lyrata* | 4x | FRE, HAB, OCH |  
 
 
 ### **Software/Programs Used**
