@@ -76,7 +76,7 @@ Briefly, after converting the latest VCF file (**290324_tetraploids_only.vcf.gz*
 ![290324_individuals](https://github.com/pmyla1/Project3_Group6/assets/151543531/b07c9e8a-4758-469f-b15e-36e3f2c15c07)
 
 
-*There are some clear clusters with most individuals grouping together with their respective populations, however, there are some sample mixups with KEH individuals not clustering together, as well as some OCH individuals clustering with different groups.*
+*There are some clear clusters with most individuals grouping together with their respective populations, (e.g. MOD appears to form a single cluster) however, there are some sample mixups with KEH individuals forming three separate clusters, as well as some OCH individuals clustering with different populations.*
 
 
 ### Phylogenetic tree showing relationships between populations
