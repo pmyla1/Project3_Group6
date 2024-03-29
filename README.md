@@ -68,6 +68,17 @@ Some of the linked scripts were written on the HPC using various software packag
 
 ## Phylogenetic analyses with SplitsTree
 
+After conducting **exploratory population genetic analyses** using PCA in Adegenet and Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) PCA script, we looked at the **relationships** between the individuals and populations with SplitsTree, following the download instructions from the **University of Tübingen** website in the link [SplitsTree](https://software-ab.cs.uni-tuebingen.de/download/splitstree4/welcome.html). 
+
+Briefly, after converting the latest VCF file (**290324_tetraploids_only.vcf.gz**) into a **genlight** object using the **vcf2genlight** function in the **290324_populations.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into SplitsTree. Both the **individual** and the **population** data were used to produce **phylogenetic trees/networks** in SplitsTree, and can be visualized below.
+
+#### Phylogenetic tree showing relationships between individuals
+![290324_individuals](https://github.com/pmyla1/Project3_Group6/assets/151543531/b07c9e8a-4758-469f-b15e-36e3f2c15c07)
+
+
+#### Phylogenetic tree showing relationships between populations
+![290324_populations](https://github.com/pmyla1/Project3_Group6/assets/151543531/b7d838f1-e7e6-4165-a55e-f3142c03a75d)
+
 
 ## Population structure analysis
 
