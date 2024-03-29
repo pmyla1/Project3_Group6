@@ -72,11 +72,14 @@ After conducting **exploratory population genetic analyses** using PCA in Adegen
 
 Briefly, after converting the latest VCF file (**290324_tetraploids_only.vcf.gz**) into a **genlight** object using the **vcf2genlight** function in the **290324_populations.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into SplitsTree. Both the **individual** and the **population** data were used to produce **phylogenetic trees/networks** in SplitsTree, and can be visualized below.
 
-#### Phylogenetic tree showing relationships between individuals
+### Phylogenetic tree showing relationships between individuals
 ![290324_individuals](https://github.com/pmyla1/Project3_Group6/assets/151543531/b07c9e8a-4758-469f-b15e-36e3f2c15c07)
 
 
-#### Phylogenetic tree showing relationships between populations
+*There are some clear clusters with most individuals grouping together with their respective populations, however, there are some sample mixups with KEH individuals not clustering together, as well as some OCH individuals clustering with different groups.*
+
+
+### Phylogenetic tree showing relationships between populations
 ![290324_populations](https://github.com/pmyla1/Project3_Group6/assets/151543531/b7d838f1-e7e6-4165-a55e-f3142c03a75d)
 
 
