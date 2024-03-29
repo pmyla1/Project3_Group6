@@ -9,25 +9,25 @@ source $HOME/.bash_profile
 cd /workhere/students_2023/Rot2_DYL/LEVI_project/lyrata_VCF/
 
 ##activate GATK env
-#conda activate /shared/apps/conda/bio2/
+conda activate /shared/apps/conda/bio2/
 ###############
 
 ##########
 ##GATK select variants to include one pure arenosa (KEH), one pure lyrata (MOD) and hybrid tetraploids only 
-#gatk SelectVariants -V Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz -sn FRE-03tl -sn FRE-04tl -sn FRE-05tl -sn FRE-06tl -sn FRE-07tl -sn FRE-08tl -sn HAB-01tl -sn HAB-02tl -sn HAB-03tl -sn KEH-05tl -sn KEH-06tl -sn KEH-07tl -sn KEH-08tl -sn KEH-09tl -sn KEH-10tl -sn LOI-01tl -sn LOI-02tl -sn LOI-03tl -sn MOD-01tl -sn MOD-02tl -sn MOD-03tl -sn MOD-04tl -sn OCH-03tl -sn OCH-04tl -sn OCH-05tl -sn OCH-06tl -sn OCH-07tl -sn OCH-08tl -sn PIL-01tl -sn PIL-02tl -sn PIL-03tl -O ./290324_whole_pipeline_VCFs/290324_tetraploids_only.vcf.gz 
+gatk SelectVariants -V Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz -sn FRE-03tl -sn FRE-04tl -sn FRE-05tl -sn FRE-06tl -sn FRE-07tl -sn FRE-08tl -sn HAB-01tl -sn HAB-02tl -sn HAB-03tl -sn KEH-05tl -sn KEH-06tl -sn KEH-07tl -sn KEH-08tl -sn KEH-09tl -sn KEH-10tl -sn LOI-01tl -sn LOI-02tl -sn LOI-03tl -sn MOD-01tl -sn MOD-02tl -sn MOD-03tl -sn MOD-04tl -sn OCH-03tl -sn OCH-04tl -sn OCH-05tl -sn OCH-06tl -sn OCH-07tl -sn OCH-08tl -sn PIL-01tl -sn PIL-02tl -sn PIL-03tl -O ./290324_whole_pipeline_VCFs/290324_tetraploids_only.vcf.gz 
 
-#conda deactivate
+conda deactivate
 #################
 
 #################
-#conda activate /shared/conda/shared/
+conda activate /shared/conda/shared/
 
 ##copy the vcf file then unzip for further analyses with poly_sfs, poly_freq, Cochlearia_create_structure_file.py
-#cp ./290324_whole_pipeline_VCFs/290324_tetraploids_only.vcf.gz ./290324_whole_pipeline_VCFs/290324_tetraploids_only_copy.vcf.gz
+cp ./290324_whole_pipeline_VCFs/290324_tetraploids_only.vcf.gz ./290324_whole_pipeline_VCFs/290324_tetraploids_only_copy.vcf.gz
 
-#gunzip ./290324_whole_pipeline_VCFs/290324_tetraploids_only_copy.vcf.gz > ./290324_whole_pipeline_VCFs/290324_tetraploids_only_copy.vcf
+gunzip ./290324_whole_pipeline_VCFs/290324_tetraploids_only_copy.vcf.gz > ./290324_whole_pipeline_VCFs/290324_tetraploids_only_copy.vcf
 
-#conda deactivate
+conda deactivate
 #################
 
 ###################
@@ -110,7 +110,7 @@ python ./scripts/new_distruct.py -K 6 --input=./290324_whole_pipeline_VCFs/29032
 python ./scripts/new_distruct.py -K 7 --input=./290324_whole_pipeline_VCFs/290324_K7_out --output=./290324_whole_pipeline_VCFs/290324_K7_plot --popfile=./290324_whole_pipeline_VCFs/populations_final.txt --title="Arabidopsis lyrata admixture: K=7"
 ###############
 
-#conda deactivate 
+conda deactivate 
 
 echo "DONE!!"
 
