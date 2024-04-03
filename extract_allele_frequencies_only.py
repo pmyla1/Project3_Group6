@@ -1,18 +1,8 @@
-######This script will take the output tsv file from 250324_combined_lyrata_arenosa.py
-######and extract only the allele frequency columns 
+##This script was written by Luke Archer (2024) and takes the output tsv file from 250324_combined_lyrata_arenosa.py
+##and creates a new pandas dataframe including the allele frequency columns only.  
 
-##import argparse module to define input and output file
+##import pandas module 
 import pandas as pd 
-
-##set up the argument  parser
-#parser=argparse.ArgumentParser(description='Retains only allele frequency data from a data frame')
-
-##add arguments
-#parser.add_argument('-i',metavar='--input',type=list,nargs='+',required=True,help='Input filename')
-
-#parser.add_argument('-o',metavar='--output',type=str,required=False,help='Output file prefix')
-
-#args=parser.parse_args()
 
 ##create an empty output file
 output=[]
