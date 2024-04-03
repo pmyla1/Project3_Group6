@@ -72,7 +72,7 @@ Some of the linked scripts were written to be executed on the HPC using the soft
 
 We performed **exploratory population genetic analyses** using two different PCA techniques, (1) Adegenet, and (2) using Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) adapted PCA script. 
 
-![Alt_PCA_030424](https://github.com/pmyla1/Project3_Group6/assets/151543531/529154c8-2b28-452b-9254-70474f665f0b)
+
 
 ## Phylogenetic analyses with SplitsTree
 
