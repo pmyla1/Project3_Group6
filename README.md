@@ -72,6 +72,10 @@ Some of the linked scripts were written to be executed on the HPC using the soft
 
 We performed **exploratory population genetic analyses** using two different PCA techniques, (1) Adegenet, and (2) using Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) adapted PCA script. 
 
+![Alt_PCA_tetraploids_olny](https://github.com/pmyla1/Project3_Group6/assets/151543531/cd99cb1b-0761-4b9b-8768-a98ede4bc06a)
+
+*This figure shows the tetraploid only populations retained in the last VCF file used to investigate population structure and admixture between A. arenosa and A. lyrata.*
+
 
 
 ## Phylogenetic analyses with SplitsTree
