@@ -98,10 +98,14 @@ Briefly, after converting the latest VCF file (**290324_tetraploids_only.vcf.gz*
 ***Figure 3a*** *Phylogenetic network showing the relationship between individuals. Most individuals appear to group together with their respective populations, (e.g. MOD appears to form a single cluster) however, there are some sample mixups with KEH individuals forming three separate clusters. Furthermore, some OCH individuals cluster with individuals from different populations.*
 
 
+<img width="401" alt="Phylo_tree_inds_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/76d26c5d-2d06-49e5-b9da-1e492e65974f">
+
+***Figure 3b*** *Phylogenetic network showing relationships between individuals, including BZD*. 
+
 ### Phylogenetic network - Relationship between Populations
 ![290324_populations](https://github.com/pmyla1/Project3_Group6/assets/151543531/b7d838f1-e7e6-4165-a55e-f3142c03a75d)
 
-***Figure 3b*** *Phylogenetic network showing the relationship between populations.*
+***Figure 3c*** *Phylogenetic network showing the relationship between populations.*
 
 
 ## Population structure analysis
@@ -135,14 +139,16 @@ In order to determine whether there was **hybridisation** betweeen *A. arenosa* 
 
 We obtained only the **common/shared SNPs** between **both species** by running the **250324_combined_lyrata_arenosa.py** script, and subsequently **compared the allele frequencies** between *A. arenosa* and *A. lyrata* at these common sites by calculating the **allele frequency difference**. Plots of the site frequency spectra per species can be seen below. 
 
-![AF_comparison_arenosa_lyrata](https://github.com/pmyla1/Project3_Group6/assets/151543531/2842671d-0638-4f1a-8751-3c0c3a9fbe6e)
+<img width="421" alt="AF_spectrum_arenosa_lyrata" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b85b800f-6df0-47b7-ac73-ab0e6d46c6a0">
+
 
 Unfortunately, we **did not** visualise the **characteristic allopolyploid SFS** distribution with 3 peaks: at low, intermediate, and high allele frequencies, despite the *A. lyrata* input file being comprised of some hybrid individuals. 
 
 Next, we plotted the **allele frequency differences** per chromosome scaffold as a **Manhattan** plot using the **250324_common_SNPs.R script**, using an arbritary **threshold of 0.85** for SNPs expected to be "fixed" in one species relative to the others. The **orange dots** above the dashed red line represent these so-called **"fixed" allele frequency differences**, suggesting that these SNPs are **private to one species** relative to the other. These plots can be seen below.
 
-![Scaffold_1_4_AF_differences](https://github.com/pmyla1/Project3_Group6/assets/151543531/acf6270e-7352-4e9b-9ee9-d2bb3d71ac13)
+<img width="468" alt="Chrom_1_4_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/d47d2218-269c-4948-b2fd-4a03af4d8f4e">
 
-![Scaffold_5_8_AF_differences](https://github.com/pmyla1/Project3_Group6/assets/151543531/0bb713cf-12ac-467b-bb70-3886d2a3023f)
+
+<img width="451" alt="Chrom_5_8_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b39061d5-245c-460d-b4ff-fbfc7ca751dd">
 
 
