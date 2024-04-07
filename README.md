@@ -1,7 +1,7 @@
 # Project3_Group6
 This Github page offers an introduction into manipulating **mixed ploidy VCF files** and how to calculate various population genetics metrics from polyploid VCFs such as **site frequency spectra**, and **Fst**.
 
-## **Overview**
+## **Introduction**
 **Polyploidy** and **whole genome duplications** (WGD) occur throughout **all kingdoms** of life, including in animals such as *Xenopus laevis*, and are **ubiquitous in plants**. WGD is a **major mutational** process that disrupts **ionomic**, **cellular**, and **meiotic** processes, and **neo-polyploids** must overcome various challenges including **genomic instability** and **chromosomal mis-segregation** during meiosis (Margburger et al., 2019 [Nature](https://www.nature.com/articles/s41467-019-13159-5)). One of the immediate challenges related to WGD is the **formation of multivalent crossovers** between homologous chromosomes during metaphase I of meiosis, which can result in **entanglement** and **chromosomal breakage** at anaphase I (Bray et al., 2023). If neo-polyploids **can overcome** these initial challenges related to meiosis and genome instability, they can become **established** as a **polyploid lineage**. 
 
 Some of the genetic adaptations to WGD in polyploids have been characterised, however, despite **process-level convergence**, there appears to be **low/no convergence** at the **gene/orthologue level** (Bray et al, 2023 [bioRxiv](https://www.biorxiv.org/content/10.1101/2023.09.27.559727v2)). For example, many of the genes **under selection in polyploid** lineages of *Cochlearia*, *Cardamine amara*, and *Arabidopsis arenosa* belonged to functional categories involving **DNA repair**, **cell division**, and **ion homeostasis** (Bray et al., 2023).
@@ -45,6 +45,45 @@ For support and documentation click on the following link [GATK](https://softwar
 
 #### **3) R and RStudio - R version 4.3.1 (2023-06-16)**
 
+#### Installation 
+
+#### To install R version 4.3.1 on Windows PC:
+
+1) Uninstall any previous versions of R or Rtools
+2) Click on the following link [R installation Windows](https://cran.r-project.org/bin/windows/base/) 
+3) Click Download R-4.3.1 for Windows
+4) Open the installer and follow the instructions using default options
+
+#### To install Rtools version 4.3 on Windows PC:
+
+1) Uninstall any previous versions of R or Rtools
+Click on the following link [Rtools installation Windows](https://cran.r-project.org/bin/windows/Rtools/) 
+Click RTools 4.3 
+Click Rtools43 installer
+Open the installer and follow the instructions using default options
+
+#### To install RStudio version 4.3.1 on Windows PC:
+
+Please uninstall any previous versions of RStudio 
+Click on the following link [RStudio installation Windows](https://posit.co/download/rstudio-desktop/)
+Follow the dowloads instructions from **Step 2** onwards.
+Open the installer and then follow the instructions using default options
+
+#### To install R version 4.3.1. on Apple macOS
+1) Uninstall any previous installations of R by navigating to your applications folder and moving **R** and **XQuartz** to the Bin.
+2) To install R, check which Apple macOS version you have - briefly, click the Apple Logo in the top left corner of your screen and then choose About this mac > note what the Processor line says.
+3) Click on the following link [R installation Apple macOS](https://cran.r-project.org/bin/macosx/) 
+   If your processor line has "Intel" then follow the download instructions for R-4.3.1-x86_64.pkg
+   Otherwise, follow the download instructions for R-4.3.1-arm64.pkg
+4) Open the installer and follow the instructions using default options.
+5) To install XQuartz - download XQuartz from the following link [XQuartz download macOS](https://www.xquartz.org/), open the installer and use default options.
+
+#### To install RStudio  version 4.3.1 on Apple macOS
+
+1) Uninstall any previous versions of RStudio.
+2) Click on the following link [RStudio Version 4.3.1 Installation macOS](https://posit.co/download/rstudio-desktop/) and follow the download instructions from **step 2 onwards**.
+3) Open the installer and follow the instructions using default options.
+
 
 ## Installation and Dependencies 
 #### 1) fastSTRUCTURE.
@@ -65,6 +104,8 @@ In order to successfully install fastSTRUCTURE you can follow the guidelines giv
 ## Scripts
 
 Some of the linked scripts were written to be executed on the HPC using the software packages on a shared conda environment, whereas others were written and executed on a local machine using a local miniconda environment. 
+
+1) 
 
 
 ## Exploratory genetic analyses with PCA 
