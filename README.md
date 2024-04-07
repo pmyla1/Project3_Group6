@@ -20,9 +20,9 @@ There are **two main types** of polyploids: **autopolyploids** (all subgenomes o
 The **rationale** for this project was the discovery of **bidirectional gene flow** between **autotetraploid** lineages of *A. arenosa* and *A. lyrata* by  (Marburger et al., 2019)[Nature Communications](https://www.nature.com/articles/s41467-019-13159-5) which may have **facilitated** the **stabilisation of polyploidy** post WGD. In this project, we **selected specific populations** from the **Austrian Forealps** and the **Wachau hybrid zone** suspected to be *A. arenosa* x *A. lyrata* hybrids and to assess the degree of **genetic admixture/hybridisation** between *A. arenosa* and *A. lyrata* **autotetraploid lineages**. We aimed to discover **whether hybridisation** has created any **allopolyploid lineages** in the **Wachau hybrid zone** consisting of **50/50 admixture** between *A. arenosa* and *A. lyrata*. If there were 50/50 hybrids in the VCF, we expected the **site-frequency spectra** of the admixed *A. arenosa* and *A. lyrata* **populations** to show a **characteristic allopolyploid SFS** with peaks at low, intermediate, and high allele frequencies. 
 
 
-The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** contains samples (individuals) from **diploid** and **tetraploid** *Arabidopsis arenosa* and *Arabidopsis lyrata* populations sampled **throughout Europe** including lineages from the **Austrian Forealps** and others from a well-established **hybrid zone** in **Wachau**.
+The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** contains samples (individuals) from **diploid** and **tetraploid** *Arabidopsis arenosa* and *Arabidopsis lyrata* populations sampled **throughout Europe** including lineages from the **Austrian Forealps** and others from a well-established **hybrid zone** in **Wachau** [Population Map](https://www.google.com/maps/d/viewer?mid=1HAhM5y-bYMJbXCtMSZaubk1qe0wX6JI&ll=48.09350708234271%2C15.809612499999968&z=9).
 
-### Information on the *A. arenosa* and *A. lyrata* Populations in the VCF
+### *A. arenosa* and *A. lyrata* population ploidy and expected species designation
 
 
 | Species        | Ploidy           | 3-letter pop code(s) |
