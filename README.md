@@ -136,6 +136,14 @@ In order to determine whether there was **hybridisation** betweeen *A. arenosa* 
 
 *Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number*
 
+The structure of the **final output file** used to calculate allele frequency differences between species can be visualised **below**.
+
+| **CHROM** | **POS** | **AF_arenosa** | **AF_lyrata** | 
+| :-------: | :-----: | :------------: | :-----------: |
+| scaffold_1 | 32 | 0.154 | 0.00053 |
+
+*Key: CHROM, chromosome; POS, position; AF_arenosa, allele frequency in A. arenosa; AF_lyrata, allele frequency in A. lyrata* 
+
 We obtained only the **common/shared SNPs** between **both species** by running the **250324_combined_lyrata_arenosa.py** script, and subsequently **compared the allele frequencies** between *A. arenosa* and *A. lyrata* at these common sites by calculating the **allele frequency difference**. Plots of the site frequency spectra per species can be seen below. 
 
 <img width="421" alt="AF_spectrum_arenosa_lyrata" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b85b800f-6df0-47b7-ac73-ab0e6d46c6a0">
