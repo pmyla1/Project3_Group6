@@ -82,6 +82,9 @@ We performed **exploratory population genetic analyses** using two different PCA
 
 <img width="475" alt="Alt_PCA_tets_only_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/c2ae0068-0773-4919-a283-7bc49135b286">
 
+## Exploratory genetic analyses with discriminant analysis of principal components (DAPC)
+
+We subsequently performed a discrimininant analysis of principal components (DAPC) on individuals in the filtered VCF in order to determine the number of population clusters and to discern if there were any sample mix ups. Our cluster analysis suggested that there were only 3 population clusters (K = 3). (**ADD MORE INFORMATION HERE FROM YOUR R SCRIPTS AND OUTPUT**).
 
 
 ## Phylogenetic analyses with SplitsTree
