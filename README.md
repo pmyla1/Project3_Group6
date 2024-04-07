@@ -49,41 +49,61 @@ For support and documentation click on the following link [GATK](https://softwar
 
 #### To install R version 4.3.1 on Windows PC:
 
-**1)** **Uninstall** any **previous versions** of **R** or **Rtools**.
+**1)** **Uninstall** any **previous versions** of **R** or **Rtools**. 
+
 **2)** Click on the following link [R installation Windows](https://cran.r-project.org/bin/windows/base/) 
-**3)** Click **Download R-4.3.1 for Windows**
-**4)** Open the installer and follow the instructions using **default options**
+
+**3)** Click **Download R-4.3.1 for Windows** 
+
+**4)** Open the installer and follow the instructions using **default options** 
+
 
 #### To install Rtools version 4.3 on Windows PC:
 
-**1)** **Uninstall** any **previous versions** of R or Rtools
-**2)** Click on the following link [Rtools installation Windows](https://cran.r-project.org/bin/windows/Rtools/) 
+**1)** **Uninstall** any **previous versions** of R or Rtools 
+
+**2)** Click on the following link [Rtools installation Windows](https://cran.r-project.org/bin/windows/Rtools/)  
+
 **3)** Click **RTools 4.3** 
-**4)** Click **Rtools43 installer**
+
+**4)** Click **Rtools43 installer** 
+
 **5)** Open the installer and follow the instructions using **default options**
 
 #### To install RStudio version 4.3.1 on Windows PC:
 
 **1)** Please **uninstall** any **previous versions** of RStudio 
-**2)** Click on the following link [RStudio installation Windows](https://posit.co/download/rstudio-desktop/)
-**3)** Follow the downloads instructions from **Step 2 onwards**.
-**4)** Open the installer and then follow the instructions using **default options**.
+
+**2)** Click on the following link [RStudio installation Windows](https://posit.co/download/rstudio-desktop/) 
+
+**3)** Follow the downloads instructions from **Step 2 onwards**. 
+
+**4)** Open the installer and then follow the instructions using **default options**. 
+
 
 #### To install R version 4.3.1. on Apple macOS
 
-**1)** **Uninstal** any **previous installations** of R by **navigating** to your **applications folder** and moving **R** and **XQuartz** to the **Bin**.
-**2)** To install R, **check which Apple macOS version** you have - briefly, click the **Apple Logo** in the **top left corner** of your screen and then **choose** ***About this mac*** > note what the **Processor line** says.
-**3)** Click on the following link [R installation Apple macOS](https://cran.r-project.org/bin/macosx/) 
-   If your **Processor line** has **"Intel"** then follow the download **instructions** for **R-4.3.1-x86_64.pkg**
-   **Otherwise**, follow the download instructions for **R-4.3.1-arm64.pkg**
-**4)** Open the installer and follow the instructions using **default options**.
-**5)** To install XQuartz - **download XQuartz** from the following link [XQuartz download macOS](https://www.xquartz.org/), open the installer and use **default options**.
+**1)** **Uninstall** any **previous installations** of R by **navigating** to your **applications folder** and moving **R** and **XQuartz** to the **Bin**. 
+
+**2)** To install R, **check which Apple macOS version** you have - briefly, click the **Apple Logo** in the **top left corner** of your screen and then **choose** ***About this mac*** > note what the **Processor line** says. 
+
+**3)** Click on the following link [R installation Apple macOS](https://cran.r-project.org/bin/macosx/)  
+
+   If your **Processor line** has **"Intel"** then follow the download **instructions** for **R-4.3.1-x86_64.pkg** 
+   
+   **Otherwise**, follow the download instructions for **R-4.3.1-arm64.pkg** 
+   
+**4)** Open the installer and follow the instructions using **default options**. 
+
+**5)** To install XQuartz - **download XQuartz** from the following link [XQuartz download macOS](https://www.xquartz.org/), open the installer and use **default options**. 
+
 
 #### To install RStudio  version 4.3.1 on Apple macOS
 
-1) **Uninstall** any **previous versions** of RStudio.
-2) Click on the following link [RStudio Version 4.3.1 Installation macOS](https://posit.co/download/rstudio-desktop/) and follow the download instructions from **step 2 onwards**.
+1) **Uninstall** any **previous versions** of RStudio. 
+2) Click on the following link [RStudio Version 4.3.1 Installation macOS](https://posit.co/download/rstudio-desktop/) and follow the download instructions from **step 2 onwards**. 
 3) Open the installer and follow the instructions using **default options**.
+   
 
 
 ## Installation and Dependencies 
