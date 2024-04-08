@@ -103,6 +103,36 @@ CC=/path/to/compiler python setup.py build_ext --inplace
 #### **2) The Genome Analysis Toolkit (GATK) v4.2.2.0**. 
 For support and documentation click on the following link [GATK](https://software.broadinstitute.org/gatk/) 
 
+### Dependencies for GATK v4
+To run GATK:
+
+You require JAVA 17 to run or build GATK
+1) on macOS, you can install the Homebrew package manager and then run the following command
+   ```
+   brew tap homebrew/cask-versions
+   ## then to install the Eclipse Foundation's OpenJDK 17 run 
+   brew install --cask temurin17
+   ```
+
+### Installation of GATK v4.2.2.0
+
+Firstly, if you have any previous versions of GATK installed on your device, please uninstall using the following commands:
+```
+source deactivate
+
+## assuming you called your GATK environment gatk
+conda env remove -n gatk
+```
+
+Next, update your conda package manager to the latest version for your base environment
+```
+conda update -n base conda
+```
+
+To install the GATK v4 package
+```
+conda 
+
 #### **3) R and RStudio - R version 4.3.1 (2023-06-16)**
 
 ### Installation 
