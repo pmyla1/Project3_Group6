@@ -38,7 +38,19 @@ An algorithm to infer population structure: sourced from [fastSTRUCTURE](https:/
 
 Citation: Anil Raj, Matthew Stephens, and Jonathan K. Pritchard. fastSTRUCTURE: Variational Inference of Population Structure in Large SNP Data Sets , (Genetics) June 2014 197:573-589.
 
-#### Installation
+#### Installation and dependencies
+
+#### fastSTRUCTURE depends on the following:
+[Numpy](https://numpy.org/)   
+
+[SciPy](https://scipy.org/) 
+
+[Cython](https://cython.org/) 
+
+[GNU Scientific Library](https://www.gnu.org/software/gsl/)  
+
+#### Obtaining the Source code from GitHub
+
 You can obtain the source code from the [fastSTRUCTURE](https://rajanil.github.io/fastStructure/) github page by cloning the repository into a new directory called fastSTRUCTURE:
 ```
 ## first make a new directory called fastSTRUCTURE (or whatever you want to call the folder)
@@ -57,14 +69,23 @@ Furthermore, the code can also be obtained with the following wget command
 wget --no-check-certificate https://github.com/rajanil/fastStructure/archive/master.tar.gz
 ```
 
+### Building Python extensions
+
+Before building the Python extensions for fastSTRUCTURE, identify your path to the library files *libgsl.so* and *libgslcblas.so*, in addition to the header file *gsl/gsl_sf_psi.h* that are part of your GSL installation. 
+
+If you have used default options to donwload and install GSL, the libraries (*.so* files) should be located in /usr/local/lib, and the header files (*.h* files) should be located in /usr/local/include. If you have successfully located your GSL library and header files, and they are in the correct location, add the following lines of code to your *.bashrc* file in your home directory (~).
+
+```
+
+
 #### **2) The Genome Analysis Toolkit (GATK) v4.2.2.0**. 
 For support and documentation click on the following link [GATK](https://software.broadinstitute.org/gatk/) 
 
 #### **3) R and RStudio - R version 4.3.1 (2023-06-16)**
 
-#### Installation 
+### Installation 
 
-#### To install R version 4.3.1 on Windows PC:
+### To install R version 4.3.1 on Windows PC:
 
 **1)** **Uninstall** any **previous versions** of **R** or **Rtools**. 
 
@@ -75,7 +96,7 @@ For support and documentation click on the following link [GATK](https://softwar
 **4)** Open the installer and follow the instructions using **default options** 
 
 
-#### To install Rtools version 4.3 on Windows PC:
+### To install Rtools version 4.3 on Windows PC:
 
 **1)** **Uninstall** any **previous versions** of R or Rtools 
 
@@ -98,7 +119,7 @@ For support and documentation click on the following link [GATK](https://softwar
 **4)** Open the installer and then follow the instructions using **default options**. 
 
 
-#### To install R version 4.3.1. on Apple macOS
+### To install R version 4.3.1. on Apple macOS
 
 **1)** **Uninstall** any **previous installations** of R by **navigating** to your **applications folder** and moving **R** and **XQuartz** to the **Bin**. 
 
@@ -115,49 +136,30 @@ For support and documentation click on the following link [GATK](https://softwar
 **5)** To install XQuartz - **download XQuartz** from the following link [XQuartz download macOS](https://www.xquartz.org/), open the installer and use **default options**. 
 
 
-#### To install RStudio  version 4.3.1 on Apple macOS
+### To install RStudio  version 4.3.1 on Apple macOS
 
 1) **Uninstall** any **previous versions** of RStudio. 
 2) Click on the following link [RStudio Version 4.3.1 Installation macOS](https://posit.co/download/rstudio-desktop/) and follow the download instructions from **step 2 onwards**. 
 3) Open the installer and follow the instructions using **default options**.
    
 
-
-## Installation and Dependencies 
-#### 1) fastSTRUCTURE.
-#### fastSTRUCTURE depends on the following:
-[Numpy](https://numpy.org/)   
-
-[SciPy](https://scipy.org/) 
-
-[Cython](https://cython.org/) 
-
-[GNU Scientific Library](https://www.gnu.org/software/gsl/)  
-
-#### Obtaining the Source code from GitHub
-
-In order to successfully install fastSTRUCTURE you can follow the guidelines given on the fastSTRUCTURE GitHub page in the following link [fastSTRUCTURE](https://rajanil.github.io/fastStructure/).
-
-
 ## Scripts
-
-Some of the linked scripts were written to be executed on the HPC using the software packages on a shared conda environment, whereas others were written and executed on a local machine using a local miniconda environment. 
 
 1) GATK_select_variants_initial.sh was used 
 
 
 ## Exploratory genetic analyses with PCA 
 
-We performed **exploratory population genetic analyses** using two different PCA techniques, (1) Adegenet, and (2) using Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) adapted PCA script. 
+We performed **exploratory population genetic analyses** using two different PCA techniques, (1) Adegenet, and (2) using Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) adapted PCA script and using our filtered vcf.gz as the input file for the PCA. 
 
-### Without individuals from the BZD population
+### Without BZD population
 
 <img width="468" alt="Alt_PCA_tets_only_no_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/c0c26237-cabe-4620-8b3e-a095750fddab">
 
 
 *This figure shows the tetraploid only populations retained in the last VCF file used to investigate population structure and admixture between A. arenosa and A. lyrata. KEH samples ***KEH-06 and KEH-08*** form a cluster with ***OCH-05 and FRE-06*** along ***PC1***, which explains ***33% of the variance*** in the dataset. Conversely, ***KEH-07 and KEH-09*** form a separate cluster with ***FRE-08*** scoring positively along PC1 with the same magnitude as the previously mentioned cluster, but being ***differentiated along PC2**. Lastly, ***KEH-05 and KEH-10*** form a separate cluster with ***FRE-05***, with extremely ***negative scores along PC1***. The other samples appear to form clusters with individuals from the same population, e.g. MOD with MOD, etc.*
 
-### With individuals from the BZD population plus additional populations (MAU, LIC, KAG)
+### With BZD plus additional populations (MAU, LIC, KAG)
 
 <img width="475" alt="Alt_PCA_tets_only_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/c2ae0068-0773-4919-a283-7bc49135b286">
 
