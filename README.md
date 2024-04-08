@@ -4,15 +4,13 @@ This Github page offers an introduction into manipulating **mixed ploidy VCF fil
 ## **Introduction**
 **Polyploidy** and **whole genome duplications** (WGD) occur throughout **all kingdoms** of life, including in animals such as *Xenopus laevis*, and are **ubiquitous in plants**. WGD is a **major mutational** process that disrupts **ionomic**, **cellular**, and **meiotic** processes, and **neo-polyploids** must overcome various challenges including **genomic instability** and **chromosomal mis-segregation** during meiosis (Margburger et al., 2019 [Nature](https://www.nature.com/articles/s41467-019-13159-5)). One of the immediate challenges related to WGD is the **formation of multivalent crossovers** between homologous chromosomes during metaphase I of meiosis, which can result in **entanglement** and **chromosomal breakage** at anaphase I (Bray et al., 2023). If neo-polyploids **can overcome** these initial challenges related to meiosis and genome instability, they can become **established** as a **polyploid lineage**. 
 
-Some of the genetic adaptations to WGD in polyploids have been characterised, however, despite **process-level convergence**, there appears to be **low/no convergence** at the **gene/orthologue level** (Bray et al, 2023 [bioRxiv](https://www.biorxiv.org/content/10.1101/2023.09.27.559727v2)). For example, many of the genes **under selection in polyploid** lineages of *Cochlearia*, *Cardamine amara*, and *Arabidopsis arenosa* belonged to functional categories involving **DNA repair**, **cell division**, and **ion homeostasis** (Bray et al., 2023).
+Some of the genetic adaptations to WGD in polyploids have been characterised, however, despite **process-level convergence**, there appears to be **low convergence** at the **gene/orthologue level** (Bray et al, 2023 [bioRxiv](https://www.biorxiv.org/content/10.1101/2023.09.27.559727v2)). For example, many of the genes **under selection in polyploid** lineages of *Cochlearia*, *Cardamine amara*, and *Arabidopsis arenosa* belonged to functional categories involving **DNA repair**, **cell division**, and **ion homeostasis** (Bray et al., 2023).
 
 There are **two main types** of polyploids: **autopolyploids** (all subgenomes originate from the **same species** without hybridisation) and **allopolyploids** (subgenomes are inherited from **different species** through **hybridisation**). Autopolyploids and allopolyploids display distinct characteristic site frequency spectra (SFS). **Autopolyploid** SFS have a **Poisson distribution** with a **high proportion** of **low frequency** variants, whereas **allopolyploid** SFS have a characteristic **trimodal distribution** with **high proportions** of **low**, **intermediate**, and **high frequency** variants.
 
 ### Example of an autopolyploid SFS
 
 ![lyrata_AF_spectrum](https://github.com/pmyla1/Project3_Group6/assets/151543531/54ede91e-def1-44f3-b91e-f4078e570b37)
-
-### Example of an allopolyploid SFS
 
 
 ***Arabdopsis arenosa*** is a biennial **outcrossing plant** which produces distinct **diploid** and **tetraploid** lineages throughout **Central Europe** and is closely related to the widely used **model species** ***Arabidopsis thaliana*** (Margburger et al., 2019). Similarly, the sister species ***Arabidopsis lyrata*** also forms distinct **diploid** and **tetraploid** lineages across its **distribution** range, and there have been reports of **gene flow** between the **tetraploid** lineages of ***A. arenosa*** and ***A. lyrata*** where these species have **overlapping ranges** (Jørgensen et al., 2011 [BMC Ecology & Evolution](https://bmcecolevol.biomedcentral.com/articles/10.1186/1471-2148-11-346])). 
@@ -22,7 +20,7 @@ The **rationale** for this project was the discovery of **bidirectional gene flo
 
 The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** contains samples (individuals) from **diploid** and **tetraploid** *Arabidopsis arenosa* and *Arabidopsis lyrata* populations sampled **throughout Europe** including lineages from the **Austrian Forealps** and others from a well-established **hybrid zone** in **Wachau** [Population Map](https://www.google.com/maps/d/viewer?mid=1HAhM5y-bYMJbXCtMSZaubk1qe0wX6JI&ll=48.09350708234271%2C15.809612499999968&z=9).
 
-### *A. arenosa* and *A. lyrata* population ploidy and expected species designation
+### *A. arenosa* and *A. lyrata* designated populations and ploidy levels
 
 
 | Species        | Ploidy           | 3-letter pop code(s) |
@@ -39,6 +37,25 @@ The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_prun
 An algorithm to infer population structure: sourced from [fastSTRUCTURE](https://rajanil.github.io/fastStructure/). 
 
 Citation: Anil Raj, Matthew Stephens, and Jonathan K. Pritchard. fastSTRUCTURE: Variational Inference of Population Structure in Large SNP Data Sets , (Genetics) June 2014 197:573-589.
+
+#### Installation
+You can obtain the source code from the [fastSTRUCTURE](https://rajanil.github.io/fastStructure/) github page by cloning the repository into a new directory called fastSTRUCTURE:
+```
+## first make a new directory called fastSTRUCTURE (or whatever you want to call the folder)
+mkdir ~/fastSTRUCTURE
+
+## change into the new directory
+cd ~/fastSTRUCTURE
+
+## clone the github repository for fastSTRUCTURE
+git clone https://github.com/rajanil/fastStructure
+
+```
+Furthermore, the code can also be obtained with the following wget command
+
+```
+wget --no-check-certificate https://github.com/rajanil/fastStructure/archive/master.tar.gz
+```
 
 #### **2) The Genome Analysis Toolkit (GATK) v4.2.2.0**. 
 For support and documentation click on the following link [GATK](https://software.broadinstitute.org/gatk/) 
