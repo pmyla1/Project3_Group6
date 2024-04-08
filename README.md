@@ -18,15 +18,12 @@ The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_prun
 
 ### *A. arenosa* and *A. lyrata* designated populations and ploidy levels
 
-```
-
  | Species        | Ploidy           | 3-letter pop code(s) |
- | ------------- |:-------------:| -----:|
+ | ------------- | :-------------: | -----:|
  | pure *A. arenosa* | 4x | KEH, BZD |
  | pure *A. lyrata* | 4x | KAG, LIC, MOD, MAU |
  | pure *A. lyrata* | 2x | PIZ, PLE |
  | hybrid *A. arenosa* x *A. lyrata* | 4x | FRE, HAB, OCH |  
-```
 
 
 ### **Software Used**
