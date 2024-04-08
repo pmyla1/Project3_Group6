@@ -130,8 +130,7 @@ conda update -n base conda
 ```
 
 To install the GATK v4 package
-```
-conda 
+ 
 
 #### **3) R and RStudio - R version 4.3.1 (2023-06-16)**
 
