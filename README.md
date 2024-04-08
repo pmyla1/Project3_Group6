@@ -76,7 +76,35 @@ Before building the Python extensions for fastSTRUCTURE, identify your path to t
 If you have used default options to donwload and install GSL, the libraries (*.so* files) should be located in /usr/local/lib, and the header files (*.h* files) should be located in /usr/local/include. If you have successfully located your GSL library and header files, and they are in the correct location, add the following lines of code to your *.bashrc* file in your home directory (~).
 
 ```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export CFLAGS="-I/usr/local/include"
+export LDFLAGS="-L/usr/local/lib"
+```
 
+Then execute the following command to set these environmental variables
+```
+source ~/.bashrc
+```
+Next, to build the library extensions, you can use the following commands
+```
+## assuming you created a directory called fastSTRUCTURE
+cd ~/fastSTRUCTURE/fastStructure/vars
+## run the setup.py script to build the library extensions
+python setup.py build_ext --inplace
+```
+
+Now, to compile the main cython scripts, run the following code
+```
+## change directory into your newly created fastStructure folder
+cd ~/fastSTRUCTURE/fastStructure
+## compile the cython scripts using setup.py
+python setup.py build_ext --inplace
+```
+Errors suggesting the build failed may be due to using the wrong compiler or incorrectly set environmental variables.
+If you would like to use a specific gcc compiler, you can do the following:
+```
+CC=/path/to/compiler python setup.py build_ext --inplace 
+```
 
 #### **2) The Genome Analysis Toolkit (GATK) v4.2.2.0**. 
 For support and documentation click on the following link [GATK](https://software.broadinstitute.org/gatk/) 
