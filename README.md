@@ -18,6 +18,7 @@ The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_prun
 
 ### *A. arenosa* and *A. lyrata* designated populations and ploidy levels
 
+```
 
  | Species        | Ploidy           | 3-letter pop code(s) |
  | ------------- |:-------------:| -----:|
@@ -26,6 +27,7 @@ The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_prun
  | pure *A. lyrata* | 2x | PIZ, PLE |
  | hybrid *A. arenosa* x *A. lyrata* | 4x | FRE, HAB, OCH |  
 
+```
 
 
 ### **Software Used**
@@ -236,20 +238,26 @@ Contrary to our expectations, when K = 2, **FRE** was estimated to be **pure *A.
 
 In order to determine whether there was **hybridisation** betweeen *A. arenosa* and *A. lyrata* and the subsequent **formation** of an **allotetraploid** lineage (2 subgenomes: one from *A. arenosa*, the other from *A. lyrata*), we were given **text files** containing **4-fold degenerate** single nucleotide polymorphism (SNP) data from a **larger number of samples** from both species. The **structure** of the input files can be seen **below**.
 
+```
+
  | **CHROM** | **POS** | **REF** | **ALT** | **AF** | **AC** | **AN** |
  | :-------: | :-----: | :-----: | :-----: | :----: | :----: | :----: |
  | scaffold_1 | 32 | C | A | 0.00053 | 1 | 1886 | 
  | scaffold_1 | 38 | A | T | 0.558 | 977 | 1750 |
  | scaffold_1 | 160 | C | A | 0.00974 | 18 | 1848 |
 
+``` 
 *Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number*
 
 The structure of the **final output file** used to calculate allele frequency differences between species can be visualised **below**.
+
+```
 
  | **CHROM** | **POS** | **AF_arenosa** | **AF_lyrata** | 
  | :-------: | :-----: | :------------: | :-----------: |
  | scaffold_1 | 32 | 0.154 | 0.00053 |
 
+```
 *Key: CHROM, chromosome; POS, position; AF_arenosa, allele frequency in A. arenosa; AF_lyrata, allele frequency in A. lyrata* 
 
 We obtained only the **common/shared SNPs** between **both species** by running the **250324_combined_lyrata_arenosa.py** script, and subsequently **compared the allele frequencies** between *A. arenosa* and *A. lyrata* at these common sites by calculating the **allele frequency difference**. Plots of the site frequency spectra per species can be seen below. 
