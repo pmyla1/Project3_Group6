@@ -130,7 +130,7 @@ For support and documentation click on the following link [GATK](https://softwar
 
 **5)** Open the installer and follow the instructions using **default options**
 
-#### To install RStudio version 4.3.1 on Windows PC:
+### To install RStudio version 4.3.1 on Windows PC:
 
 **1)** Please **uninstall** any **previous versions** of RStudio 
 
@@ -149,13 +149,15 @@ For support and documentation click on the following link [GATK](https://softwar
 
 **3)** Click on the following link [R installation Apple macOS](https://cran.r-project.org/bin/macosx/)  
 
+  
    If your **Processor line** has **"Intel"** then follow the download **instructions** for **R-4.3.1-x86_64.pkg** 
    
    **Otherwise**, follow the download instructions for **R-4.3.1-arm64.pkg** 
-   
+  
+
 **4)** Open the installer and follow the instructions using **default options**. 
 
-**5)** To install XQuartz - **download XQuartz** from the following link [XQuartz download macOS](https://www.xquartz.org/), open the installer and use **default options**. 
+**5)** To install XQuartz - **download XQuartz** from the following link [XQuartz download macOS](https://www.xquartz.org/), open the installer using **default options**. 
 
 
 ### To install RStudio  version 4.3.1 on Apple macOS
@@ -167,7 +169,7 @@ For support and documentation click on the following link [GATK](https://softwar
 
 ## Scripts
 
-1) GATK_select_variants_initial.sh was used 
+1) **GATK_select_variants_initial.sh** was used 
 
 
 ## Exploratory genetic analyses with PCA 
@@ -203,7 +205,7 @@ Briefly, after converting the latest VCF file (**290324_tetraploids_only.vcf.gz*
 ***Figure 3a*** *Phylogenetic network showing the relationship between individuals. Most individuals appear to group together with their respective populations, (e.g. MOD appears to form a single cluster) however, there are some sample mixups with KEH individuals forming three separate clusters. Furthermore, some OCH individuals cluster with individuals from different populations.*
 
 
-<img width="401" alt="Phylo_tree_inds_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/76d26c5d-2d06-49e5-b9da-1e492e65974f">
+<img width="475" alt="Phylo_tree_inds_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/76d26c5d-2d06-49e5-b9da-1e492e65974f">
 
 ***Figure 3b*** *Phylogenetic network showing relationships between individuals, including BZD*. 
 
@@ -241,9 +243,9 @@ In order to determine whether there was **hybridisation** betweeen *A. arenosa* 
  | scaffold_1 | 38 | A | T | 0.558 | 977 | 1750 |
  | scaffold_1 | 160 | C | A | 0.00974 | 18 | 1848 |
 
-*Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number*
+***Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number***
 
-The structure of the **final output file** used to calculate allele frequency differences between species can be visualised **below**.
+The structure of the **final output file** used to calculate **allele frequency differences** between species can be visualised **below**.
 
 
 
@@ -251,18 +253,18 @@ The structure of the **final output file** used to calculate allele frequency di
  | :-------: | :-----: | :------------: | :-----------: |
  | scaffold_1 | 32 | 0.154 | 0.00053 |
 
-*Key: CHROM, chromosome; POS, position; AF_arenosa, allele frequency in A. arenosa; AF_lyrata, allele frequency in A. lyrata* 
+***Key: CHROM, chromosome; POS, position; AF_arenosa, allele frequency in A. arenosa; AF_lyrata, allele frequency in A. lyrata*** 
 
 We obtained only the **common/shared SNPs** between **both species** by running the **250324_combined_lyrata_arenosa.py** script, and subsequently **compared the allele frequencies** between *A. arenosa* and *A. lyrata* at these common sites by calculating the **allele frequency difference**. Plots of the site frequency spectra per species can be seen below. 
 
-<img width="421" alt="AF_spectrum_arenosa_lyrata" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b85b800f-6df0-47b7-ac73-ab0e6d46c6a0">
+<img width="475" alt="AF_spectrum_arenosa_lyrata" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b85b800f-6df0-47b7-ac73-ab0e6d46c6a0">
 
 
-Next, we plotted the **allele frequency differences** per chromosome scaffold as a **Manhattan** plot using the **250324_common_SNPs.R script**, using an arbritary **threshold of 0.85** for SNPs expected to be "fixed" in one species relative to the others. The **orange dots** above the dashed red line represent these so-called **"fixed" allele frequency differences**, suggesting that these SNPs are **private to one species** relative to the other. These plots can be seen below.
+Next, we plotted the **allele frequency differences** per chromosome scaffold as a **Manhattan** plot using the **250324_common_SNPs.R script**, using an arbritary **threshold of 0.85** for SNPs expected to be **"fixed"** in one species relative to the others. The **orange dots** above the dashed red line represent **"fixed" allele frequency differences**, suggesting that these SNPs are **private to one species**. These plots can be seen **below**.
 
-<img width="451" alt="Chrom_1_4_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/d47d2218-269c-4948-b2fd-4a03af4d8f4e">
+<img width="475" alt="Chrom_1_4_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/d47d2218-269c-4948-b2fd-4a03af4d8f4e">
 
 
-<img width="451" alt="Chrom_5_8_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b39061d5-245c-460d-b4ff-fbfc7ca751dd">
+<img width="475" alt="Chrom_5_8_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b39061d5-245c-460d-b4ff-fbfc7ca751dd">
 
 
