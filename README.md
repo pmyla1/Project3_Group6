@@ -26,7 +26,6 @@ The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_prun
  | pure *A. lyrata* | 4x | KAG, LIC, MOD, MAU |
  | pure *A. lyrata* | 2x | PIZ, PLE |
  | hybrid *A. arenosa* x *A. lyrata* | 4x | FRE, HAB, OCH |  
-
 ```
 
 
@@ -245,7 +244,6 @@ In order to determine whether there was **hybridisation** betweeen *A. arenosa* 
  | scaffold_1 | 32 | C | A | 0.00053 | 1 | 1886 | 
  | scaffold_1 | 38 | A | T | 0.558 | 977 | 1750 |
  | scaffold_1 | 160 | C | A | 0.00974 | 18 | 1848 |
-
 ``` 
 *Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number*
 
@@ -256,7 +254,6 @@ The structure of the **final output file** used to calculate allele frequency di
  | **CHROM** | **POS** | **AF_arenosa** | **AF_lyrata** | 
  | :-------: | :-----: | :------------: | :-----------: |
  | scaffold_1 | 32 | 0.154 | 0.00053 |
-
 ```
 *Key: CHROM, chromosome; POS, position; AF_arenosa, allele frequency in A. arenosa; AF_lyrata, allele frequency in A. lyrata* 
 
