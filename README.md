@@ -234,24 +234,23 @@ Contrary to our expectations, when K = 2, **FRE** was estimated to be **pure *A.
 
 In order to determine whether there was **hybridisation** betweeen *A. arenosa* and *A. lyrata* and the subsequent **formation** of an **allotetraploid** lineage (2 subgenomes: one from *A. arenosa*, the other from *A. lyrata*), we were given **text files** containing **4-fold degenerate** single nucleotide polymorphism (SNP) data from a **larger number of samples** from both species. The **structure** of the input files can be seen **below**.
 
-```
 
  | **CHROM** | **POS** | **REF** | **ALT** | **AF** | **AC** | **AN** |
  | :-------: | :-----: | :-----: | :-----: | :----: | :----: | :----: |
  | scaffold_1 | 32 | C | A | 0.00053 | 1 | 1886 | 
  | scaffold_1 | 38 | A | T | 0.558 | 977 | 1750 |
  | scaffold_1 | 160 | C | A | 0.00974 | 18 | 1848 |
-``` 
+
 *Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number*
 
 The structure of the **final output file** used to calculate allele frequency differences between species can be visualised **below**.
 
-```
+
 
  | **CHROM** | **POS** | **AF_arenosa** | **AF_lyrata** | 
  | :-------: | :-----: | :------------: | :-----------: |
  | scaffold_1 | 32 | 0.154 | 0.00053 |
-```
+
 *Key: CHROM, chromosome; POS, position; AF_arenosa, allele frequency in A. arenosa; AF_lyrata, allele frequency in A. lyrata* 
 
 We obtained only the **common/shared SNPs** between **both species** by running the **250324_combined_lyrata_arenosa.py** script, and subsequently **compared the allele frequencies** between *A. arenosa* and *A. lyrata* at these common sites by calculating the **allele frequency difference**. Plots of the site frequency spectra per species can be seen below. 
@@ -259,11 +258,9 @@ We obtained only the **common/shared SNPs** between **both species** by running 
 <img width="421" alt="AF_spectrum_arenosa_lyrata" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b85b800f-6df0-47b7-ac73-ab0e6d46c6a0">
 
 
-Unfortunately, we **did not** visualise the **characteristic allopolyploid SFS** distribution with 3 peaks: at low, intermediate, and high allele frequencies, despite the *A. lyrata* input file being comprised of some hybrid individuals. 
-
 Next, we plotted the **allele frequency differences** per chromosome scaffold as a **Manhattan** plot using the **250324_common_SNPs.R script**, using an arbritary **threshold of 0.85** for SNPs expected to be "fixed" in one species relative to the others. The **orange dots** above the dashed red line represent these so-called **"fixed" allele frequency differences**, suggesting that these SNPs are **private to one species** relative to the other. These plots can be seen below.
 
-<img width="468" alt="Chrom_1_4_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/d47d2218-269c-4948-b2fd-4a03af4d8f4e">
+<img width="451" alt="Chrom_1_4_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/d47d2218-269c-4948-b2fd-4a03af4d8f4e">
 
 
 <img width="451" alt="Chrom_5_8_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b39061d5-245c-460d-b4ff-fbfc7ca751dd">
