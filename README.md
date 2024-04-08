@@ -8,10 +8,6 @@ Some of the genetic adaptations to WGD in polyploids have been characterised, ho
 
 There are **two main types** of polyploids: **autopolyploids** (all subgenomes originate from the **same species** without hybridisation) and **allopolyploids** (subgenomes are inherited from **different species** through **hybridisation**). Autopolyploids and allopolyploids display distinct characteristic site frequency spectra (SFS). **Autopolyploid** SFS have a **Poisson distribution** with a **high proportion** of **low frequency** variants, whereas **allopolyploid** SFS have a characteristic **trimodal distribution** with **high proportions** of **low**, **intermediate**, and **high frequency** variants.
 
-### Example of an autopolyploid SFS
-
-![lyrata_AF_spectrum](https://github.com/pmyla1/Project3_Group6/assets/151543531/54ede91e-def1-44f3-b91e-f4078e570b37)
-
 
 ***Arabdopsis arenosa*** is a biennial **outcrossing plant** which produces distinct **diploid** and **tetraploid** lineages throughout **Central Europe** and is closely related to the widely used **model species** ***Arabidopsis thaliana*** (Margburger et al., 2019). Similarly, the sister species ***Arabidopsis lyrata*** also forms distinct **diploid** and **tetraploid** lineages across its **distribution** range, and there have been reports of **gene flow** between the **tetraploid** lineages of ***A. arenosa*** and ***A. lyrata*** where these species have **overlapping ranges** (Jørgensen et al., 2011 [BMC Ecology & Evolution](https://bmcecolevol.biomedcentral.com/articles/10.1186/1471-2148-11-346])). 
 
@@ -23,12 +19,12 @@ The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_prun
 ### *A. arenosa* and *A. lyrata* designated populations and ploidy levels
 
 
-| Species        | Ploidy           | 3-letter pop code(s) |
-| ------------- |:-------------:| -----:|
-| pure *A. arenosa* | 4x | KEH, BZD |
-| pure *A. lyrata* | 4x | KAG, LIC, MOD, MAU |
-| pure *A. lyrata* | 2x | PIZ, PLE |
-| hybrid *A. arenosa* x *A. lyrata* | 4x | FRE, HAB, OCH |  
+ | Species        | Ploidy           | 3-letter pop code(s) |
+ | ------------- |:-------------:| -----:|
+ | pure *A. arenosa* | 4x | KEH, BZD |
+ | pure *A. lyrata* | 4x | KAG, LIC, MOD, MAU |
+ | pure *A. lyrata* | 2x | PIZ, PLE |
+ | hybrid *A. arenosa* x *A. lyrata* | 4x | FRE, HAB, OCH |  
 
 
 
@@ -240,19 +236,19 @@ Contrary to our expectations, when K = 2, **FRE** was estimated to be **pure *A.
 
 In order to determine whether there was **hybridisation** betweeen *A. arenosa* and *A. lyrata* and the subsequent **formation** of an **allotetraploid** lineage (2 subgenomes: one from *A. arenosa*, the other from *A. lyrata*), we were given **text files** containing **4-fold degenerate** single nucleotide polymorphism (SNP) data from a **larger number of samples** from both species. The **structure** of the input files can be seen **below**.
 
-| **CHROM** | **POS** | **REF** | **ALT** | **AF** | **AC** | **AN** |
-| :-------: | :-----: | :-----: | :-----: | :----: | :----: | :----: |
-| scaffold_1 | 32 | C | A | 0.00053 | 1 | 1886 | 
-| scaffold_1 | 38 | A | T | 0.558 | 977 | 1750 |
-| scaffold_1 | 160 | C | A | 0.00974 | 18 | 1848 |
+ | **CHROM** | **POS** | **REF** | **ALT** | **AF** | **AC** | **AN** |
+ | :-------: | :-----: | :-----: | :-----: | :----: | :----: | :----: |
+ | scaffold_1 | 32 | C | A | 0.00053 | 1 | 1886 | 
+ | scaffold_1 | 38 | A | T | 0.558 | 977 | 1750 |
+ | scaffold_1 | 160 | C | A | 0.00974 | 18 | 1848 |
 
 *Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number*
 
 The structure of the **final output file** used to calculate allele frequency differences between species can be visualised **below**.
 
-| **CHROM** | **POS** | **AF_arenosa** | **AF_lyrata** | 
-| :-------: | :-----: | :------------: | :-----------: |
-| scaffold_1 | 32 | 0.154 | 0.00053 |
+ | **CHROM** | **POS** | **AF_arenosa** | **AF_lyrata** | 
+ | :-------: | :-----: | :------------: | :-----------: |
+ | scaffold_1 | 32 | 0.154 | 0.00053 |
 
 *Key: CHROM, chromosome; POS, position; AF_arenosa, allele frequency in A. arenosa; AF_lyrata, allele frequency in A. lyrata* 
 
