@@ -87,7 +87,7 @@ cd ~/fastSTRUCTURE/fastStructure/vars
 python setup.py build_ext --inplace
 ```
 
-Now, to compile the main cython scripts, run the following code
+Now, to compile the main `cython` scripts, run the following code
 ```
 ## change directory into your newly created fastStructure folder
 cd ~/fastSTRUCTURE/fastStructure
@@ -100,24 +100,49 @@ If you would like to use a specific gcc compiler, you can do the following:
 CC=/path/to/compiler python setup.py build_ext --inplace 
 ```
 
-#### **2) The Genome Analysis Toolkit (GATK) v4.2.2.0**. 
+#### **2) The Genome Analysis Toolkit (GATK) `v4.2.2.0`**. 
 For support and documentation click on the following link [GATK](https://software.broadinstitute.org/gatk/) 
 
 ### Dependencies for GATK v4
-To run GATK:
+To configure, build, and run GATK:
 
-You require JAVA 17 to run or build GATK
+You require `JAVA 17` to run or build `GATK` - `JAVA 17` can be installed using the following instructions 
 1) on macOS, you can install the [Homebrew package manager](https://docs.brew.sh/Installation) and then run the following command
    ```
    brew tap homebrew/cask-versions
    ## then to install the Eclipse Foundation's OpenJDK 17 run 
    brew install --cask temurin17
    ```
-Furthermore, you must have a Python version greater than or equal to `Python 2.6`, and an `R version of at least 3.2.5`
+Furthermore, you must have a `Python` version greater than or equal to `Python 2.6`, and an `R version of at least 3.2.5`
 
-### Installation of GATK v4.2.2.0
+To **build GATK** you must have [git-lfs](https://git-lfs.com/) of 1.1.0 or greater. This is required to download the large files that are used to build GATK, including the test files. 
+After downloading git-lfs, run the following command 
+```
+git lfs install
+```
+You also require Gradle 5.6 - you can use the ./gradlew script which will download and use an appropriate version of Gradle automatically
 
-Firstly, if you have any previous versions of GATK installed on your device, please uninstall using the following commands:
+### Python dependencies
+GATK uses Conda as a package manager to establish and manage the Python environment and dependencies required by GATK tools that require Python
+
+You must first **create** and then **activate** a `Conda` environment for `GATK` using either `Miniconda` or `Conda`.
+To create the GATK Conda environment, there are two main methods that can be used:
+If running from a zip or tar distribution, run the following commands to create the `gatk` environment:
+```
+conda env create -f gatkcondanev.yml
+```
+Or if you are running from a cloned repository, run the following command:
+```
+./gradlew localDevCondaEnv
+```
+You can activate the conda environment by executing the following shell command  
+```
+source activate gatk
+```
+
+### Installation of `GATK v4.2.2.0`
+
+Firstly, if you have any previous versions of `GATK` installed on your device, please uninstall using the following commands:
 ```
 source deactivate
 ## assuming you called your GATK environment gatk
@@ -129,7 +154,7 @@ Next, update your conda package manager to the latest version for your base envi
 conda update -n base conda
 ```
 
-To install the GATK v4 package
+To install the `GATK v4` package
  
 
 #### **3) R and RStudio - R version 4.3.1 (2023-06-16)**
