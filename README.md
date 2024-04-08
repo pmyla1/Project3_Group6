@@ -113,13 +113,13 @@ You require JAVA 17 to run or build GATK
    ## then to install the Eclipse Foundation's OpenJDK 17 run 
    brew install --cask temurin17
    ```
+Furthermore, you must have a Python version greater than or equal to `Python 2.6`, and an `R version of at least 3.2.5`
 
 ### Installation of GATK v4.2.2.0
 
 Firstly, if you have any previous versions of GATK installed on your device, please uninstall using the following commands:
 ```
 source deactivate
-
 ## assuming you called your GATK environment gatk
 conda env remove -n gatk
 ```
@@ -140,7 +140,7 @@ To install the GATK v4 package
 
 **1)** **Uninstall** any **previous versions** of **R** or **Rtools**. 
 
-**2)** Click on the following link [R installation Windows](https://cran.r-project.org/bin/windows/base/) 
+**2)** Click on the following link [R installation for Windows](https://cran.r-project.org/bin/windows/base/) 
 
 **3)** Click **Download R-4.3.1 for Windows** 
 
@@ -151,7 +151,7 @@ To install the GATK v4 package
 
 **1)** **Uninstall** any **previous versions** of R or Rtools 
 
-**2)** Click on the following link [Rtools installation Windows](https://cran.r-project.org/bin/windows/Rtools/)  
+**2)** Click on the following link [Rtools installation for Windows](https://cran.r-project.org/bin/windows/Rtools/)  
 
 **3)** Click **RTools 4.3** 
 
@@ -163,7 +163,7 @@ To install the GATK v4 package
 
 **1)** Please **uninstall** any **previous versions** of RStudio 
 
-**2)** Click on the following link [RStudio installation Windows](https://posit.co/download/rstudio-desktop/) 
+**2)** Click on the following link [RStudio installation for Windows](https://posit.co/download/rstudio-desktop/) 
 
 **3)** Follow the downloads instructions from **Step 2 onwards**. 
 
@@ -176,7 +176,7 @@ To install the GATK v4 package
 
 **2)** To install R, **check which Apple macOS version** you have - briefly, click the **Apple Logo** in the **top left corner** of your screen and then **choose** ***About this mac*** > note what the **Processor line** says. 
 
-**3)** Click on the following link [R installation Apple macOS](https://cran.r-project.org/bin/macosx/)  
+**3)** Click on the following link [R installation for Apple macOS](https://cran.r-project.org/bin/macosx/)  
 
   
    If your **Processor line** has **"Intel"** then follow the download **instructions** for **R-4.3.1-x86_64.pkg** 
@@ -186,13 +186,13 @@ To install the GATK v4 package
 
 **4)** Open the installer and follow the instructions using **default options**. 
 
-**5)** To install XQuartz - **download XQuartz** from the following link [XQuartz download macOS](https://www.xquartz.org/), open the installer using **default options**. 
+**5)** To install XQuartz - **download XQuartz** from the following link [XQuartz download for macOS](https://www.xquartz.org/), open the installer using **default options**. 
 
 
 ### To install RStudio  version 4.3.1 on Apple macOS
 
 1) **Uninstall** any **previous versions** of RStudio. 
-2) Click on the following link [RStudio Version 4.3.1 Installation macOS](https://posit.co/download/rstudio-desktop/) and follow the download instructions from **step 2 onwards**. 
+2) Click on the following link [RStudio Version 4.3.1 Installation for macOS](https://posit.co/download/rstudio-desktop/) and follow the download instructions from **step 2 onwards**. 
 3) Open the installer and follow the instructions using **default options**.
    
 
@@ -265,7 +265,6 @@ Contrary to our expectations, when K = 2, **FRE** was estimated to be **pure *A.
 
 In order to determine whether there was **hybridisation** betweeen *A. arenosa* and *A. lyrata* and the subsequent **formation** of an **allotetraploid** lineage (2 subgenomes: one from *A. arenosa*, the other from *A. lyrata*), we were given **text files** containing **4-fold degenerate** single nucleotide polymorphism (SNP) data from a **larger number of samples** from both species. The **structure** of the input files can be seen **below**.
 
-
  | **CHROM** | **POS** | **REF** | **ALT** | **AF** | **AC** | **AN** |
  | :-------: | :-----: | :-----: | :-----: | :----: | :----: | :----: |
  | scaffold_1 | 32 | C | A | 0.00053 | 1 | 1886 | 
@@ -275,8 +274,6 @@ In order to determine whether there was **hybridisation** betweeen *A. arenosa* 
 ***Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number***
 
 The structure of the **final output file** used to calculate **allele frequency differences** between species can be visualised **below**.
-
-
 
  | **CHROM** | **POS** | **AF_arenosa** | **AF_lyrata** | 
  | :-------: | :-----: | :------------: | :-----------: |
