@@ -107,7 +107,7 @@ For support and documentation click on the following link [GATK](https://softwar
 To run GATK:
 
 You require JAVA 17 to run or build GATK
-1) on macOS, you can install the Homebrew package manager and then run the following command
+1) on macOS, you can install the [Homebrew package manager](https://docs.brew.sh/Installation) and then run the following command
    ```
    brew tap homebrew/cask-versions
    ## then to install the Eclipse Foundation's OpenJDK 17 run 
