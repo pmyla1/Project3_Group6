@@ -155,7 +155,18 @@ conda update -n base conda
 ```
 
 To install the `GATK v4` package
- 
+
+ Navigate to the directory where you have stored your GATK jars and the `gatk` wrapper script, ensure the `gatkcondaenv.yml` is present, then run the following command:
+```
+conda env create -n gatk -f gatkcondaenv.yml
+
+source activate gatk
+```
+To check if your GATK environment is properly installed run: 
+```
+conda list
+```
+Which should return a list of packages you have installed, `gatkpythonpackages` should be one of these.
 
 #### **3) R and RStudio - R version 4.3.1 (2023-06-16)**
 
