@@ -16,14 +16,6 @@ The **rationale** for this project was the discovery of **bidirectional gene flo
 
 The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** contains samples (individuals) from **diploid** and **tetraploid** *Arabidopsis arenosa* and *Arabidopsis lyrata* populations sampled **throughout Europe** including lineages from the **Austrian Forealps** and others from a well-established **hybrid zone** in **Wachau** [Population Map](https://www.google.com/maps/d/viewer?mid=1HAhM5y-bYMJbXCtMSZaubk1qe0wX6JI&ll=48.09350708234271%2C15.809612499999968&z=9).
 
-### *A. arenosa* and *A. lyrata* designated populations and ploidy levels
-
- | Species        | Ploidy           | 3-letter pop code(s) |
- | ------------- | :-------------: | -----:|
- | pure *A. arenosa* | 4x | KEH, BZD |
- | pure *A. lyrata* | 4x | KAG, LIC, MOD, MAU |
- | pure *A. lyrata* | 2x | PIZ, PLE |
- | hybrid *A. arenosa* x *A. lyrata* | 4x | FRE, HAB, OCH |  
 
 
 ### **Software Used**
@@ -168,7 +160,7 @@ conda list
 ```
 Which should return a list of packages you have installed, `gatkpythonpackages` should be one of these.
 
-#### **3) R and RStudio - R version 4.3.1 (2023-06-16)**
+## **3) R and RStudio - R version 4.3.1 (2023-06-16)**
 
 ### Installation 
 
@@ -194,6 +186,7 @@ Which should return a list of packages you have installed, `gatkpythonpackages` 
 **4)** Click **Rtools43 installer** 
 
 **5)** Open the installer and follow the instructions using **default options**
+
 
 ### To install RStudio version 4.3.1 on Windows PC:
 
@@ -234,7 +227,21 @@ Which should return a list of packages you have installed, `gatkpythonpackages` 
 
 ## Scripts
 
-1) **GATK_select_variants_initial.sh** was used 
+1) **GATK_select_variants_initial.sh** uses GATK v4.2.2.0 SelectVariants tool to select specific individuals from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** and to make a new .vcf.gz with only these individuals.  
+2) 
+
+
+## Some of the populations in the Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz file 
+
+
+### *A. arenosa* and *A. lyrata* designated populations and ploidy levels
+
+ | Species        | Ploidy           | 3-letter pop code(s) |
+ | ------------- | :-------------: | -----:|
+ | pure *A. arenosa* | 4x | KEH, BZD |
+ | pure *A. lyrata* | 4x | KAG, LIC, MOD, MAU |
+ | pure *A. lyrata* | 2x | PIZ, PLE |
+ | hybrid *A. arenosa* x *A. lyrata* | 4x | FRE, HAB, OCH |  
 
 
 ## Exploratory genetic analyses with PCA 
