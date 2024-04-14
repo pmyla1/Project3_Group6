@@ -227,7 +227,7 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 
 ## To install SplitsTree
 
-1) To install SplitsTree, go to the University of Tübingen Website [SplitsTree](https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/) and click on the `Download' link.
+1) To install SplitsTree, go to the University of Tübingen Website [SplitsTree](https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/) and click on the `Download` link.
 
 2) Select the correct program installer for you specific device and follow the instructions for installation/download using default options. 
 
