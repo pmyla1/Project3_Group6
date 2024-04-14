@@ -2,19 +2,19 @@
 This Github page offers an introduction into manipulating **mixed ploidy VCF files** and how to calculate various population genetics metrics from polyploid VCFs such as **site frequency spectra**, and **Fst**.
 
 ## **Introduction**
-**Polyploidy** and **whole genome duplications** (WGD) occur throughout **all kingdoms** of life, including in animals such as *Xenopus laevis*, and are **ubiquitous in plants**. WGD is a **major mutational** process that disrupts **ionomic**, **cellular**, and **meiotic** processes, and **neo-polyploids** must overcome various challenges including **genomic instability** and **chromosomal mis-segregation** during meiosis (Margburger et al., 2019 [Nature](https://www.nature.com/articles/s41467-019-13159-5)). One of the immediate challenges related to WGD is the **formation of multivalent crossovers** between homologous chromosomes during metaphase I of meiosis, which can result in **entanglement** and **chromosomal breakage** at anaphase I (Bray et al., 2023). If neo-polyploids **can overcome** these initial challenges related to meiosis and genome instability, they can become **established** as a **polyploid lineage**. 
+**Polyploidy** and **whole genome duplications** (WGD) occur throughout **all kingdoms** of life and are especially **ubiquitous in plants**. WGD is a **major mutation** that disrupts **ionomic**, **cellular**, and **meiotic** processes, and **neo-polyploids** must overcome various challenges including **genomic instability** and **chromosomal mis-segregation** during meiosis (Margburger et al., 2019 [Nature](https://www.nature.com/articles/s41467-019-13159-5)). One of the immediate challenges in neo-polyploids is the **formation of multivalent crossovers** between homologous chromosomes during meiosis, which can lead to **entanglement** and **chromosomal breakage** at anaphase I (Bray et al., 2023). If neo-polyploids **overcome** the initial challenges related to meiosis and genome instability, they can become **established** as a **polyploid lineage**. 
 
-Some of the genetic adaptations to WGD in polyploids have been characterised, however, despite **process-level convergence**, there appears to be **low convergence** at the **gene/orthologue level** (Bray et al, 2023 [bioRxiv](https://www.biorxiv.org/content/10.1101/2023.09.27.559727v2)). For example, many of the genes **under selection in polyploid** lineages of *Cochlearia*, *Cardamine amara*, and *Arabidopsis arenosa* belonged to functional categories involving **DNA repair**, **cell division**, and **ion homeostasis** (Bray et al., 2023).
+Some of the genetic adaptations to WGD in polyploids have been characterised, however, despite **process-level convergence**, there appears to be **low convergence** at the **gene/orthologue level** (Bray et al, 2023 [bioRxiv](https://www.biorxiv.org/content/10.1101/2023.09.27.559727v2)). For example, many of the genes **under selection in polyploid** lineages of *Cochlearia*, *Cardamine amara*, and *Arabidopsis arenosa* belong to functional categories involving **DNA repair**, **cell division**, and **ion homeostasis** (Bray et al., 2023).
 
 There are **two main types** of polyploids: **autopolyploids** (all subgenomes originate from the **same species** without hybridisation) and **allopolyploids** (subgenomes are inherited from **different species** through **hybridisation**). Autopolyploids and allopolyploids display distinct characteristic site frequency spectra (SFS). **Autopolyploid** SFS have a **Poisson distribution** with a **high proportion** of **low frequency** variants, whereas **allopolyploid** SFS have a characteristic **trimodal distribution** with **high proportions** of **low**, **intermediate**, and **high frequency** variants.
 
 
-***Arabdopsis arenosa*** is a biennial **outcrossing plant** which produces distinct **diploid** and **tetraploid** lineages throughout **Central Europe** and is closely related to the widely used **model species** ***Arabidopsis thaliana*** (Margburger et al., 2019). Similarly, the sister species ***Arabidopsis lyrata*** also forms distinct **diploid** and **tetraploid** lineages across its **distribution** range, and there have been reports of **gene flow** between the **tetraploid** lineages of ***A. arenosa*** and ***A. lyrata*** where these species have **overlapping ranges** (Jørgensen et al., 2011 [BMC Ecology & Evolution](https://bmcecolevol.biomedcentral.com/articles/10.1186/1471-2148-11-346])). 
+***Arabdopsis arenosa*** is a biennial **outcrossing plant** which produces distinct **diploid** and **tetraploid** lineages throughout **Central Europe** and is closely related to the **model species** ***Arabidopsis thaliana*** (Margburger et al., 2019). Similarly, the sister species ***Arabidopsis lyrata*** also forms distinct **diploid** and **tetraploid** lineages across its **distribution** range, and there have been reports of **gene flow** between the **tetraploid** lineages of ***A. arenosa*** and ***A. lyrata*** where these species have **overlapping ranges** (Jørgensen et al., 2011 [BMC Ecology & Evolution](https://bmcecolevol.biomedcentral.com/articles/10.1186/1471-2148-11-346])). 
 
-The **rationale** for this project was the discovery of **bidirectional gene flow** between **autotetraploid** lineages of *A. arenosa* and *A. lyrata* by  (Marburger et al., 2019)[Nature Communications](https://www.nature.com/articles/s41467-019-13159-5) which may have **facilitated** the **stabilisation of polyploidy** post WGD. In this project, we **selected specific populations** from the **Austrian Forealps** and the **Wachau hybrid zone** suspected to be *A. arenosa* x *A. lyrata* hybrids and to assess the degree of **genetic admixture/hybridisation** between *A. arenosa* and *A. lyrata* **autotetraploid lineages**. We aimed to discover **whether hybridisation** has created any **allopolyploid lineages** in the **Wachau hybrid zone** consisting of **50/50 admixture** between *A. arenosa* and *A. lyrata*. If there were 50/50 hybrids in the VCF, we expected the **site-frequency spectra** of the admixed *A. arenosa* and *A. lyrata* **populations** to show a **characteristic allopolyploid SFS** with peaks at low, intermediate, and high allele frequencies. 
+The **rationale** for this project was the discovery of **bidirectional gene flow** between **autotetraploid** lineages of *A. arenosa* and *A. lyrata* which may have **facilitated** the **stabilisation of polyploidy** post WGD (Marburger et al., 2019)[Nature Communications](https://www.nature.com/articles/s41467-019-13159-5). In this project, we selected specific **tetraploid populations** of *A. arenosa* and *A. lyrata* from the **Austrian Forealps** and the **Wachau hybrid zone** suspected to be 50:50 hybrids and to assess the degree of **genetic admixture** using **fastSTRUCTURE**. We aimed to discover whether **hybridisation** between *A. arenosa* and *A. lyrata* has created any **allopolyploid lineages** in the **Wachau hybrid zone** consisting of approximately **50:50 admixture**. If there were 50:50 hybrids in the VCF, we expected the **site-frequency spectra** of the admixed *A. arenosa* and *A. lyrata* **populations** to show a **characteristic allopolyploid SFS** with peaks at low, intermediate, and high allele frequencies. 
 
 
-The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** contains samples (individuals) from **diploid** and **tetraploid** *Arabidopsis arenosa* and *Arabidopsis lyrata* populations sampled **throughout Europe** including lineages from the **Austrian Forealps** and others from a well-established **hybrid zone** in **Wachau** [Population Map](https://www.google.com/maps/d/viewer?mid=1HAhM5y-bYMJbXCtMSZaubk1qe0wX6JI&ll=48.09350708234271%2C15.809612499999968&z=9).
+The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** contains samples from **diploid** and **tetraploid** *A. arenosa* and *A. lyrata* populations sampled **throughout Europe** including lineages from the **Austrian Forealps** and others from the **Wachau hybrid zone**. The population map can be accessed via the following link [Population Map](https://www.google.com/maps/d/viewer?mid=1HAhM5y-bYMJbXCtMSZaubk1qe0wX6JI&ll=48.09350708234271%2C15.809612499999968&z=9).
 
 
 
@@ -57,9 +57,9 @@ wget --no-check-certificate https://github.com/rajanil/fastStructure/archive/mas
 
 ### Building Python extensions
 
-Before building the Python extensions for fastSTRUCTURE, identify your path to the library files *libgsl.so* and *libgslcblas.so*, in addition to the header file *gsl/gsl_sf_psi.h* that are part of your GSL installation. 
+**Before** building the Python extensions for fastSTRUCTURE, identify your **path** to the **library files** ***libgsl.so*** and ***libgslcblas.so***, in addition to the **header file** ***gsl/gsl_sf_psi.h*** that are part of your **GNU Scientific Library installation**. 
 
-If you have used default options to donwload and install GSL, the libraries (*.so* files) should be located in /usr/local/lib, and the header files (*.h* files) should be located in /usr/local/include. If you have successfully located your GSL library and header files, and they are in the correct location, add the following lines of code to your *.bashrc* file in your home directory (~).
+If you have used **default options** to donwload and install GSL, the **libraries** (*.so* files) should be located in **/usr/local/lib**, and the **header files** (*.h* files) should be located in **/usr/local/include**. If you have successfully located your GSL library and header files, and they are in the correct location, **add** the following lines of code to your ***.bashrc*** file in your home directory **(~)**.
 
 ```
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
@@ -67,11 +67,11 @@ export CFLAGS="-I/usr/local/include"
 export LDFLAGS="-L/usr/local/lib"
 ```
 
-Then execute the following command to set these environmental variables
+Then execute the following command to **set** these **environmental variables**
 ```
 source ~/.bashrc
 ```
-Next, to build the library extensions, you can use the following commands
+Next, to **build** the library **extensions**, you can use the following commands
 ```
 ## assuming you created a directory called fastSTRUCTURE
 cd ~/fastSTRUCTURE/fastStructure/vars
@@ -79,15 +79,15 @@ cd ~/fastSTRUCTURE/fastStructure/vars
 python setup.py build_ext --inplace
 ```
 
-Now, to compile the main `cython` scripts, run the following code
+Now, to **compile** the main **`cython`** scripts, run the following code
 ```
 ## change directory into your newly created fastStructure folder
 cd ~/fastSTRUCTURE/fastStructure
 ## compile the cython scripts using setup.py
 python setup.py build_ext --inplace
 ```
-Errors suggesting the build failed may be due to using the wrong compiler or incorrectly set environmental variables.
-If you would like to use a specific gcc compiler, you can do the following:
+**Errors** suggesting the **build failed** may be due to using the **wrong compiler** or **incorrectly set environmental variables**.
+If you would like to use a **specific gcc compiler**, you can do the following:
 ```
 CC=/path/to/compiler python setup.py build_ext --inplace 
 ```
@@ -98,99 +98,100 @@ For support and documentation click on the following link [GATK](https://softwar
 ### Dependencies for GATK v4
 To configure, build, and run GATK:
 
-You require `JAVA 17` to run or build `GATK` - `JAVA 17` can be installed using the following instructions 
-1) on macOS, you can install the [Homebrew package manager](https://docs.brew.sh/Installation) and then run the following command
+You require **`JAVA 17`** to run or build GATK.
+**`JAVA 17`** can be installed using the following instructions 
+1) on **macOS**, you can install the [Homebrew package manager](https://docs.brew.sh/Installation) and then run the following command
    ```
    brew tap homebrew/cask-versions
    ## then to install the Eclipse Foundation's OpenJDK 17 run 
    brew install --cask temurin17
    ```
-Furthermore, you must have a `Python` version greater than or equal to `Python 2.6`, and an `R version of at least 3.2.5`
+Furthermore, you must have a **`Python`** version greater than or equal to **`Python 2.6`**, and an **`R version of at least 3.2.5`**
 
-To **build GATK** you must have [git-lfs](https://git-lfs.com/) of 1.1.0 or greater. This is required to download the large files that are used to build GATK, including the test files. 
+To **build GATK** you must have [git-lfs](https://git-lfs.com/) of **1.1.0 or greater**. This is required to download the large files that are used to build GATK, including the test files. 
 After downloading git-lfs, run the following command 
 ```
 git lfs install
 ```
-You also require Gradle 5.6 - you can use the ./gradlew script which will download and use an appropriate version of Gradle automatically
+You also **require Gradle 5.6** - you can use the `./gradlew` script which will download and use an **appropriate Gradle version automatically**.
 
 ### Python dependencies
-GATK uses Conda as a package manager to establish and manage the Python environment and dependencies required by GATK tools that require Python
+GATK uses **Conda** as a **package manager** to establish and manage the Python environment and dependencies required by GATK tools that require Python.
 
-You must first **create** and then **activate** a `Conda` environment for `GATK` using either `Miniconda` or `Conda`.
-To create the GATK Conda environment, there are two main methods that can be used:
-If running from a zip or tar distribution, run the following commands to create the `gatk` environment:
+You must first **create** and then **activate** a `Conda` environment for `GATK` using either **`Miniconda`** or **`Conda`**.
+To create the GATK Conda environment, there are **two main methods** that can be used:
+If running from a **zip or tar** distribution, run the following commands to create the `gatk` environment:
 ```
 conda env create -f gatkcondanev.yml
 ```
-Or if you are running from a cloned repository, run the following command:
+Or if you are running from a **cloned repository**, run the following command:
 ```
 ./gradlew localDevCondaEnv
 ```
-You can activate the conda environment by executing the following shell command  
+You can **activate** the conda environment by executing the following **shell command**.  
 ```
 source activate gatk
 ```
 
 ### Installation of `GATK v4.2.2.0`
 
-Firstly, if you have any previous versions of `GATK` installed on your device, please uninstall using the following commands:
+Firstly, if you have any **previous GATK versions** installed on your device, please **uninstall** using the following commands:
 ```
 source deactivate
 ## assuming you called your GATK environment gatk
 conda env remove -n gatk
 ```
 
-Next, update your conda package manager to the latest version for your base environment
+Next, **update your conda** package manager to the **latest version** for your base environment
 ```
 conda update -n base conda
 ```
 
-To install the `GATK v4` package
+To install the **GATK v4** package
 
- Navigate to the directory where you have stored your GATK jars and the `gatk` wrapper script, ensure the `gatkcondaenv.yml` is present, then run the following command:
+Navigate to the **directory** where you have **stored your GATK jars** and the **gatk wrapper** script, ensure the **`gatkcondaenv.yml`** is present, then run the following command:
 ```
 conda env create -n gatk -f gatkcondaenv.yml
 
 source activate gatk
 ```
-To check if your GATK environment is properly installed run: 
+To check if your GATK environment is **properly installed** run: 
 ```
 conda list
 ```
-Which should return a list of packages you have installed, `gatkpythonpackages` should be one of these.
+Which should return a list of packages you have installed, **`gatkpythonpackages`** should be one of these.
 
 ## **3) R and RStudio - R version 4.3.1 (2023-06-16)**
 
 ### Installation 
 
-### To install R version 4.3.1 on Windows PC:
+### To install R-4.3.1 on Windows PC:
 
-**1)** **Uninstall** any **previous versions** of **R** or **Rtools**. 
+**1)** **Uninstall previous versions** of R or Rtools. 
 
 **2)** Click on the following link [R installation for Windows](https://cran.r-project.org/bin/windows/base/) 
 
-**3)** Click **Download R-4.3.1 for Windows** 
+**3)** Click **Download R-4.3.1 for Windows**. 
 
-**4)** Open the installer and follow the instructions using **default options** 
+**4)** Open the installer and follow the instructions using **default options**. 
 
 
-### To install Rtools version 4.3 on Windows PC:
+### To install Rtools-4.3 on Windows PC:
 
-**1)** **Uninstall** any **previous versions** of R or Rtools 
+**1)** **Uninstall previous versions** of R or Rtools. 
 
 **2)** Click on the following link [Rtools installation for Windows](https://cran.r-project.org/bin/windows/Rtools/)  
 
-**3)** Click **RTools 4.3** 
+**3)** Click **RTools 4.3**. 
 
-**4)** Click **Rtools43 installer** 
+**4)** Click **Rtools43 installer**. 
 
-**5)** Open the installer and follow the instructions using **default options**
+**5)** Open the installer and follow the instructions using **default options**.
 
 
-### To install RStudio version 4.3.1 on Windows PC:
+### To install RStudio-4.3.1 on Windows PC:
 
-**1)** Please **uninstall** any **previous versions** of RStudio 
+**1)** **Uninstall previous versions** of RStudio. 
 
 **2)** Click on the following link [RStudio installation for Windows](https://posit.co/download/rstudio-desktop/) 
 
@@ -201,16 +202,16 @@ Which should return a list of packages you have installed, `gatkpythonpackages` 
 
 ### To install R version 4.3.1. on Apple macOS
 
-**1)** **Uninstall** any **previous installations** of R by **navigating** to your **applications folder** and moving **R** and **XQuartz** to the **Bin**. 
+**1)** **Uninstall previous installations** of R by navigating to your **applications folder** and moving **R** and **XQuartz** to the **Bin**. 
 
 **2)** To install R, **check which Apple macOS version** you have - briefly, click the **Apple Logo** in the **top left corner** of your screen and then **choose** ***About this mac*** > note what the **Processor line** says. 
 
 **3)** Click on the following link [R installation for Apple macOS](https://cran.r-project.org/bin/macosx/)  
 
   
-   If your **Processor line** has **"Intel"** then follow the download **instructions** for **R-4.3.1-x86_64.pkg** 
+   If your **Processor line** has **"Intel"** then follow the download **instructions** for **R-4.3.1-x86_64.pkg**. 
    
-   **Otherwise**, follow the download instructions for **R-4.3.1-arm64.pkg** 
+   **Otherwise**, follow the download instructions for **R-4.3.1-arm64.pkg**. 
   
 
 **4)** Open the installer and follow the instructions using **default options**. 
@@ -218,20 +219,21 @@ Which should return a list of packages you have installed, `gatkpythonpackages` 
 **5)** To install XQuartz - **download XQuartz** from the following link [XQuartz download for macOS](https://www.xquartz.org/), open the installer using **default options**. 
 
 
-### To install RStudio  version 4.3.1 on Apple macOS
+### To install RStudio-4.3.1 on Apple macOS
 
-1) **Uninstall** any **previous versions** of RStudio. 
+1) **Uninstall previous versions** of RStudio. 
 2) Click on the following link [RStudio Version 4.3.1 Installation for macOS](https://posit.co/download/rstudio-desktop/) and follow the download instructions from **step 2 onwards**. 
 3) Open the installer and follow the instructions using **default options**.
    
 
 ## Scripts
 
-1) **GATK_select_variants_initial.sh** uses GATK v4.2.2.0 SelectVariants tool to select specific individuals from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** and to make a new .vcf.gz with only these individuals.  
+1) **GATK_select_variants_initial.sh** was executed on the HPC using a **shared GATK environment**, and a different custom **samtools environment**. The script uses the `gatk IndexFeatureFile -I`  command to create an **indexed fasta** file from the original **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**. Subsequently, the script creates a **sequence dictionary** using `gatk CreateSequenceDictionary`, and then uses `samtools faidx` to index the fasta file created in a previous step of the script. Finally, the script uses `gatk SelectVariants` with the `-sn` flag to **select specific individuals** from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** and to make a new .vcf.gz with only these individuals called **new_pops_filtered.vcf.gz**.
 2) 
+3) 
 
 
-## Some of the populations in the Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz file 
+### Some of the populations in Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz 
 
 
 ### *A. arenosa* and *A. lyrata* designated populations and ploidy levels
@@ -246,7 +248,7 @@ Which should return a list of packages you have installed, `gatkpythonpackages` 
 
 ## Exploratory genetic analyses with PCA 
 
-We performed **exploratory population genetic analyses** using two different PCA techniques, (1) Adegenet, and (2) using Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) adapted PCA script and using our filtered vcf.gz as the input file for the PCA. 
+We performed **exploratory population genetic analyses** using two different PCA techniques, (1) **Adegenet**, and (2) using Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) adapted PCA script and using our filtered vcf.gz as the input file for the PCA. 
 
 ### Without BZD population
 
