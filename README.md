@@ -209,9 +209,9 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 3) Click on the following link [R installation for Apple macOS](https://cran.r-project.org/bin/macosx/)  
 
   
-   If your **Processor line** has **"Intel"** then follow the download **instructions** for **R-4.3.1-x86_64.pkg**. 
+   If your Processor line has **"Intel"** then follow the download **instructions** for **`R-4.3.1-x86_64.pkg`**. 
    
-   **Otherwise**, follow the download instructions for **R-4.3.1-arm64.pkg**. 
+   **Otherwise**, follow the download instructions for **`R-4.3.1-arm64.pkg`**. 
   
 
 4) Open the installer and follow the instructions using **default options**. 
@@ -224,19 +224,30 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 1) **Uninstall previous versions** of RStudio. 
 2) Click on the following link [RStudio Version 4.3.1 Installation for macOS](https://posit.co/download/rstudio-desktop/) and follow the download instructions from **step 2 onwards**. 
 3) Open the installer and follow the instructions using **default options**.
-   
+
+## To install SplitsTree
+
+1) To install SplitsTree, go to the University of Tübingen Website [SplitsTree](https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/) and click on the `Download' link.
+
+2) Select the correct program installer for you specific device and follow the instructions for installation/download using default options. 
 
 ## Scripts
 
 1) **GATK_select_variants_initial.sh** was executed on the HPC using a **shared GATK environment**, and a custom **samtools environment**.
-   The script uses the `gatk IndexFeatureFile -I`  command to create an **indexed fasta** file from the original **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**.
-   Subsequently, the script creates a **sequence dictionary** using `gatk CreateSequenceDictionary`, and then uses `samtools faidx` to index the fasta file created in a previous step of the script.
-   Finally, the script uses `gatk SelectVariants` with the `-sn` flag to **select specific individuals** from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** and to make a new .vcf.gz with only these individuals called **new_pops_filtered.vcf.gz**.
+
+The script uses the `gatk IndexFeatureFile -I`  command to create an **indexed fasta** file from the original **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**.
+
+Subsequently, the script creates a **sequence dictionary** using `gatk CreateSequenceDictionary`, and then uses `samtools faidx` to index the fasta file created in a previous step of the script. 
+
+Finally, the script uses `gatk SelectVariants` with the `-sn` flag to **select specific individuals** from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** and to make a new .vcf.gz with only these individuals called **new_pops_filtered.vcf.gz**.
 
 2) **220324_whole_pipeline_gatk.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/ and a shared gatk environment `/shared/apps/conda/bio2/`.
-   This script uses `gatk SelectVariants` with the `-sn` flag to select only the tetraploid populations of interest (either pure *A. lyrata*, pure *A. arenosa*, or suspected to be hybrids) and creates a new filtered vcf called 220324_filtered_pops.vcf.gz.
-   The script then calculates the site-frequency spectra on 220324_filtered_pops.vcf.gz, and allele frequencies using Tuomas Hämälä's (2023) `poly_sfs.c` and `poly_freq.c` scripts, respectively.
-   Next, the VCF file is prepared for `Cochlearia_create_structure_file.py` using the '-s true' flag for pseudo-diploidization, and the populations are rearranged into alphabetical order for plotting purposes. 
+
+This script uses `gatk SelectVariants` with the `-sn` flag to select only the tetraploid populations of interest (either pure *A. lyrata*, pure *A. arenosa*, or suspected to be hybrids) and creates a new filtered vcf called 220324_filtered_pops.vcf.gz.
+
+The script then calculates the **site-frequency spectra** on 220324_filtered_pops.vcf.gz, and **allele frequencies** using Tuomas Hämälä's (2023) **`poly_sfs.c`** and **`poly_freq.c`** scripts, respectively.
+
+Next, the VCF file is prepared for **`Cochlearia_create_structure_file.py`** using the **'-s true'** flag for pseudo-diploidization, and the populations are rearranged into alphabetical order for plotting purposes. 
 
 
 ### Some of the populations in Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz 
