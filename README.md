@@ -167,46 +167,46 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 
 ### To install R-4.3.1 on Windows PC:
 
-**1)** **Uninstall previous versions** of R or Rtools. 
+1) **Uninstall previous versions** of R. 
 
-**2)** Click on the following link [R installation for Windows](https://cran.r-project.org/bin/windows/base/) 
+2) Click on the following link [R installation for Windows](https://cran.r-project.org/bin/windows/base/) 
 
-**3)** Click **Download R-4.3.1 for Windows**. 
+3) Click **Download R-4.3.1 for Windows**. 
 
-**4)** Open the installer and follow the instructions using **default options**. 
+4) Open the installer and follow the instructions using **default options**. 
 
 
 ### To install Rtools-4.3 on Windows PC:
 
-**1)** **Uninstall previous versions** of R or Rtools. 
+1) **Uninstall previous versions** of Rtools. 
 
-**2)** Click on the following link [Rtools installation for Windows](https://cran.r-project.org/bin/windows/Rtools/)  
+2) Click on the following link [Rtools installation for Windows](https://cran.r-project.org/bin/windows/Rtools/)  
 
-**3)** Click **RTools 4.3**. 
+3) Click **RTools 4.3**. 
 
-**4)** Click **Rtools43 installer**. 
+4) Click **Rtools43 installer**. 
 
-**5)** Open the installer and follow the instructions using **default options**.
+5) Open the installer and follow the instructions using **default options**.
 
 
 ### To install RStudio-4.3.1 on Windows PC:
 
-**1)** **Uninstall previous versions** of RStudio. 
+1) **Uninstall previous versions** of RStudio. 
 
-**2)** Click on the following link [RStudio installation for Windows](https://posit.co/download/rstudio-desktop/) 
+2) Click on the following link [RStudio installation for Windows](https://posit.co/download/rstudio-desktop/) 
 
-**3)** Follow the downloads instructions from **Step 2 onwards**. 
+3) Follow the downloads instructions from **Step 2 onwards**. 
 
-**4)** Open the installer and then follow the instructions using **default options**. 
+4) Open the installer and then follow the instructions using **default options**. 
 
 
 ### To install R version 4.3.1. on Apple macOS
 
-**1)** **Uninstall previous installations** of R by navigating to your **applications folder** and moving **R** and **XQuartz** to the **Bin**. 
+1) **Uninstall previous installations** of R by navigating to your **applications folder** and moving **R** and **XQuartz** to the **Bin**. 
 
-**2)** To install R, **check which Apple macOS version** you have - briefly, click the **Apple Logo** in the **top left corner** of your screen and then **choose** ***About this mac*** > note what the **Processor line** says. 
+2) To install R, **check which Apple macOS version** you have - briefly, click the **Apple Logo** in the **top left corner** of your screen and then **choose** ***About this mac*** > note what the **Processor line** says. 
 
-**3)** Click on the following link [R installation for Apple macOS](https://cran.r-project.org/bin/macosx/)  
+3) Click on the following link [R installation for Apple macOS](https://cran.r-project.org/bin/macosx/)  
 
   
    If your **Processor line** has **"Intel"** then follow the download **instructions** for **R-4.3.1-x86_64.pkg**. 
@@ -214,9 +214,9 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
    **Otherwise**, follow the download instructions for **R-4.3.1-arm64.pkg**. 
   
 
-**4)** Open the installer and follow the instructions using **default options**. 
+4) Open the installer and follow the instructions using **default options**. 
 
-**5)** To install XQuartz - **download XQuartz** from the following link [XQuartz download for macOS](https://www.xquartz.org/), open the installer using **default options**. 
+5) To install XQuartz - **download XQuartz** from the following link [XQuartz download for macOS](https://www.xquartz.org/), open the installer using **default options**. 
 
 
 ### To install RStudio-4.3.1 on Apple macOS
@@ -228,9 +228,15 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 
 ## Scripts
 
-1) **GATK_select_variants_initial.sh** was executed on the HPC using a **shared GATK environment**, and a different custom **samtools environment**. The script uses the `gatk IndexFeatureFile -I`  command to create an **indexed fasta** file from the original **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**. Subsequently, the script creates a **sequence dictionary** using `gatk CreateSequenceDictionary`, and then uses `samtools faidx` to index the fasta file created in a previous step of the script. Finally, the script uses `gatk SelectVariants` with the `-sn` flag to **select specific individuals** from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** and to make a new .vcf.gz with only these individuals called **new_pops_filtered.vcf.gz**.
-2) 
-3) 
+1) **GATK_select_variants_initial.sh** was executed on the HPC using a **shared GATK environment**, and a custom **samtools environment**.
+   The script uses the `gatk IndexFeatureFile -I`  command to create an **indexed fasta** file from the original **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**.
+   Subsequently, the script creates a **sequence dictionary** using `gatk CreateSequenceDictionary`, and then uses `samtools faidx` to index the fasta file created in a previous step of the script.
+   Finally, the script uses `gatk SelectVariants` with the `-sn` flag to **select specific individuals** from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** and to make a new .vcf.gz with only these individuals called **new_pops_filtered.vcf.gz**.
+
+2) **220324_whole_pipeline_gatk.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/ and a shared gatk environment `/shared/apps/conda/bio2/`.
+   This script uses `gatk SelectVariants` with the `-sn` flag to select only the tetraploid populations of interest (either pure *A. lyrata*, pure *A. arenosa*, or suspected to be hybrids) and creates a new filtered vcf called 220324_filtered_pops.vcf.gz.
+   The script then calculates the site-frequency spectra on 220324_filtered_pops.vcf.gz, and allele frequencies using Tuomas Hämälä's (2023) `poly_sfs.c` and `poly_freq.c` scripts, respectively.
+   Next, the VCF file is prepared for `Cochlearia_create_structure_file.py` using the '-s true' flag for pseudo-diploidization, and the populations are rearranged into alphabetical order for plotting purposes. 
 
 
 ### Some of the populations in Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz 
