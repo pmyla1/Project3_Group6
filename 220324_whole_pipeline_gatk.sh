@@ -32,9 +32,6 @@ conda activate /shared/conda/faststructure/
 ##RUN POLY_FREQ SCRIPT FROM TUOMAS HÄMÄLÄ (2023) TO ESTIMATE ALLELE FREQUENCIES FROM MIXED PLOIDY VCF FILE
 ./filtered_VCFs_for_faststructure/poly_freq -vcf ./220324_whole_pipeline_VCFs/220324_tetraploids_only_copy.vcf -pops ./220324_whole_pipeline_VCFs/populations.txt -mis 0.8 -maf 0.02 -out 0 > ./220324_whole_pipeline_VCFs/220324_poly_freq_output
 
-######
-##poly_fst for estimating pairwise Fst and Dxy from mixed ploidy VCFs
-
 ###################
 ##RUN COCHLEARIA_CREATE_STRUCTURE.PY TO create faststructure appropriate files .str
 python3 ./scripts/Cochlearia_create_structure_file.py -v ./220324_whole_pipeline_VCFs/ -o 220324_structure_files -s true 
@@ -56,9 +53,9 @@ grep "KEH" ./220324_whole_pipeline_VCFs/220324_first_last_removed.StructureInput
 
 grep "LIC" ./220324_whole_pipeline_VCFs/220324_first_last_removed.StructureInputDiploidized.str > ./220324_whole_pipeline_VCFs/LIC.str
 
-#grep "LOI" ./220324_whole_pipeline_VCFs/220324_first_last_removed.StructureInputDiploidized.str > ./220324_whole_pipeline_VCFs/LOI.str
+grep "LOI" ./220324_whole_pipeline_VCFs/220324_first_last_removed.StructureInputDiploidized.str > ./220324_whole_pipeline_VCFs/LOI.str
 
-#grep "MAU" ./220324_whole_pipeline_VCFs/220324_first_last_removed.StructureInputDiploidized.str > ./220324_whole_pipeline_VCFs/MAU.str
+grep "MAU" ./220324_whole_pipeline_VCFs/220324_first_last_removed.StructureInputDiploidized.str > ./220324_whole_pipeline_VCFs/MAU.str
 
 grep "MOD" ./220324_whole_pipeline_VCFs/220324_first_last_removed.StructureInputDiploidized.str > ./220324_whole_pipeline_VCFs/MOD.str
 
@@ -113,8 +110,8 @@ python ./scripts/new_distruct.py -K 8 --input=./220324_whole_pipeline_VCFs/22032
 python ./scripts/new_distruct.py -K 9 --input=./220324_whole_pipeline_VCFs/220324_K9_out --output=./220324_whole_pipeline_VCFs/220324_K9_plot --popfile=./220324_whole_pipeline_VCFs/populations.txt --title="Arabidopsis lyrata admixture: K9"
 ##########################
 
-#conda deactivate 
+conda deactivate 
 
 echo "DONE!!"
 
-##lastlinee
+##lastline
