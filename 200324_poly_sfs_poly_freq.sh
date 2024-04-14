@@ -14,7 +14,7 @@ conda activate /shared/conda/shared/
 
 #################
 ##compiling the poly_sfs.c script
-#gcc ./poly_sfs.c -o poly_sfs -lm
+gcc ./poly_sfs.c -o poly_sfs -lm
 ################
 
 ################
