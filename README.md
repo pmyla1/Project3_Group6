@@ -235,17 +235,17 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 
 1) **GATK_select_variants_initial.sh** was executed on the HPC using a **shared GATK environment**, and a custom **samtools environment**.
 
-The script uses the `gatk IndexFeatureFile -I`  command to create an **indexed fasta** file from the original **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**.
+The script uses the `gatk IndexFeatureFile -I`  command to create an **indexed fasta** file from the **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**.
 
-Subsequently, the script creates a **sequence dictionary** using `gatk CreateSequenceDictionary`, and then uses `samtools faidx` to index the fasta file created in a previous step of the script. 
+Subsequently, a **sequence dictionary** is created using `gatk CreateSequenceDictionary`, and then `samtools faidx` is used to index the previously created fasta file. 
 
-Finally, the script uses `gatk SelectVariants` with the `-sn` flag to **select specific individuals** from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** and to make a new .vcf.gz with only these individuals called **new_pops_filtered.vcf.gz**.
+Finally, `gatk SelectVariants` with the `-sn` flag is used to **select specific individuals** from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** and to make a new .vcf.gz with only these individuals called **new_pops_filtered.vcf.gz**.
 
 2) **220324_whole_pipeline_gatk.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/ and a shared gatk environment `/shared/apps/conda/bio2/`.
 
-This script uses `gatk SelectVariants` with the `-sn` flag to select only the tetraploid populations of interest (either pure *A. lyrata*, pure *A. arenosa*, or suspected to be hybrids) and creates a new filtered vcf called 220324_filtered_pops.vcf.gz.
+`gatk SelectVariants` with the `-sn` flag is used to select only the tetraploid populations of interest (either pure *A. lyrata*, pure *A. arenosa*, or suspected to be hybrids) and creates a new filtered vcf called 220324_filtered_pops.vcf.gz.
 
-The script then calculates the **site-frequency spectra** on 220324_filtered_pops.vcf.gz, and **allele frequencies** using Tuomas Hämälä's (2023) **`poly_sfs.c`** and **`poly_freq.c`** scripts, respectively.
+The **site-frequency spectra** and the **allele frequencies** are calculated for the 220324_filtered_pops.vcf.gz* using Tuomas Hämälä's (2023) **`poly_sfs.c`** and **`poly_freq.c`** scripts, respectively.
 
 Next, the VCF file is prepared for **`Cochlearia_create_structure_file.py`** using the **'-s true'** flag for pseudo-diploidization, and the populations are rearranged into alphabetical order for plotting purposes. 
 
@@ -269,7 +269,7 @@ We performed **exploratory population genetic analyses** using two different PCA
 
 ### Without BZD population
 
-<img width="468" alt="Alt_PCA_tets_only_no_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/c0c26237-cabe-4620-8b3e-a095750fddab">
+<img width="475" alt="Alt_PCA_tets_only_no_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/c0c26237-cabe-4620-8b3e-a095750fddab">
 
 
 *This figure shows the tetraploid only populations retained in the last VCF file used to investigate population structure and admixture between A. arenosa and A. lyrata. KEH samples ***KEH-06 and KEH-08*** form a cluster with ***OCH-05 and FRE-06*** along ***PC1***, which explains ***33% of the variance*** in the dataset. Conversely, ***KEH-07 and KEH-09*** form a separate cluster with ***FRE-08*** scoring positively along PC1 with the same magnitude as the previously mentioned cluster, but being ***differentiated along PC2**. Lastly, ***KEH-05 and KEH-10*** form a separate cluster with ***FRE-05***, with extremely ***negative scores along PC1***. The other samples appear to form clusters with individuals from the same population, e.g. MOD with MOD, etc.*
@@ -316,8 +316,7 @@ This image was produced using the GUI [Omicsspeaks Structure Plot V2.0](http://o
 
 The input file is a comma separated value (CSV) file containing the individual name from the VCF (e.g BZD-01tl), followed by the population in the VCF (e.g. BZD), followed by the fastSTRUCTURE output for the genetic admixture proportions when K=2 (e.g 0.95,0.05).
 
-The link to the input file can be accessed here [OmicsSpeaks input]
-[K2_omics_speaks_input.csv](https://github.com/pmyla1/Project3_Group6/files/14791197/K2_omics_speaks_input.csv)
+The link to the input file can be accessed here [OmicsSpeaks input](https://github.com/pmyla1/Project3_Group6/files/14791197/K2_omics_speaks_input.csv)
 
 **Orange** bars represent ***A. arenosa*** whereas **green** bars represent ***A. lyrata***.
 
