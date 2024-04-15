@@ -233,7 +233,19 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 
 ## Scripts
 
-1) **GATK_select_variants_initial.sh** was executed on the HPC using a **shared GATK environment**, and a custom **samtools environment**.
+1) **GATK_select_variants_initial.sh** was executed on the HPC using a **shared GATK environment**, and a custom **samtools environment** created using the following commands:
+   ```
+   ## create the samtools environment
+   conda create -n samtools
+   ## activate the environment
+   conda activate samtools
+   ## configure the bioconda channel
+   conda config --add channels bioconda
+   ## configure conda-forge
+   conda config --add channels conda-forge
+   ## install samtools
+   conda install -c bioconda samtools
+   ```
 
 The script uses the `gatk IndexFeatureFile -I`  command to create an **indexed fasta** file from the **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**.
 
@@ -243,16 +255,16 @@ Finally, `gatk SelectVariants` with the `-sn` flag is used to **select specific 
 
 2) **220324_whole_pipeline_gatk.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/ and a shared gatk environment `/shared/apps/conda/bio2/`.
 
-`gatk SelectVariants` with the `-sn` flag is used to select only the tetraploid populations of interest (either pure *A. lyrata*, pure *A. arenosa*, or suspected to be hybrids) and creates a new filtered vcf called 220324_filtered_pops.vcf.gz.
+`gatk SelectVariants` with the `-sn` flag is used to select only the tetraploid populations of interest (either pure *A. lyrata*, pure *A. arenosa*, or expected to be hybrids) and creates a new filtered vcf called 220324_filtered_pops.vcf.gz.
 
 The **site-frequency spectra** and the **allele frequencies** are calculated for the 220324_filtered_pops.vcf.gz* using Tuomas Hämälä's (2023) **`poly_sfs.c`** and **`poly_freq.c`** scripts, respectively.
 
 Next, the VCF file is prepared for **`Cochlearia_create_structure_file.py`** using the **'-s true'** flag for pseudo-diploidization, and the populations are rearranged into alphabetical order for plotting purposes. 
 
+3) **
 
-### Some of the populations in Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz 
 
-
+ 
 ### *A. arenosa* and *A. lyrata* designated populations and ploidy levels
 
  | Species        | Ploidy           | 3-letter pop code(s) |
