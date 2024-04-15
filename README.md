@@ -233,7 +233,7 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 
 ## Scripts
 
-1) **GATK_select_variants_initial.sh** was executed on the HPC using a **shared GATK environment**, and a custom **samtools environment** created using the following commands:
+1) **GATK_select_variants_initial.sh** was executed on the HPC using a **shared GATK environment**, and a custom **samtools environment** which was created using the following commands:
    ```
    ## create the samtools environment
    conda create -n samtools
@@ -253,11 +253,11 @@ Subsequently, a **sequence dictionary** is created using `gatk CreateSequenceDic
 
 Finally, `gatk SelectVariants` with the `-sn` flag is used to **select specific individuals** from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** and to make a new .vcf.gz with only these individuals called **new_pops_filtered.vcf.gz**.
 
-2) **220324_whole_pipeline_gatk.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/ and a shared gatk environment `/shared/apps/conda/bio2/`.
+2) **220324_whole_pipeline_gatk.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/` and a shared gatk environment `/shared/apps/conda/bio2/`.
 
 `gatk SelectVariants` with the `-sn` flag is used to select only the tetraploid populations of interest (either pure *A. lyrata*, pure *A. arenosa*, or expected to be hybrids) and creates a new filtered vcf called 220324_filtered_pops.vcf.gz.
 
-The **site-frequency spectra** and the **allele frequencies** are calculated for the 220324_filtered_pops.vcf.gz* using Tuomas Hämälä's (2023) **`poly_sfs.c`** and **`poly_freq.c`** scripts, respectively.
+The **site-frequency spectra** and the **allele frequencies** are calculated for the 220324_filtered_pops.vcf.gz* using Tuomas Hämälä's (2023) [**`poly_sfs.c`**](https://github.com/thamala/polySV/blob/main/poly_sfs.c) and [**`poly_freq.c`**](https://github.com/thamala/polySV/blob/main/poly_freq.c) scripts, respectively.
 
 Next, the VCF file is prepared for **`Cochlearia_create_structure_file.py`** using the **'-s true'** flag for pseudo-diploidization, and the populations are rearranged into alphabetical order for plotting purposes. 
 
@@ -279,12 +279,12 @@ Next, the VCF file is prepared for **`Cochlearia_create_structure_file.py`** usi
 
 We performed **exploratory population genetic analyses** using two different PCA techniques, (1) **Adegenet**, and (2) using Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) adapted PCA script and using our filtered vcf.gz as the input file for the PCA. 
 
-### Without BZD population
+### Without BZD
 
 <img width="475" alt="Alt_PCA_tets_only_no_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/c0c26237-cabe-4620-8b3e-a095750fddab">
 
 
-*This figure shows the tetraploid only populations retained in the last VCF file used to investigate population structure and admixture between A. arenosa and A. lyrata. KEH samples ***KEH-06 and KEH-08*** form a cluster with ***OCH-05 and FRE-06*** along ***PC1***, which explains ***33% of the variance*** in the dataset. Conversely, ***KEH-07 and KEH-09*** form a separate cluster with ***FRE-08*** scoring positively along PC1 with the same magnitude as the previously mentioned cluster, but being ***differentiated along PC2**. Lastly, ***KEH-05 and KEH-10*** form a separate cluster with ***FRE-05***, with extremely ***negative scores along PC1***. The other samples appear to form clusters with individuals from the same population, e.g. MOD with MOD, etc.*
+*The tetraploid only populations were retained and used to investigate population structure and admixture between *A. arenosa* and *A. lyrata*. ***KEH-06 and KEH-08*** form a cluster with ***OCH-05 and FRE-06*** along ***PC1***, which explains ***33% of the variance***. Conversely, ***KEH-07 and KEH-09*** form a separate cluster with ***FRE-08*** and are differentiated from the previous cluster **along PC2**. Lastly, ***KEH-05 and KEH-10*** form a distinct cluster with ***FRE-05***, with extremely ***negative PC1 scores***. The other samples seem to produce with individuals from the same population, e.g. MOD with MOD, etc.*
 
 ### With BZD plus additional populations (MAU, LIC, KAG)
 
@@ -299,13 +299,13 @@ We subsequently performed a discrimininant analysis of principal components (DAP
 
 Next, we looked at the **relationships** between the individuals and populations with SplitsTree, following the download instructions from the **University of Tübingen** website in the link [SplitsTree](https://software-ab.cs.uni-tuebingen.de/download/splitstree4/welcome.html). 
 
-Briefly, after converting the latest VCF file (**290324_tetraploids_only.vcf.gz**) into a **genlight** object using the **vcf2genlight** function in the **290324_populations.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into SplitsTree. Both the **individual** and the **population** data were used to produce **phylogenetic networks** in SplitsTree, and can be visualized below.
+Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight** object using the **vcf2genlight** function from the **290324_populations.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into SplitsTree. Both the **individual** and the **population** data were used to produce **phylogenetic networks** in SplitsTree, and can be visualized below.
 
 ### Phylogenetic network - Relationship between Individuals
 ![290324_individuals](https://github.com/pmyla1/Project3_Group6/assets/151543531/b07c9e8a-4758-469f-b15e-36e3f2c15c07)
 
 
-***Figure 3a*** *Phylogenetic network showing the relationship between individuals. Most individuals appear to group together with their respective populations, (e.g. MOD appears to form a single cluster) however, there are some sample mixups with KEH individuals forming three separate clusters. Furthermore, some OCH individuals cluster with individuals from different populations.*
+***Figure 3a*** *Phylogenetic network showing relationships between individuals. Most individuals group with samples from the same population, (e.g. MOD forms a single cluster) however, there are some sample mixups with KEH individuals forming three separate clusters. Furthermore, some OCH samples cluster with individuals from different populations.*
 
 
 <img width="475" alt="Phylo_tree_inds_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/76d26c5d-2d06-49e5-b9da-1e492e65974f">
@@ -315,7 +315,7 @@ Briefly, after converting the latest VCF file (**290324_tetraploids_only.vcf.gz*
 ### Phylogenetic network - Relationship between Populations
 ![290324_populations](https://github.com/pmyla1/Project3_Group6/assets/151543531/b7d838f1-e7e6-4165-a55e-f3142c03a75d)
 
-***Figure 3c*** *Phylogenetic network showing the relationship between populations.*
+***Figure 3c*** *Phylogenetic network showing the relationships between populations.*
 
 
 ## Population structure analysis
@@ -330,13 +330,13 @@ The input file is a comma separated value (CSV) file containing the individual n
 
 The link to the input file can be accessed here [OmicsSpeaks input](https://github.com/pmyla1/Project3_Group6/files/14791197/K2_omics_speaks_input.csv)
 
-**Orange** bars represent ***A. arenosa*** whereas **green** bars represent ***A. lyrata***.
+*Key:* *A. arenosa* (Orange bars);*A. lyrata* (Green bars).*
 
-Contrary to our expectations, when K = 2, **FRE** was estimated to be **pure *A. lyrata*** as opposed to a 50/50 hybrid. 
+Contrary to our expectations, when K = 2, **FRE** was inferred to be **pure *A. lyrata*** as opposed to a 50:50 hybrid. 
 
 ### Allele frequency differences on a larger cohort of *A. arenosa* and *A. lyrata* samples
 
-In order to determine whether there was **hybridisation** betweeen *A. arenosa* and *A. lyrata* and the subsequent **formation** of an **allotetraploid** lineage (2 subgenomes: one from *A. arenosa*, the other from *A. lyrata*), we were given **text files** containing **4-fold degenerate** single nucleotide polymorphism (SNP) data from a **larger number of samples** from both species. The **structure** of the input files can be seen **below**.
+To determine whether **hybridisation** betweeen *A. arenosa* and *A. lyrata* has produced an **allotetraploid** lineage (2 subgenomes: one from *A. arenosa*, the other from *A. lyrata*), we leveraged allele frequency information from **text files** containing **4-fold degenerate** single nucleotide polymorphism (SNP) data from a **larger number of samples** from both species. The **structure** of the input files can be seen **below**.
 
  | **CHROM** | **POS** | **REF** | **ALT** | **AF** | **AC** | **AN** |
  | :-------: | :-----: | :-----: | :-----: | :----: | :----: | :----: |
