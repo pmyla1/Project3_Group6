@@ -326,11 +326,11 @@ Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight**
 
 This image was produced using the GUI [Omicsspeaks Structure Plot V2.0](http://omicsspeaks.com/strplot2/). 
 
-The input file is a comma separated value (CSV) file containing the individual name from the VCF (e.g BZD-01tl), followed by the population in the VCF (e.g. BZD), followed by the fastSTRUCTURE output for the genetic admixture proportions when K=2 (e.g 0.95,0.05).
+The **input file** is a comma separated value **(CSV)** file containing the **individual name** from the VCF (e.g BZD-01tl), followed by the **population** in the VCF (e.g. BZD), followed by the **fastSTRUCTURE output** (two floating numbers) for the genetic admixture proportions when **K=2** (e.g 0.95,0.05).
 
 The link to the input file can be accessed here [OmicsSpeaks input](https://github.com/pmyla1/Project3_Group6/files/14791197/K2_omics_speaks_input.csv)
 
-*Key:* *A. arenosa* (Orange bars);*A. lyrata* (Green bars).*
+*Key:* *A. arenosa* (**Orange** bars);*A. lyrata* (**Green** bars).
 
 Contrary to our expectations, when K = 2, **FRE** was inferred to be **pure *A. lyrata*** as opposed to a 50:50 hybrid. 
 
@@ -346,20 +346,21 @@ To determine whether **hybridisation** betweeen *A. arenosa* and *A. lyrata* has
 
 ***Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number***
 
-The structure of the **final output file** used to calculate **allele frequency differences** between species can be visualised **below**.
+The **extract_allele_frequencies_only.py** script uses the **pandas package** to drop the **REF**, **ALT**, **AC**, and **AN** columns from the output created by the **250324_combined_lyrata_arenosa.py** script. The structure of the **final output file** used to calculate the **allele frequency differences** between species can be visualised **below**.
 
  | **CHROM** | **POS** | **AF_arenosa** | **AF_lyrata** | 
  | :-------: | :-----: | :------------: | :-----------: |
  | scaffold_1 | 32 | 0.154 | 0.00053 |
+ | scaffold_1 | 160 | 0.232 | 0.558 |
 
 ***Key: CHROM, chromosome; POS, position; AF_arenosa, allele frequency in A. arenosa; AF_lyrata, allele frequency in A. lyrata*** 
 
-We obtained only the **common/shared SNPs** between **both species** by running the **250324_combined_lyrata_arenosa.py** script, which uses the **pandas package** to **merge** the arenosa_672.txt and the lyrata_272_with_some_hybrids.txt files based on **common/shared SNPs**. Only the allele frequencies were retained by executing the **extract_allele_frequencies_only.py** script. The **allele frequency differences** between *A. arenosa* and *A. lyrata* at these common sites were calculated in the **250324_common_SNPs.R** script. Plots of the site frequency spectra per species can be seen below. 
+We obtained only the **common/shared SNPs** between **both species** by running the **250324_combined_lyrata_arenosa.py** script, which uses the **pandas package** to **merge** the arenosa_672.txt and the lyrata_272_with_some_hybrids.txt files based on **common/shared SNPs**. Only the allele frequencies were retained by executing the **extract_allele_frequencies_only.py** script. The **allele frequency differences** between *A. arenosa* and *A. lyrata* at these common sites were calculated in the **250324_common_SNPs.R** script. Plots of the **site frequency spectra** per species can be seen below. 
 
 <img width="475" alt="AF_spectrum_arenosa_lyrata" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b85b800f-6df0-47b7-ac73-ab0e6d46c6a0">
 
 
-Next, we plotted the **allele frequency differences** per chromosome scaffold as a **Manhattan** plot using the **250324_common_SNPs.R script**, using an arbritary allele frequency difference **threshold of 0.85** for SNPs expected to be **"fixed"** in one species relative to the other. The **orange dots** above the dashed red line represent **"fixed" allele frequency differences**, suggesting that these SNPs are **private to one species**. These plots can be seen **below**.
+Next, we plotted the **allele frequency differences** per chromosome scaffold as a **Manhattan** plot using ggplot2 within the **250324_common_SNPs.R script**, using an arbritary allele frequency difference **threshold of 0.85** for SNPs expected to be **"fixed"** in one species relative to the other. The **orange dots** above the dashed red line represent **"fixed" allele frequency differences**, suggesting that these SNPs are **private to one species**. These plots can be seen **below**.
 
 <img width="475" alt="Chrom_1_4_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/d47d2218-269c-4948-b2fd-4a03af4d8f4e">
 
