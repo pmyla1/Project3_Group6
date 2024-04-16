@@ -1,7 +1,7 @@
 # Project3_Group6
 This Github page offers an introduction into manipulating **mixed ploidy VCF files** and how to calculate various population genetics metrics from polyploid VCFs such as **site frequency spectra**, and **Fst**.
 
-## **Introduction**
+# **Introduction**
 **Polyploidy** and **whole genome duplications** (WGD) occur throughout **all kingdoms** of life and are especially **ubiquitous in plants**. WGD is a **major mutation** that disrupts **ionomic**, **cellular**, and **meiotic** processes, and **neo-polyploids** must overcome various challenges including **genomic instability** and **chromosomal mis-segregation** during meiosis (Margburger et al., 2019 [Nature](https://www.nature.com/articles/s41467-019-13159-5)). One of the immediate challenges in neo-polyploids is the **formation of multivalent crossovers** between homologous chromosomes during meiosis, which can lead to **entanglement** and **chromosomal breakage** at anaphase I (Bray et al., 2023). If neo-polyploids **overcome** the initial challenges related to meiosis and genome instability, they can become **established** as a **polyploid lineage**. 
 
 Some of the genetic adaptations to WGD in polyploids have been characterised, however, despite **process-level convergence**, there appears to be **low convergence** at the **gene/orthologue level** (Bray et al, 2023 [bioRxiv](https://www.biorxiv.org/content/10.1101/2023.09.27.559727v2)). For example, many of the genes **under selection in polyploid** lineages of *Cochlearia*, *Cardamine amara*, and *Arabidopsis arenosa* belong to common functional categories involving **DNA repair**, **cell division**, and **ion homeostasis**, but there are **no orthologous genes** in common between species (Bray et al., 2023).
@@ -18,15 +18,16 @@ The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_prun
 
 
 
-### **Software Used**
-#### **1) fastSTRUCTURE**.
+# **Software Used**
+
+## **1) fastSTRUCTURE**.
 An algorithm to infer population structure: sourced from [fastSTRUCTURE](https://rajanil.github.io/fastStructure/). 
 
 Citation: Anil Raj, Matthew Stephens, and Jonathan K. Pritchard. fastSTRUCTURE: Variational Inference of Population Structure in Large SNP Data Sets , (Genetics) June 2014 197:573-589.
 
-#### Installation and dependencies
+## Installation and dependencies
 
-#### fastSTRUCTURE requires:
+### fastSTRUCTURE requires:
 [Numpy](https://numpy.org/)   
 
 [SciPy](https://scipy.org/) 
@@ -35,7 +36,7 @@ Citation: Anil Raj, Matthew Stephens, and Jonathan K. Pritchard. fastSTRUCTURE: 
 
 [GNU Scientific Library](https://www.gnu.org/software/gsl/)  
 
-#### Obtaining the Source code from GitHub
+## Obtaining the Source code from GitHub
 
 You can obtain the source code from the [fastSTRUCTURE](https://rajanil.github.io/fastStructure/) github page by cloning the repository into a new directory called fastSTRUCTURE:
 ```
@@ -55,7 +56,7 @@ Furthermore, the code can also be obtained with the following wget command
 wget --no-check-certificate https://github.com/rajanil/fastStructure/archive/master.tar.gz
 ```
 
-### Building Python extensions
+## Building Python extensions
 
 **Before** building the Python extensions for fastSTRUCTURE, identify your **path** to the **library files** ***libgsl.so*** and ***libgslcblas.so***, in addition to the **header file** ***gsl/gsl_sf_psi.h*** that are part of your **GNU Scientific Library installation**. 
 
@@ -92,10 +93,10 @@ If you would like to use a **specific gcc compiler**, you can do the following:
 CC=/path/to/compiler python setup.py build_ext --inplace 
 ```
 
-#### **2) The Genome Analysis Toolkit (GATK) `v4.2.2.0`**. 
+## **2) The Genome Analysis Toolkit (GATK) `v4.2.2.0`**. 
 For support and documentation click on the following link [GATK](https://software.broadinstitute.org/gatk/) 
 
-### Dependencies for GATK v4
+## Dependencies for GATK v4
 To configure, build, and run GATK:
 
 You require **`JAVA 17`** to run or build GATK.
@@ -115,9 +116,9 @@ git lfs install
 ```
 You also **require Gradle 5.6** - you can use the `./gradlew` script which will download and use an **appropriate Gradle version automatically**.
 
-### Installation of `GATK v4.2.2.0`
+## Installation of `GATK v4.2.2.0`
 
-### Python dependencies
+## Python dependencies
 GATK uses **Conda** as a **package manager** to establish and manage the Python environment and dependencies required by GATK tools that require Python.
 Firstly, if you have any **previous GATK versions** installed on your device, please **uninstall** using the following commands:
 ```
@@ -156,9 +157,9 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 
 ## **3) R and RStudio - R version 4.3.1 (2023-06-16)**
 
-### Installation 
+# Installation 
 
-### To install R-4.3.1 on Windows PC:
+## To install R-4.3.1 on Windows PC:
 
 1) **Uninstall previous versions** of R. 
 
@@ -169,7 +170,7 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 4) Open the installer and follow the instructions using **default options**. 
 
 
-### To install Rtools-4.3 on Windows PC:
+## To install Rtools-4.3 on Windows PC:
 
 1) **Uninstall previous versions** of Rtools. 
 
@@ -182,7 +183,7 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 5) Open the installer and follow the instructions using **default options**.
 
 
-### To install RStudio-4.3.1 on Windows PC:
+## To install RStudio-4.3.1 on Windows PC:
 
 1) **Uninstall previous versions** of RStudio. 
 
@@ -193,7 +194,7 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 4) Open the installer and then follow the instructions using **default options**. 
 
 
-### To install R version 4.3.1. on Apple macOS
+## To install R version 4.3.1. on Apple macOS
 
 1) **Uninstall previous installations** of R by navigating to your **applications folder** and moving **R** and **XQuartz** to the **Bin**. 
 
@@ -212,7 +213,7 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 5) To install XQuartz - **download XQuartz** from the following link [XQuartz download for macOS](https://www.xquartz.org/), open the installer using **default options**. 
 
 
-### To install RStudio-4.3.1 on Apple macOS
+## To install RStudio-4.3.1 on Apple macOS
 
 1) **Uninstall previous versions** of RStudio. 
 2) Click on the following link [RStudio Version 4.3.1 Installation for macOS](https://posit.co/download/rstudio-desktop/) and follow the download instructions from **step 2 onwards**. 
@@ -224,7 +225,7 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 
 2) Select the **correct program installer** for you specific device and follow the instructions for installation/download using **default options**.
 
-### To install samtools using Conda
+## To install samtools using Conda
 
 To **install samtools** using **conda** you can use the **following commands**:
 
@@ -241,7 +242,7 @@ To **install samtools** using **conda** you can use the **following commands**:
    conda install -c bioconda samtools
    ```
 
-## Scripts
+# Scripts
 
 1) **GATK_select_variants_initial.sh** was executed on the HPC using a **shared GATK environment**, and a custom **samtools environment** created using the install steps above.
 
@@ -266,10 +267,10 @@ Similarly to the **220324_whole_pipeline_gatk.sh**, `gatk SelectVariants -sn <sa
 Site-frequency spectra and allele frequencies are calculated using Tuomas Hämälä's (2023) [**`poly_sfs.c`**](https://github.com/thamala/polySV/blob/main/poly_sfs.c) and [**`poly_freq.c`**](https://github.com/thamala/polySV/blob/main/poly_freq.c) scripts, respectively.
 
 
-## Methodology and Results
+# Methodology and Results
 
 
-### *A. arenosa* and *A. lyrata* designated populations and ploidy levels
+## *A. arenosa* and *A. lyrata* designated populations and ploidy levels
 
  | Species        | Ploidy           | 3-letter pop code(s) |
  | ------------- | :-------------: | -----:|
@@ -279,33 +280,33 @@ Site-frequency spectra and allele frequencies are calculated using Tuomas Hämä
  | hybrid *A. arenosa* x *A. lyrata* | 4x | FRE, HAB, OCH |  
 
 
-## Exploratory genetic analyses with PCA 
+# Exploratory genetic analyses with PCA 
 
 We performed **exploratory population genetic analyses** using two different PCA techniques, (1) **Adegenet**, and (2) using Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) adapted PCA script and using our filtered vcf.gz as the input file for the PCA. 
 
-### Without BZD
+## Without BZD
 
 <img width="475" alt="Alt_PCA_tets_only_no_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/c0c26237-cabe-4620-8b3e-a095750fddab">
 
 
 *The tetraploid only populations were retained and used to investigate population structure and admixture between *A. arenosa* and *A. lyrata*. ***KEH-06 and KEH-08*** form a cluster with ***OCH-05 and FRE-06*** along ***PC1***, which explains ***33% of the variance***. Conversely, ***KEH-07 and KEH-09*** form a separate cluster with ***FRE-08*** and are differentiated from the previous cluster **along PC2**. Lastly, ***KEH-05 and KEH-10*** form a distinct cluster with ***FRE-05***, with extremely ***negative PC1 scores***. The other samples seem to produce with individuals from the same population, e.g. MOD with MOD, etc.*
 
-### With BZD plus additional populations (MAU, LIC, KAG)
+## With BZD plus additional populations (MAU, LIC, KAG)
 
 <img width="475" alt="Alt_PCA_tets_only_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/c2ae0068-0773-4919-a283-7bc49135b286">
 
-## Exploratory genetic analyses with discriminant analysis of principal components (DAPC)
+# Exploratory genetic analyses with discriminant analysis of principal components (DAPC)
 
 We subsequently performed a **discrimininant analysis of principal components** (DAPC) on individuals in the filtered VCF in order to determine the **number of population clusters** and to discern if there were any sample **mix ups**. Our cluster analysis suggested that there were only **3 population clusters** (K = 3). (**ADD MORE INFORMATION HERE FROM YOUR R SCRIPTS AND OUTPUT**).
 
 
-## Phylogenetic analyses with SplitsTree
+# Phylogenetic analyses with SplitsTree
 
 Next, we looked at the **relationships** between the individuals and populations with **SplitsTree**, following the correct **download instructions** for your **specific device** on the **University of Tübingen** website in the following link [SplitsTree](https://software-ab.cs.uni-tuebingen.de/download/splitstree4/welcome.html). 
 
 Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight** object using the **vcf2genlight** function from the **290324_populations.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into SplitsTree. Both the **individual** and the **population** data were used to produce **phylogenetic networks** in SplitsTree, and can be visualized below.
 
-### Phylogenetic network - Relationship between Individuals
+## Phylogenetic network - Relationship between Individuals
 ![290324_individuals](https://github.com/pmyla1/Project3_Group6/assets/151543531/b07c9e8a-4758-469f-b15e-36e3f2c15c07)
 
 
@@ -316,15 +317,15 @@ Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight**
 
 ***Figure 3b*** *Phylogenetic network showing relationships between individuals, including BZD*. 
 
-### Phylogenetic network - Relationship between Populations
+## Phylogenetic network - Relationship between Populations
 ![290324_populations](https://github.com/pmyla1/Project3_Group6/assets/151543531/b7d838f1-e7e6-4165-a55e-f3142c03a75d)
 
 ***Figure 3c*** *Phylogenetic network showing the relationships between populations.*
 
 
-## Population structure analysis
+# Population structure analysis
 
-### Structure plot of the tetraploid lineages with K = 2 
+## Structure plot of the tetraploid lineages with K = 2 
 
 ![K2_structure_plot](https://github.com/pmyla1/Project3_Group6/assets/151543531/cc49ac45-9aaa-494e-a258-691b162e312e)
 
@@ -338,18 +339,18 @@ The link to the input file can be accessed here [OmicsSpeaks input](https://gith
 
 Contrary to our expectations, when K = 2, **FRE** was inferred to be **pure *A. lyrata*** as opposed to a 50:50 hybrid.
 
-### fastSTRUCTURE output when K = 2, using the 290324_whole_pipe.sh script
+## fastSTRUCTURE output when K = 2, using the 290324_whole_pipe.sh script
 
 
 ![290324_K2_plot](https://github.com/pmyla1/Project3_Group6/assets/151543531/e6244ad0-6e04-420c-910b-35dd864389eb)
 
 *The fastSTRUCTURE output is difficult to interpret because of the overlapping labels and the order of the individuals in the plot. We can see that when K=2, fastSTRUCTURE infers there to be some 50:50 hybrids, indicated by a 50:50 red:blue bar in the fastSRUCTURE plot.* 
 
-### Allele frequency differences on a larger cohort of *A. arenosa* and *A. lyrata* samples
+## Allele frequency differences on a larger cohort of *A. arenosa* and *A. lyrata* samples
 
 To determine whether **hybridisation** betweeen *A. arenosa* and *A. lyrata* has produced an **allotetraploid** lineage (2 subgenomes: one from *A. arenosa*, the other from *A. lyrata*), we leveraged allele frequency information from **text files** containing **4-fold degenerate** single nucleotide polymorphism (SNP) data from a **larger number of samples** from both species. The **structure** of the input files can be seen **below**.
 
-### Input Text File Structure
+## Input Text File Structure
 
  | **CHROM** | **POS** | **REF** | **ALT** | **AF** | **AC** | **AN** |
  | :-------: | :-----: | :-----: | :-----: | :----: | :----: | :----: |
@@ -363,7 +364,7 @@ Firstly, the **250324_combined_lyrata_arenosa.py** file uses the [pandas](https:
 
 The structure of the **final output file** used to calculate the **allele frequency differences** between species can be visualised **below**.
 
-### Final Output File Structure
+## Final Output File Structure
 
  | **CHROM** | **POS** | **AF_arenosa** | **AF_lyrata** | 
  | :-------: | :-----: | :------------: | :-----------: |
@@ -381,11 +382,11 @@ The allele frequency columns were retained by executing the **extract_allele_fre
 
 Next, we plotted the **allele frequency differences** per chromosome scaffold as a **Manhattan** plot using ggplot2 within the **250324_common_SNPs.R script**, using an arbritary allele frequency difference **threshold of 0.85** for SNPs expected to be **"fixed"** in one species relative to the other. The **orange dots** above the dashed red line represent **"fixed" allele frequency differences**, suggesting that these SNPs are **private to one species**. These plots can be seen **below**.
 
-### Allele Frequency Differences: Chromosomes 1-4
+## Allele Frequency Differences: Chromosomes 1-4
 
 <img width="475" alt="Chrom_1_4_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/d47d2218-269c-4948-b2fd-4a03af4d8f4e">
 
-### Allele Frequency Differences: Chromosomes 5-8
+## Allele Frequency Differences: Chromosomes 5-8
 <img width="475" alt="Chrom_5_8_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b39061d5-245c-460d-b4ff-fbfc7ca751dd">
 
 
