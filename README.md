@@ -285,12 +285,12 @@ We performed **exploratory population genetic analyses** using two different PCA
 
 ## Exploratory genetic analyses with discriminant analysis of principal components (DAPC)
 
-We subsequently performed a discrimininant analysis of principal components (DAPC) on individuals in the filtered VCF in order to determine the number of population clusters and to discern if there were any sample mix ups. Our cluster analysis suggested that there were only 3 population clusters (K = 3). (**ADD MORE INFORMATION HERE FROM YOUR R SCRIPTS AND OUTPUT**).
+We subsequently performed a **discrimininant analysis of principal components** (DAPC) on individuals in the filtered VCF in order to determine the **number of population clusters** and to discern if there were any sample **mix ups**. Our cluster analysis suggested that there were only **3 population clusters** (K = 3). (**ADD MORE INFORMATION HERE FROM YOUR R SCRIPTS AND OUTPUT**).
 
 
 ## Phylogenetic analyses with SplitsTree
 
-Next, we looked at the **relationships** between the individuals and populations with SplitsTree, following the correct download instructions for your specific device on the **University of Tübingen** website in the following link [SplitsTree](https://software-ab.cs.uni-tuebingen.de/download/splitstree4/welcome.html). 
+Next, we looked at the **relationships** between the individuals and populations with **SplitsTree**, following the correct **download instructions** for your **specific device** on the **University of Tübingen** website in the following link [SplitsTree](https://software-ab.cs.uni-tuebingen.de/download/splitstree4/welcome.html). 
 
 Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight** object using the **vcf2genlight** function from the **290324_populations.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into SplitsTree. Both the **individual** and the **population** data were used to produce **phylogenetic networks** in SplitsTree, and can be visualized below.
 
@@ -331,24 +331,28 @@ Contrary to our expectations, when K = 2, **FRE** was inferred to be **pure *A. 
 
 To determine whether **hybridisation** betweeen *A. arenosa* and *A. lyrata* has produced an **allotetraploid** lineage (2 subgenomes: one from *A. arenosa*, the other from *A. lyrata*), we leveraged allele frequency information from **text files** containing **4-fold degenerate** single nucleotide polymorphism (SNP) data from a **larger number of samples** from both species. The **structure** of the input files can be seen **below**.
 
+### Input Text File Structure
+
  | **CHROM** | **POS** | **REF** | **ALT** | **AF** | **AC** | **AN** |
  | :-------: | :-----: | :-----: | :-----: | :----: | :----: | :----: |
  | scaffold_1 | 32 | C | A | 0.00053 | 1 | 1886 | 
  | scaffold_1 | 38 | A | T | 0.558 | 977 | 1750 |
  | scaffold_1 | 160 | C | A | 0.00974 | 18 | 1848 |
 
-***Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number***
+*Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number*
 
 Firstly, the **250324_combined_lyrata_arenosa.py** file uses the [pandas](https://pandas.pydata.org/docs/getting_started/install.html) package in python to merge the input files based on common SNPs (merges on **CHROM** and **POS** columns in the input files). The **extract_allele_frequencies_only.py** script also uses the **pandas package** to drop the **REF**, **ALT**, **AC**, and **AN** columns from the output created by the **250324_combined_lyrata_arenosa.py** script. 
 
 The structure of the **final output file** used to calculate the **allele frequency differences** between species can be visualised **below**.
+
+### Final Output File Structure
 
  | **CHROM** | **POS** | **AF_arenosa** | **AF_lyrata** | 
  | :-------: | :-----: | :------------: | :-----------: |
  | scaffold_1 | 32 | 0.154 | 0.00053 |
  | scaffold_1 | 160 | 0.232 | 0.558 |
 
-***Key: CHROM, chromosome; POS, position; AF_arenosa, allele frequency in A. arenosa; AF_lyrata, allele frequency in A. lyrata*** 
+*Key: CHROM, chromosome; POS, position; AF_arenosa, allele frequency in A. arenosa; AF_lyrata, allele frequency in A. lyrata* 
 
 We obtained only the **common/shared SNPs** between **both species** by running the **250324_combined_lyrata_arenosa.py** script, which uses the **pandas package** to **merge** the arenosa_672.txt and the lyrata_272_with_some_hybrids.txt files based on **common/shared SNPs**. 
 
@@ -359,9 +363,11 @@ The allele frequency columns were retained by executing the **extract_allele_fre
 
 Next, we plotted the **allele frequency differences** per chromosome scaffold as a **Manhattan** plot using ggplot2 within the **250324_common_SNPs.R script**, using an arbritary allele frequency difference **threshold of 0.85** for SNPs expected to be **"fixed"** in one species relative to the other. The **orange dots** above the dashed red line represent **"fixed" allele frequency differences**, suggesting that these SNPs are **private to one species**. These plots can be seen **below**.
 
+### Allele Frequency Differences: Chromosomes 1-4
+
 <img width="475" alt="Chrom_1_4_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/d47d2218-269c-4948-b2fd-4a03af4d8f4e">
 
-
+### Allele Frequency Differences: Chromosomes 5-8
 <img width="475" alt="Chrom_5_8_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b39061d5-245c-460d-b4ff-fbfc7ca751dd">
 
 
