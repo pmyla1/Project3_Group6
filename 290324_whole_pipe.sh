@@ -14,7 +14,7 @@ conda activate /shared/apps/conda/bio2/
 
 ##########
 ##GATK select variants to include one pure arenosa (KEH), one pure lyrata (MOD) and hybrid tetraploids only 
-gatk SelectVariants -V Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz -sn FRE-03tl -sn FRE-04tl -sn FRE-05tl -sn FRE-06tl -sn FRE-07tl -sn FRE-08tl -sn HAB-01tl -sn HAB-02tl -sn HAB-03tl -sn KEH-05tl -sn KEH-06tl -sn KEH-07tl -sn KEH-08tl -sn KEH-09tl -sn KEH-10tl -sn LOI-01tl -sn LOI-02tl -sn LOI-03tl -sn MOD-01tl -sn MOD-02tl -sn MOD-03tl -sn MOD-04tl -sn OCH-03tl -sn OCH-04tl -sn OCH-05tl -sn OCH-06tl -sn OCH-07tl -sn OCH-08tl -sn PIL-01tl -sn PIL-02tl -sn PIL-03tl -O ./290324_whole_pipeline_VCFs/290324_tetraploids_only.vcf.gz 
+gatk SelectVariants -V Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz -sn BZD-01tl -sn BZD-02tl -sn BZD-03tl -sn BZD-04tl -sn BZD-05tl -sn BZD-06tl -sn FRE-03tl -sn FRE-04tl -sn FRE-05tl -sn FRE-06tl -sn FRE-07tl -sn FRE-08tl -sn HAB-01tl -sn HAB-02tl -sn HAB-03tl -sn KEH-05tl -sn KEH-06tl -sn KEH-07tl -sn KEH-08tl -sn KEH-09tl -sn KEH-10tl -sn LOI-01tl -sn LOI-02tl -sn LOI-03tl -sn MOD-01tl -sn MOD-02tl -sn MOD-03tl -sn MOD-04tl -sn OCH-03tl -sn OCH-04tl -sn OCH-05tl -sn OCH-06tl -sn OCH-07tl -sn OCH-08tl -sn PIL-01tl -sn PIL-02tl -sn PIL-03tl -O ./290324_whole_pipeline_VCFs/290324_tetraploids_only.vcf.gz 
 
 conda deactivate
 #################
@@ -42,9 +42,6 @@ conda activate /shared/conda/faststructure/
 ##poly_freq script for estimating allele frequencies from mixed ploidy vcf files
 ./filtered_VCFs_for_faststructure/poly_freq -vcf ./290324_whole_pipeline_VCFs/290324_tetraploids_only_copy.vcf -pops ./290324_whole_pipeline_VCFs/populations_final.txt -mis 0.8 -maf 0.02 -out 0 > ./290324_whole_pipeline_VCFs/290324_poly_freq_output
 
-######
-##poly_fst for estimating pairwise Fst and Dxy from mixed ploidy VCFs
-
 
 ###################
 ##CREATE STRUCTURE APPROPRIATE FILES 
@@ -56,6 +53,7 @@ sed "1d" ./290324_whole_pipeline_VCFs/vcf_to_str/290324_structure_files.Structur
 
 ###################
 ##reorder the structure files into alphabetical order
+grep "BZD" ./290324_whole_pipeline_VCFs/290324_first_last_removed.StructureInputDiploidized.str > ./290324_whole_pipeline_VCFs/BZD.str
 
 grep "FRE" ./290324_whole_pipeline_VCFs/290324_first_last_removed.StructureInputDiploidized.str > ./290324_whole_pipeline_VCFs/FRE.str
 
@@ -75,7 +73,7 @@ grep "PIL" ./290324_whole_pipeline_VCFs/290324_first_last_removed.StructureInput
 ##concatenate into a reordered .str file
 cd ./290324_whole_pipeline_VCFs/
 
-cat FRE.str HAB.str KEH.str LOI.str MOD.str OCH.str PIL.str > ./290324_reordered_structure.str 
+cat BZD.str FRE.str HAB.str KEH.str LOI.str MOD.str OCH.str PIL.str > ./290324_reordered_structure.str 
 
 cd ../
 ######################
