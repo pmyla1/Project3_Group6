@@ -298,7 +298,7 @@ Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight**
 ![290324_individuals](https://github.com/pmyla1/Project3_Group6/assets/151543531/b07c9e8a-4758-469f-b15e-36e3f2c15c07)
 
 
-***Figure 3a*** *Phylogenetic network showing relationships between individuals. Most individuals group with samples from the same population, (e.g. MOD forms a single cluster) however, there are some sample mixups with KEH individuals forming three separate clusters. Furthermore, some OCH samples cluster with individuals from different populations.*
+***Figure 3a*** *Phylogenetic network showing relationships between individuals. Most individuals **group with** samples from the **same population**, (e.g. MOD forms a single cluster) however, there are **some sample mixups** with **KEH** individuals forming **three separate clusters**. Furthermore, some OCH samples cluster with individuals from different populations.*
 
 
 <img width="475" alt="Phylo_tree_inds_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/76d26c5d-2d06-49e5-b9da-1e492e65974f">
@@ -348,7 +348,9 @@ The **extract_allele_frequencies_only.py** script uses the **pandas package** to
 
 ***Key: CHROM, chromosome; POS, position; AF_arenosa, allele frequency in A. arenosa; AF_lyrata, allele frequency in A. lyrata*** 
 
-We obtained only the **common/shared SNPs** between **both species** by running the **250324_combined_lyrata_arenosa.py** script, which uses the **pandas package** to **merge** the arenosa_672.txt and the lyrata_272_with_some_hybrids.txt files based on **common/shared SNPs**. Only the allele frequencies were retained by executing the **extract_allele_frequencies_only.py** script. The **allele frequency differences** between *A. arenosa* and *A. lyrata* at these common sites were calculated in the **250324_common_SNPs.R** script. Plots of the **site frequency spectra** per species can be seen below. 
+We obtained only the **common/shared SNPs** between **both species** by running the **250324_combined_lyrata_arenosa.py** script, which uses the **pandas package** to **merge** the arenosa_672.txt and the lyrata_272_with_some_hybrids.txt files based on **common/shared SNPs**. 
+
+The allele frequency columns were retained by executing the **extract_allele_frequencies_only.py** script. The **allele frequency differences** between *A. arenosa* and *A. lyrata* at these common sites were calculated in the **250324_common_SNPs.R** script. Plots of the **site frequency spectra** per species can be seen below. 
 
 <img width="475" alt="AF_spectrum_arenosa_lyrata" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b85b800f-6df0-47b7-ac73-ab0e6d46c6a0">
 
