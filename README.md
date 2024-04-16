@@ -115,26 +115,10 @@ git lfs install
 ```
 You also **require Gradle 5.6** - you can use the `./gradlew` script which will download and use an **appropriate Gradle version automatically**.
 
-### Python dependencies
-GATK uses **Conda** as a **package manager** to establish and manage the Python environment and dependencies required by GATK tools that require Python.
-
-You must first **create** and then **activate** a `Conda` environment for `GATK` using either **`Miniconda`** or **`Conda`**.
-To create the GATK Conda environment, there are **two main methods** that can be used:
-If running from a **zip or tar** distribution, run the following commands to create the `gatk` environment:
-```
-conda env create -f gatkcondanev.yml
-```
-Or if you are running from a **cloned repository**, run the following command:
-```
-./gradlew localDevCondaEnv
-```
-You can **activate** the conda environment by executing the following **shell command**.  
-```
-source activate gatk
-```
-
 ### Installation of `GATK v4.2.2.0`
 
+### Python dependencies
+GATK uses **Conda** as a **package manager** to establish and manage the Python environment and dependencies required by GATK tools that require Python.
 Firstly, if you have any **previous GATK versions** installed on your device, please **uninstall** using the following commands:
 ```
 source deactivate
@@ -149,12 +133,21 @@ conda update -n base conda
 
 To install the **GATK v4** package
 
-Navigate to the **directory** where you have **stored your GATK jars** and the **gatk wrapper** script, ensure the **`gatkcondaenv.yml`** is present, then run the following command:
+You must first **create** and then **activate** a `Conda` environment for `GATK` using either **`Miniconda`** or **`Conda`**.
+
+If you are running from a **zip** or **tar** distribution, then navigate to the **directory** where you have **stored your GATK jars** and the **gatk wrapper** script, ensure the **`gatkcondaenv.yml`** is present, and run the following command:
 ```
 conda env create -n gatk -f gatkcondaenv.yml
 
 source activate gatk
 ```
+Or if you are running from a **cloned repository**, run the following command:
+```
+./gradlew localDevCondaEnv
+
+source activate gatk
+```
+
 To check if your GATK environment is **properly installed** run: 
 ```
 conda list
@@ -247,7 +240,7 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
    conda install -c bioconda samtools
    ```
 
-The script uses the `gatk IndexFeatureFile -I`  command to create an **indexed fasta** file from the **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**.
+The `gatk IndexFeatureFile -I`  command is used to create an **indexed fasta** file from the **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**.
 
 Subsequently, a **sequence dictionary** is created using `gatk CreateSequenceDictionary`, and then `samtools faidx` is used to index the previously created fasta file. 
 
@@ -259,7 +252,7 @@ Finally, `gatk SelectVariants` with the `-sn` flag is used to **select specific 
 
 The **site-frequency spectra** and the **allele frequencies** are calculated for the 220324_filtered_pops.vcf.gz* using Tuomas Hämälä's (2023) [**`poly_sfs.c`**](https://github.com/thamala/polySV/blob/main/poly_sfs.c) and [**`poly_freq.c`**](https://github.com/thamala/polySV/blob/main/poly_freq.c) scripts, respectively.
 
-Next, the VCF file is prepared for **`Cochlearia_create_structure_file.py`** using the **'-s true'** flag for pseudo-diploidization, and the populations are rearranged into alphabetical order for plotting purposes. 
+Next, the polyploid VCF is prepared for **fastSTRUCTURE** using Yant et al (2023) **`Cochlearia_create_structure_file.py`** script for polyploid data, using the **'-s true'** flag to subsample the data to make a pseudo-diploid structure output. The populations are then rearranged into alphabetical order for plotting purposes. 
 
 3) **
 
