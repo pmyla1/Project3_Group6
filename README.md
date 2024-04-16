@@ -218,15 +218,16 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
 2) Click on the following link [RStudio Version 4.3.1 Installation for macOS](https://posit.co/download/rstudio-desktop/) and follow the download instructions from **step 2 onwards**. 
 3) Open the installer and follow the instructions using **default options**.
 
-## To install SplitsTree
+## To install SplitsTree for Phylogenetic Analyses
 
-1) To install SplitsTree, go to the University of Tübingen Website [SplitsTree](https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/) and click on the `Download` link.
+1) To install **SplitsTree**, go to the **University of Tübingen** Website [SplitsTree](https://software-ab.cs.uni-tuebingen.de/download/splitstree4/welcome.html) and click on the **`Download`** link.
 
-2) Select the correct program installer for you specific device and follow the instructions for installation/download using default options. 
+2) Select the **correct program installer** for you specific device and follow the instructions for installation/download using **default options**.
 
-## Scripts
+### To install samtools using Conda
 
-1) **GATK_select_variants_initial.sh** was executed on the HPC using a **shared GATK environment**, and a custom **samtools environment** which was created using the following commands:
+To **install samtools** using **conda** you can use the **following commands**:
+
    ```
    ## create the samtools environment
    conda create -n samtools
@@ -239,6 +240,10 @@ Which should return a list of packages you have installed, **`gatkpythonpackages
    ## install samtools
    conda install -c bioconda samtools
    ```
+
+## Scripts
+
+1) **GATK_select_variants_initial.sh** was executed on the HPC using a **shared GATK environment**, and a custom **samtools environment** created using the install steps above.
 
 The `gatk IndexFeatureFile -I`  command is used to create an **indexed fasta** file from the **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**.
 
@@ -254,7 +259,7 @@ The **site-frequency spectra** and the **allele frequencies** are calculated for
 
 Next, the polyploid VCF is prepared for **fastSTRUCTURE** using Yant et al (2023) **`Cochlearia_create_structure_file.py`** script for polyploid data, using the **'-s true'** flag to subsample the data to make a pseudo-diploid structure output. The populations are then rearranged into alphabetical order for plotting purposes. 
 
-3) **
+3) The **290324_whole_pipe.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/` and a shared GATK environment `/shared/conda/apps/bio2/`
 
 
  
