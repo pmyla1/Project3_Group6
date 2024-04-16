@@ -343,7 +343,7 @@ Contrary to our expectations, when K = 2, **FRE** was inferred to be **pure *A. 
 
 ![290324_K2_plot](https://github.com/pmyla1/Project3_Group6/assets/151543531/e6244ad0-6e04-420c-910b-35dd864389eb)
 
-*The fastSTRUCTURE output is difficult to interpret because of the overlapping labels and the order of the individuals in the plot. 
+*The fastSTRUCTURE output is difficult to interpret because of the overlapping labels and the order of the individuals in the plot. We can see that when K=2, fastSTRUCTURE infers there to be some 50:50 hybrids, indicated by a 50:50 red:blue bar in the fastSRUCTURE plot.* 
 
 ### Allele frequency differences on a larger cohort of *A. arenosa* and *A. lyrata* samples
 
