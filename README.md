@@ -259,10 +259,16 @@ The **site-frequency spectra** and the **allele frequencies** are calculated for
 
 Next, the polyploid VCF is prepared for **fastSTRUCTURE** using Yant et al (2023) **`Cochlearia_create_structure_file.py`** script for polyploid data, using the **'-s true'** flag to subsample the data to make a pseudo-diploid structure output. The populations are then rearranged into alphabetical order for plotting purposes. 
 
-3) The **290324_whole_pipe.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/` and a shared GATK environment `/shared/conda/apps/bio2/`
+3) The **290324_whole_pipe.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/` and a shared GATK environment `/shared/apps/conda/bio2/`.
+
+Similarly to the **220324_whole_pipeline_gatk.sh**, `gatk SelectVariants -sn <sample in vcf>` was used to select tetraploid only individuals from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**. 
+
+Site-frequency spectra and allele frequencies are calculated using Tuomas Hämälä's (2023) [**`poly_sfs.c`**](https://github.com/thamala/polySV/blob/main/poly_sfs.c) and [**`poly_freq.c`**](https://github.com/thamala/polySV/blob/main/poly_freq.c) scripts, respectively.
 
 
- 
+## Methodology and Results
+
+
 ### *A. arenosa* and *A. lyrata* designated populations and ploidy levels
 
  | Species        | Ploidy           | 3-letter pop code(s) |
