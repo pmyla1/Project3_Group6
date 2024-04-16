@@ -336,7 +336,14 @@ The link to the input file can be accessed here [OmicsSpeaks input](https://gith
 
 *Key:* *A. arenosa* (**Orange** bars);*A. lyrata* (**Green** bars).
 
-Contrary to our expectations, when K = 2, **FRE** was inferred to be **pure *A. lyrata*** as opposed to a 50:50 hybrid. 
+Contrary to our expectations, when K = 2, **FRE** was inferred to be **pure *A. lyrata*** as opposed to a 50:50 hybrid.
+
+### fastSTRUCTURE output when K = 2, using the 290324_whole_pipe.sh script
+
+
+![290324_K2_plot](https://github.com/pmyla1/Project3_Group6/assets/151543531/e6244ad0-6e04-420c-910b-35dd864389eb)
+
+*The fastSTRUCTURE output is difficult to interpret because of the overlapping labels and the order of the individuals in the plot. 
 
 ### Allele frequency differences on a larger cohort of *A. arenosa* and *A. lyrata* samples
 
