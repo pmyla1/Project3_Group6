@@ -13,8 +13,8 @@ conda activate /shared/apps/conda/bio2/
 ###############
 
 ##########
-##GATK select variants to include one pure arenosa (KEH), one pure lyrata (MOD) and hybrid tetraploids only 
-gatk SelectVariants -V Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz -sn BZD-01tl -sn BZD-02tl -sn BZD-03tl -sn BZD-04tl -sn BZD-05tl -sn BZD-06tl -sn FRE-03tl -sn FRE-04tl -sn FRE-05tl -sn FRE-06tl -sn FRE-07tl -sn FRE-08tl -sn HAB-01tl -sn HAB-02tl -sn HAB-03tl -sn KEH-05tl -sn KEH-06tl -sn KEH-07tl -sn KEH-08tl -sn KEH-09tl -sn KEH-10tl -sn LOI-01tl -sn LOI-02tl -sn LOI-03tl -sn MOD-01tl -sn MOD-02tl -sn MOD-03tl -sn MOD-04tl -sn OCH-03tl -sn OCH-04tl -sn OCH-05tl -sn OCH-06tl -sn OCH-07tl -sn OCH-08tl -sn PIL-01tl -sn PIL-02tl -sn PIL-03tl -O ./290324_whole_pipeline_VCFs/290324_tetraploids_only.vcf.gz 
+##GATK select variants to include tetraploids only 
+gatk SelectVariants -V Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz -sn BZD-01tl -sn BZD-02tl -sn BZD-03tl -sn BZD-04tl -sn BZD-05tl -sn BZD-06tl -sn BZD-07tl -sn BZD-08tl -sn FRE-03tl -sn FRE-04tl -sn FRE-05tl -sn FRE-06tl -sn FRE-07tl -sn FRE-08tl -sn HAB-01tl -sn HAB-02tl -sn HAB-03tl -sn -sn KAG-01tl -sn KAG-02tl -sn KAG-03tl KEH-05tl -sn KEH-06tl -sn KEH-07tl -sn KEH-08tl -sn KEH-09tl -sn KEH-10tl -sn LIC-01tl -sn LIC-02tl -sn LIC-03tl -sn LOI-01tl -sn LOI-02tl -sn LOI-03tl -sn MOD-01tl -sn MOD-02tl -sn MOD-03tl -sn MOD-04tl -sn OCH-03tl -sn OCH-04tl -sn OCH-05tl -sn OCH-06tl -sn OCH-07tl -sn OCH-08tl -sn PIL-01tl -sn PIL-02tl -sn PIL-03tl -O ./290324_whole_pipeline_VCFs/290324_tetraploids_only.vcf.gz 
 
 conda deactivate
 #################
@@ -59,7 +59,11 @@ grep "FRE" ./290324_whole_pipeline_VCFs/290324_first_last_removed.StructureInput
 
 grep "HAB" ./290324_whole_pipeline_VCFs/290324_first_last_removed.StructureInputDiploidized.str > ./290324_whole_pipeline_VCFs/HAB.str
 
+grep "KAG" ./290324_whole_pipeline_VCFs/290324_first_last_removed.StructureInputDiploidized.str > ./290324_whole_pipeline_VCFs/KAG.str
+
 grep "KEH" ./290324_whole_pipeline_VCFs/290324_first_last_removed.StructureInputDiploidized.str > ./290324_whole_pipeline_VCFs/KEH.str
+
+grep "LIC" ./290324_whole_pipeline_VCFs/290324_first_last_removed.StructureInputDiploidized.str > ./290324_whole_pipeline_VCFs/LIC.str
 
 grep "LOI" ./290324_whole_pipeline_VCFs/290324_first_last_removed.StructureInputDiploidized.str > ./290324_whole_pipeline_VCFs/LOI.str
 
@@ -73,7 +77,7 @@ grep "PIL" ./290324_whole_pipeline_VCFs/290324_first_last_removed.StructureInput
 ##concatenate into a reordered .str file
 cd ./290324_whole_pipeline_VCFs/
 
-cat BZD.str FRE.str HAB.str KEH.str LOI.str MOD.str OCH.str PIL.str > ./290324_reordered_structure.str 
+cat BZD.str FRE.str HAB.str KAG.str KEH.str LIC.str LOI.str MOD.str OCH.str PIL.str > ./290324_reordered_structure.str 
 
 cd ../
 ######################
