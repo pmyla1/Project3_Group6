@@ -290,7 +290,7 @@ We subsequently performed a discrimininant analysis of principal components (DAP
 
 ## Phylogenetic analyses with SplitsTree
 
-Next, we looked at the **relationships** between the individuals and populations with SplitsTree, following the download instructions from the **University of Tübingen** website in the link [SplitsTree](https://software-ab.cs.uni-tuebingen.de/download/splitstree4/welcome.html). 
+Next, we looked at the **relationships** between the individuals and populations with SplitsTree, following the correct download instructions for your specific device on the **University of Tübingen** website in the following link [SplitsTree](https://software-ab.cs.uni-tuebingen.de/download/splitstree4/welcome.html). 
 
 Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight** object using the **vcf2genlight** function from the **290324_populations.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into SplitsTree. Both the **individual** and the **population** data were used to produce **phylogenetic networks** in SplitsTree, and can be visualized below.
 
@@ -339,7 +339,9 @@ To determine whether **hybridisation** betweeen *A. arenosa* and *A. lyrata* has
 
 ***Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number***
 
-The **extract_allele_frequencies_only.py** script uses the **pandas package** to drop the **REF**, **ALT**, **AC**, and **AN** columns from the output created by the **250324_combined_lyrata_arenosa.py** script. The structure of the **final output file** used to calculate the **allele frequency differences** between species can be visualised **below**.
+Firstly, the **250324_combined_lyrata_arenosa.py** file uses the [pandas](https://pandas.pydata.org/docs/getting_started/install.html) package in python to merge the input files based on common SNPs (merges on **CHROM** and **POS** columns in the input files). The **extract_allele_frequencies_only.py** script also uses the **pandas package** to drop the **REF**, **ALT**, **AC**, and **AN** columns from the output created by the **250324_combined_lyrata_arenosa.py** script. 
+
+The structure of the **final output file** used to calculate the **allele frequency differences** between species can be visualised **below**.
 
  | **CHROM** | **POS** | **AF_arenosa** | **AF_lyrata** | 
  | :-------: | :-----: | :------------: | :-----------: |
