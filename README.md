@@ -284,10 +284,10 @@ Site-frequency spectra and allele frequencies are calculated using Tuomas Hämä
 
 We performed **exploratory population genetic analyses** using two different PCA techniques, (1) **Adegenet**, and (2) using Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) adapted PCA script and using our filtered vcf.gz as the input file for the PCA. 
 
-## Without BZD
+## With BZD (added 17_04_24)
 
-<img width="475" alt="Alt_PCA_tets_only_no_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/c0c26237-cabe-4620-8b3e-a095750fddab">
 
+![170424_Tetraploids_PCA_ALT](https://github.com/pmyla1/Project3_Group6/assets/151543531/700421ba-2294-4e16-831d-afd1eda84732)
 
 *The tetraploid only populations were retained and used to investigate population structure and admixture between *A. arenosa* and *A. lyrata*. ***KEH-06 and KEH-08*** form a cluster with ***OCH-05 and FRE-06*** along ***PC1***, which explains ***33% of the variance***. Conversely, ***KEH-07 and KEH-09*** form a separate cluster with ***FRE-08*** and are differentiated from the previous cluster **along PC2**. Lastly, ***KEH-05 and KEH-10*** form a distinct cluster with ***FRE-05***, with extremely ***negative PC1 scores***. The other samples seem to produce with individuals from the same population, e.g. MOD with MOD, etc.*
 
