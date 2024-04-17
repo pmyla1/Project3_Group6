@@ -1,7 +1,7 @@
 # Project3_Group6
 This Github page offers an introduction into manipulating **mixed ploidy VCF files** and how to calculate various population genetics metrics from polyploid VCFs such as **site frequency spectra**, and **Fst**.
 
-# **Introduction**
+# Introduction
 **Polyploidy** and **whole genome duplications** (WGD) occur throughout **all kingdoms** of life and are especially **ubiquitous in plants**. WGD is a **major mutation** that disrupts **ionomic**, **cellular**, and **meiotic** processes, and **neo-polyploids** must overcome various challenges including **genomic instability** and **chromosomal mis-segregation** during meiosis (Margburger et al., 2019 [Nature](https://www.nature.com/articles/s41467-019-13159-5)). One of the immediate challenges in neo-polyploids is the **formation of multivalent crossovers** between homologous chromosomes during meiosis, which can lead to **entanglement** and **chromosomal breakage** at anaphase I (Bray et al., 2023). If neo-polyploids **overcome** the initial challenges related to meiosis and genome instability, they can become **established** as a **polyploid lineage**. 
 
 Some of the genetic adaptations to WGD in polyploids have been characterised, however, despite **process-level convergence**, there appears to be **low convergence** at the **gene/orthologue level** (Bray et al, 2023 [bioRxiv](https://www.biorxiv.org/content/10.1101/2023.09.27.559727v2)). For example, many of the genes **under selection in polyploid** lineages of *Cochlearia*, *Cardamine amara*, and *Arabidopsis arenosa* belong to common functional categories involving **DNA repair**, **cell division**, and **ion homeostasis**, but there are **no orthologous genes** in common between species (Bray et al., 2023).
