@@ -274,7 +274,7 @@ Site-frequency spectra and allele frequencies are calculated using Tuomas Hämä
 
 The VCF is subsequently prepared for **fastSTRUCTURE** using Yant et al (2023) **Cochlearia_create_structure_file.py** python script for polyploids, using the **`-s true`** flag to subsample the data to make a pseudo-diploid output structure file. The structure files are arranged according to populations. 
 
-new_distruct.py is used to 
+The fastSTRUCTURE script **structure.py** is used to infer the admixture proportions of the individual samples in **290324_filtered_pops.vcf.gz** with K-values ranging from 2-7. Subsequently, a modified **distruct.py** script called **new_distruct.py** is used to produce fastSTRUCTURE plots for K-values ranging from 2-7. 
 
 ## 250324_combined_lyrata_arenosa.py 
 
@@ -284,6 +284,9 @@ The converted input files are then merged based on the **CHROM** and **POS** col
 
 The script then **renames** the **AF_x** & **AF_y** columns as **AF_arenosa** & **AF_lyrata**, respectively, and drops the allele count, allele number, reference, and  alternative columns from the output file to **retain the allele frequencies only**.
 
+## 250324_common_SNPs.R
+
+**250324_common_SNPs.R** is a large R script which uses ggplot2 to produce a range of different plots from the output of **250324_combined_lyrata_arenosa.py**. Firstly, allele frequency differences between *A. arenosa* and *A. lyrata* are calculated, and then plotted per scaffold (**CHROM**) as a Manhattan plot using ggplot2.  
 
 # Methodology and Results
 
