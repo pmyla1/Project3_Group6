@@ -35,8 +35,8 @@ output=pd.merge(input1,input2,how='inner',on=['CHROM','POS'],sort=True)
 ##rename the AF columns to AF_arenosa and AF_lyrata
 output=output.rename(columns={'AF_x':'AF_arenosa','AF_y':'AF_lyrata'})
 
-##drop the allele count (AC_x, AC_y) and allele number (AN_x, AC_y) columns from the output for tidyness
-output=output.drop(['AC_x','AC_y','AN_x','AN_y'],axis=1)
+##drop allele count (AC_x, AC_y) allele number (AN_x, AC_y), REF, and ALT columns from output to retain allele frequencies only
+output=output.drop(['AC_x','AC_y','AN_x','AN_y','REF_x','REF_y','ALT_x','ALT_y'],axis=1)
 
 ##write the output to_csv
 output.to_csv('CommonSNPs_lyrata_arenosa.tsv',sep='\t',index=True)
