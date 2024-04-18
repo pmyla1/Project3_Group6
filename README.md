@@ -318,26 +318,22 @@ Next, we looked at the **relationships** between the individuals and populations
 
 Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight** object using the **vcf2genlight** function from the **290324_populations.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into SplitsTree. Both the **individual** and the **population** data were used to produce **phylogenetic networks** in SplitsTree, and can be visualized below.
 
-## Phylogenetic network - Relationship between Individuals
-![290324_individuals](https://github.com/pmyla1/Project3_Group6/assets/151543531/b07c9e8a-4758-469f-b15e-36e3f2c15c07)
+## Example Phylogenetic network - Relationship between Individuals
 
+<img width="475" alt="Phylo_tree_inds_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/76d26c5d-2d06-49e5-b9da-1e492e65974f">
 
 ***Figure 3a*** *Phylogenetic network showing relationships between individuals. Most individuals **group with** samples from the **same population**, (e.g. MOD forms a single cluster) however, there are **some sample mixups** with **KEH** individuals forming **three separate clusters**. Furthermore, some OCH samples cluster with individuals from different populations.*
 
 
-<img width="475" alt="Phylo_tree_inds_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/76d26c5d-2d06-49e5-b9da-1e492e65974f">
-
-***Figure 3b*** *Phylogenetic network showing relationships between individuals, including BZD*. 
-
 ## Phylogenetic network - Relationship between Populations
 ![290324_populations](https://github.com/pmyla1/Project3_Group6/assets/151543531/b7d838f1-e7e6-4165-a55e-f3142c03a75d)
 
-***Figure 3c*** *Phylogenetic network showing the relationships between populations.*
+***Figure 3b*** *Phylogenetic network showing the relationships between populations.*
 
 
 # Population structure analysis
 
-## Structure plot of the tetraploid lineages with K = 2 
+## Example Structure plot of the tetraploid lineages with K = 2 
 
 ![K2_structure_plot](https://github.com/pmyla1/Project3_Group6/assets/151543531/cc49ac45-9aaa-494e-a258-691b162e312e)
 
