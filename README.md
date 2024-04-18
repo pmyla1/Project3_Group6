@@ -312,20 +312,19 @@ We performed **exploratory population genetic analyses** using two different PCA
 
 ## Example output using Adegenet
 
-![Rplot](https://github.com/pmyla1/Project3_Group6/assets/151543531/27f86ed9-db3f-425d-a25f-8305493d5bc9)
-
+![Rplot](https://github.com/pmyla1/Project3_Group6/assets/151543531/f8690f8d-3cdd-4d6f-950e-2c3bb25c89a2)
 
 # Exploratory genetic analyses with discriminant analysis of principal components (DAPC)
 
 We subsequently performed a **discrimininant analysis of principal components** (DAPC) on individuals in the filtered VCF in order to determine the **number of population clusters** and to discern if there were any sample **mix ups**. Our cluster analysis suggested that there were only **3 population clusters** (K = 3). DAPC suggested that some of the samples may have been admixed, highlighted by some of the multi-coloured bars. 
 
 
-![Rplot02](https://github.com/pmyla1/Project3_Group6/assets/151543531/6e26b60e-751f-466a-9bc0-3a11fc6ffacc)
+
 
 
 # Rudimentary unrooted neighbour-joining tree of tetraploid *A. arenosa* & *A. lyrata*
 
-![Rplot01](https://github.com/pmyla1/Project3_Group6/assets/151543531/f1644a3f-9a56-4ad4-b7e1-9e1352f521bc)
+
 
 
 
