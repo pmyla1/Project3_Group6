@@ -254,7 +254,7 @@ Subsequently, a **sequence dictionary** is created using `gatk CreateSequenceDic
 
 Finally, `gatk SelectVariants` with the `-sn` flag is used to **select specific individuals** from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** and to make a new .vcf.gz with only these individuals called **new_pops_filtered.vcf.gz**.
 
-## 220324_whole_pipeline_gatk.sh** 
+## 220324_whole_pipeline_gatk.sh 
 
 **220324_whole_pipeline_gatk.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/` and a shared gatk environment `/shared/apps/conda/bio2/`.
 
@@ -271,6 +271,17 @@ The **290324_whole_pipe.sh** was executed on the HPC using a shared conda enviro
 Similarly to the **220324_whole_pipeline_gatk.sh**, `gatk SelectVariants -sn <sample in vcf>` was used to select tetraploid only individuals from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**. 
 
 Site-frequency spectra and allele frequencies are calculated using Tuomas Hämälä's (2023) [**`poly_sfs.c`**](https://github.com/thamala/polySV/blob/main/poly_sfs.c) and [**`poly_freq.c`**](https://github.com/thamala/polySV/blob/main/poly_freq.c) scripts, respectively.
+
+The VCF is subsequently prepared for **fastSTRUCTURE** using Yant et al (2023) **Cochlearia_create_structure_file.py** python script for polyploids, using the **`-s true`** flag to subsample the data to make a pseudo-diploid output structure file. The structure files are arranged according to populations. 
+
+new_distruct.py is used to 
+
+## 250324_combined_lyrata_arenosa.py 
+
+**250324_combined_lyrata_arenosa.py** is a python script which utilises the [pandas](https://pandas.pydata.org/docs/user_guide/index.html) python package to convert the input **arenosa_672.txt** and **lyrata_272_with_some_hybrids.txt** files into pandas dataframes with the `pd.dataframe()` command. 
+
+The converted input files are then merged based on the **CHROM** and **POS** columns using `pd.merge()` to only include sites that are shared between the input files. 
+
 
 
 # Methodology and Results
