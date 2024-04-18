@@ -280,8 +280,9 @@ new_distruct.py is used to
 
 **250324_combined_lyrata_arenosa.py** is a python script which utilises the [pandas](https://pandas.pydata.org/docs/user_guide/index.html) python package to convert the input **arenosa_672.txt** and **lyrata_272_with_some_hybrids.txt** files into pandas dataframes with the `pd.dataframe()` command. 
 
-The converted input files are then merged based on the **CHROM** and **POS** columns using `pd.merge()` to only include sites that are shared between the input files. 
+The converted input files are then merged based on the **CHROM** and **POS** columns using **`pd.merge()`** to only include sites that are **shared** between the input files. 
 
+The script then **renames** the **AF_x** & **AF_y** columns as **AF_arenosa** & **AF_lyrata**, respectively, and drops the allele count, allele number, reference, and  alternative columns from the output file to **retain the allele frequencies only**.
 
 
 # Methodology and Results
@@ -301,14 +302,8 @@ The converted input files are then merged based on the **CHROM** and **POS** col
 
 We performed **exploratory population genetic analyses** using two different PCA techniques, (1) **Adegenet**, and (2) using Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) adapted PCA script and using our filtered vcf.gz as the input file for the PCA. 
 
-## With BZD (added 17_04_24)
 
-
-![170424_Tetraploids_PCA_ALT](https://github.com/pmyla1/Project3_Group6/assets/151543531/700421ba-2294-4e16-831d-afd1eda84732)
-
-*The tetraploid only populations were retained and used to investigate population structure and admixture between *A. arenosa* and *A. lyrata*. ***KEH-06 and KEH-08*** form a cluster with ***OCH-05 and FRE-06*** along ***PC1***, which explains ***33% of the variance***. Conversely, ***KEH-07 and KEH-09*** form a separate cluster with ***FRE-08*** and are differentiated from the previous cluster **along PC2**. Lastly, ***KEH-05 and KEH-10*** form a distinct cluster with ***FRE-05***, with extremely ***negative PC1 scores***. The other samples seem to produce with individuals from the same population, e.g. MOD with MOD, etc.*
-
-## With BZD plus additional populations (MAU, LIC, KAG)
+## Example output using est_adapt_pca.R
 
 <img width="475" alt="Alt_PCA_tets_only_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/c2ae0068-0773-4919-a283-7bc49135b286">
 
@@ -356,7 +351,7 @@ The link to the input file can be accessed here [OmicsSpeaks input](https://gith
 
 Contrary to our expectations, when K = 2, **FRE** was inferred to be **pure *A. lyrata*** as opposed to a 50:50 hybrid.
 
-## fastSTRUCTURE output when K = 2, using the 290324_whole_pipe.sh script
+## Example fastSTRUCTURE output when K = 2, using the 290324_whole_pipe.sh script
 
 
 ![290324_K2_plot](https://github.com/pmyla1/Project3_Group6/assets/151543531/e6244ad0-6e04-420c-910b-35dd864389eb)
@@ -377,7 +372,7 @@ To determine whether **hybridisation** betweeen *A. arenosa* and *A. lyrata* has
 
 *Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number*
 
-Firstly, the **250324_combined_lyrata_arenosa.py** file uses the [pandas](https://pandas.pydata.org/docs/getting_started/install.html) package in python to merge the input files based on common SNPs (merges on **CHROM** and **POS** columns in the input files). The **extract_allele_frequencies_only.py** script also uses the **pandas package** to drop the **REF**, **ALT**, **AC**, and **AN** columns from the output created by the **250324_combined_lyrata_arenosa.py** script. 
+Firstly, the **250324_combined_lyrata_arenosa.py** file uses the [pandas](https://pandas.pydata.org/docs/getting_started/install.html) package in python to merge the input files based on common SNPs (merges on **CHROM** and **POS** columns in the input files). The **250324_combined_lyrata_arenosa.py** script also uses **pandas** to drop the **REF**, **ALT**, **AC**, and **AN** columns from the output created by the **250324_combined_lyrata_arenosa.py** script. 
 
 The structure of the **final output file** used to calculate the **allele frequency differences** between species can be visualised **below**.
 
@@ -392,7 +387,7 @@ The structure of the **final output file** used to calculate the **allele freque
 
 We obtained only the **common/shared SNPs** between **both species** by running the **250324_combined_lyrata_arenosa.py** script, which uses the **pandas package** to **merge** the arenosa_672.txt and the lyrata_272_with_some_hybrids.txt files based on **common/shared SNPs**. 
 
-The allele frequency columns were retained by executing the **extract_allele_frequencies_only.py** script. The **allele frequency differences** between *A. arenosa* and *A. lyrata* at these common sites were calculated in the **250324_common_SNPs.R** script. Plots of the **site frequency spectra** per species can be seen below. 
+The allele frequency columns were retained by executing the **250324_combined_lyrata_arenosa.py** script. The **allele frequency differences** between *A. arenosa* and *A. lyrata* at these common sites were calculated in the **250324_common_SNPs.R** script. Plots of the **site frequency spectra** per species can be seen below. 
 
 <img width="475" alt="AF_spectrum_arenosa_lyrata" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b85b800f-6df0-47b7-ac73-ab0e6d46c6a0">
 
