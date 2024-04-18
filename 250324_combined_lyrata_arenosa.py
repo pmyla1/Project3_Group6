@@ -47,4 +47,4 @@ print(output)
 print("Thank you for using CommonSNPsIdentifier.v2, have a good day!!")
 ##################
 
-##lastline
+###lastline
