@@ -244,7 +244,9 @@ To **install samtools** using **conda** you can use the **following commands**:
 
 # Scripts
 
-1) **GATK_select_variants_initial.sh** was executed on the HPC using a **shared GATK environment**, and a custom **samtools environment** created using the install steps above.
+## GATK_select_variants_initial.sh
+
+**GATK_select_variants_initial.sh** was executed on the HPC using a **shared GATK environment**, and a custom **samtools environment** created using the install steps above.
 
 The `gatk IndexFeatureFile -I`  command is used to create an **indexed fasta** file from the **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**.
 
@@ -252,7 +254,9 @@ Subsequently, a **sequence dictionary** is created using `gatk CreateSequenceDic
 
 Finally, `gatk SelectVariants` with the `-sn` flag is used to **select specific individuals** from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** and to make a new .vcf.gz with only these individuals called **new_pops_filtered.vcf.gz**.
 
-2) **220324_whole_pipeline_gatk.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/` and a shared gatk environment `/shared/apps/conda/bio2/`.
+## 220324_whole_pipeline_gatk.sh** 
+
+**220324_whole_pipeline_gatk.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/` and a shared gatk environment `/shared/apps/conda/bio2/`.
 
 `gatk SelectVariants` with the `-sn` flag is used to select only the tetraploid populations of interest (either pure *A. lyrata*, pure *A. arenosa*, or expected to be hybrids) and creates a new filtered vcf called 220324_filtered_pops.vcf.gz.
 
@@ -260,7 +264,9 @@ The **site-frequency spectra** and the **allele frequencies** are calculated for
 
 Next, the polyploid VCF is prepared for **fastSTRUCTURE** using Yant et al (2023) **`Cochlearia_create_structure_file.py`** script for polyploid data, using the **'-s true'** flag to subsample the data to make a pseudo-diploid structure output. The populations are then rearranged into alphabetical order for plotting purposes. 
 
-3) The **290324_whole_pipe.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/` and a shared GATK environment `/shared/apps/conda/bio2/`.
+## 290324_whole_pipe.sh
+
+The **290324_whole_pipe.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/` and a shared GATK environment `/shared/apps/conda/bio2/`.
 
 Similarly to the **220324_whole_pipeline_gatk.sh**, `gatk SelectVariants -sn <sample in vcf>` was used to select tetraploid only individuals from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**. 
 
