@@ -423,4 +423,12 @@ Subsequently, the [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_
 
 **190424_polyploid_Fst.R** can be used to load the .fst output files produced by the **190424_poly_fst.sh** script into R, and to generate **Manhattan plots** of the **Fst** scores along chromosome **scaffold 1** for various **pairwise population contrasts** using ggplot2. 
 
+Links to some of the output files can be found here: 
+
+[BZD_Fst_scans](https://github.com/pmyla1/Project3_Group6/blob/main/BZD_Fst_scans.png) 
+
+[KEH_Fst_scans]()
+
+[OCH_Fst_scans]()
+
 
