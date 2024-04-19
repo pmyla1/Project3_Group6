@@ -399,4 +399,10 @@ Next, we plotted the **allele frequency differences** per chromosome scaffold as
 ## Allele Frequency Differences: Chromosomes 5-8
 <img width="475" alt="Chrom_5_8_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b39061d5-245c-460d-b4ff-fbfc7ca751dd">
 
+# Calculating Polyploid Fst 
+
+## 210324_poly_fst.sh 
+
+**210324_poly_fst.sh** can be used to calculate polyploid Fst between various population contrasts, and uses Tuomas Hämälä's (2023) [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_fst.c) script to calculate pairwise tetraploid Fst. 
+
 
