@@ -324,19 +324,13 @@ We subsequently performed a **discrimininant analysis of principal components** 
 
 Next, we looked at the **relationships** between the individuals and populations with **SplitsTree**, following the correct **download instructions** for your **specific device** on the **University of Tübingen** website in the following link [SplitsTree](https://software-ab.cs.uni-tuebingen.de/download/splitstree4/welcome.html). 
 
-Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight** object using the **vcf2genlight** function from the **290324_populations.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into SplitsTree. Both the **individual** and the **population** data were used to produce **phylogenetic networks** in SplitsTree, and can be visualized below.
+Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight** object using the **vcf2genlight** function from the **290324_populations.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into SplitsTree. Both the **individual** and the **population** data can be used to produce **phylogenetic networks** in SplitsTree, and an example of an individual phylogenetic network can be visualized below.
 
 ## Example Phylogenetic network - Relationship between Individuals
 
 <img width="475" alt="Phylo_tree_inds_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/76d26c5d-2d06-49e5-b9da-1e492e65974f">
 
-***Figure 3a*** *Phylogenetic network showing relationships between individuals. Most individuals **group with** samples from the **same population**, (e.g. MOD forms a single cluster) however, there are **some sample mixups** with **KEH** individuals forming **three separate clusters**. Furthermore, some OCH samples cluster with individuals from different populations.*
-
-
-## Phylogenetic network - Relationship between Populations
-![290324_populations](https://github.com/pmyla1/Project3_Group6/assets/151543531/b7d838f1-e7e6-4165-a55e-f3142c03a75d)
-
-***Figure 3b*** *Phylogenetic network showing the relationships between populations.*
+***Figure 3*** *Phylogenetic network showing relationships between individuals. Most individuals **group with** samples from the **same population**, (e.g. MOD forms a single cluster) however, there are **some sample mixups** with **KEH** individuals forming **three separate clusters**. Furthermore, some OCH samples cluster with individuals from different populations.*
 
 
 # Population structure analysis
