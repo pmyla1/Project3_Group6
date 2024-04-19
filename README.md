@@ -427,7 +427,7 @@ Links to some of the output files can be found here:
 
 [BZD_Fst_scans](https://github.com/pmyla1/Project3_Group6/blob/main/BZD_Fst_scans.png) 
 
-[KEH_Fst_scans]()
+[KEH_Fst_scans](https://github.com/pmyla1/Project3_Group6/blob/main/KEH_Fst_scans.png)
 
 [OCH_Fst_scans]()
 
