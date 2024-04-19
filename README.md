@@ -413,8 +413,14 @@ Next, we plotted the **allele frequency differences** per chromosome scaffold as
 
 **190424_poly_fst.sh** can be used to calculate polyploid Fst between various population contrasts, and uses Tuomas Hämälä's (2023) [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_fst.c) script to calculate pairwise tetraploid Fst. 
 
-The script first utilises `bcftools query -l | grep "<3-letter population code>"` to extract individuals from the desired population, for example `| grep "BZD"`. 
+The script first utilises **`bcftools query -l | grep "<3-letter population code>"`** to extract individuals from the desired population, for example **`| grep "BZD"`**. 
 
-Subsequently, the [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_fst.c) script is compiled and then used to calculate various pairwise population Fst contrasts, e.g. KEH vs BZD.
+Subsequently, the [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_fst.c) script is compiled and then used to **calculate** various **pairwise population Fst** contrasts, e.g. **KEH vs BZD**.
+
+# Visualizing polyploid Fst scans as Manhattan ploys
+
+## 190424_polyploid_Fst.R
+
+**190424_polyploid_Fst.R** can be used to load the .fst output files produced by the **190424_poly_fst.sh** script into R, and to generate **Manhattan plots** of the **Fst** scores along chromosome **scaffold 1** for various **pairwise population contrasts** using ggplot2. 
 
 
