@@ -327,9 +327,7 @@ We performed **exploratory population genetic analyses** using two different PCA
 
 # Exploratory genetic analyses with discriminant analysis of principal components (DAPC)
 
-We subsequently performed a **discrimininant analysis of principal components** (DAPC) on individuals in the filtered VCF in order to determine the **number of population clusters** and to discern if there were any sample **mix ups**. Our cluster analysis suggested that there were only **3 population clusters** (K = 3). DAPC suggested that some of the samples may have been admixed, highlighted by some of the multi-coloured bars. 
-
-![Rplot](https://github.com/pmyla1/Project3_Group6/assets/151543531/9b2d5bc1-a04b-4900-8176-0bead0355eeb)
+We subsequently performed a **discrimininant analysis of principal components** (DAPC) on individuals in the filtered VCF in order to determine the **number of population clusters** and to discern if there were any sample **mix ups**. Our cluster analysis suggested that there were only **3 population clusters** (K = 3).
 
 
 # Phylogenetic analyses with SplitsTree
@@ -360,13 +358,6 @@ The link to the input file can be accessed here [OmicsSpeaks input](https://gith
 *Key:* *A. arenosa* (**Orange** bars);*A. lyrata* (**Green** bars).
 
 Contrary to our expectations, when K = 2, **FRE** was inferred to be **pure *A. lyrata*** as opposed to a 50:50 hybrid.
-
-## Example fastSTRUCTURE output when K = 2, using the 290324_whole_pipe.sh script
-
-
-![290324_K2_plot](https://github.com/pmyla1/Project3_Group6/assets/151543531/e6244ad0-6e04-420c-910b-35dd864389eb)
-
-*The fastSTRUCTURE output is difficult to interpret because of the overlapping labels and the order of the individuals in the plot. We can see that when K=2, fastSTRUCTURE infers there to be some 50:50 hybrids, indicated by a 50:50 red:blue bar in the fastSRUCTURE plot.* 
 
 ## Allele frequency differences on a larger cohort of *A. arenosa* and *A. lyrata* samples
 
