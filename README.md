@@ -286,7 +286,13 @@ The script then **renames** the **AF_x** & **AF_y** columns as **AF_arenosa** & 
 
 ## 250324_common_SNPs.R
 
-**250324_common_SNPs.R** is a large R script which uses ggplot2 to produce a range of different plots from the output of **250324_combined_lyrata_arenosa.py**. Firstly, allele frequency differences between *A. arenosa* and *A. lyrata* are calculated, and then plotted per scaffold (**CHROM**) as a Manhattan plot using ggplot2.  
+**250324_common_SNPs.R** is a large R script which uses ggplot2 to produce a range of different plots from the output of **250324_combined_lyrata_arenosa.py**. 
+
+Firstly, the data is subsetted using `dplyr::select()` into each chromosome scaffold. 
+
+Next, the genome wide allele frequency distributions are plotted for *A. arenosa* and *A. lyrata*, and subsequently, the allele frequency distributions per scaffold are plotted using ggplot2. 
+
+Next, the allele frequency differences between *A. arenosa* and *A. lyrata* are calculated, and then plotted per scaffold (**CHROM**) as a Manhattan plot using ggplot2.  
 
 # Methodology and Results
 
