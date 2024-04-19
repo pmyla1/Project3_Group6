@@ -409,8 +409,12 @@ Next, we plotted the **allele frequency differences** per chromosome scaffold as
 
 # Calculating Polyploid Fst 
 
-## 210324_poly_fst.sh 
+## 190424_poly_fst.sh 
 
-**210324_poly_fst.sh** can be used to calculate polyploid Fst between various population contrasts, and uses Tuomas Hämälä's (2023) [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_fst.c) script to calculate pairwise tetraploid Fst. 
+**190424_poly_fst.sh** can be used to calculate polyploid Fst between various population contrasts, and uses Tuomas Hämälä's (2023) [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_fst.c) script to calculate pairwise tetraploid Fst. 
+
+The script first utilises `bcftools query -l | grep "<3-letter population code>"` to extract individuals from the desired population, for example `| grep "BZD"`. 
+
+Subsequently, the [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_fst.c) script is compiled and then used to calculate various pairwise population Fst contrasts, e.g. KEH vs BZD.
 
 
