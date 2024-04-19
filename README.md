@@ -294,7 +294,11 @@ Next, the genome wide allele frequency distributions are plotted for *A. arenosa
 
 Next, the allele frequency differences between *A. arenosa* and *A. lyrata* are calculated, and then plotted per scaffold (**CHROM**) as a Manhattan plot using ggplot2.  
 
-Subsequently, the top 1% outlier allele frequency differences are calculated by using `dplyr::arrange(desc(AF_difference))` and then taking the top 1% rows. This was performed with an aim of visualizing the "fixed" allele frequency differences between *A. arenosa* and *A. lyrata* at common SNPs. 
+Subsequently, the top 1% outlier allele frequency differences are calculated by using `dplyr::arrange(desc(AF_difference))` and then taking the top 1% rows. This was performed with an aim of visualizing the "fixed" allele frequency differences between *A. arenosa* and *A. lyrata* at common SNPs.
+
+## 190424_poly_fst.sh
+
+**190324_poly_fst.sh** can be used to calculate pairwise Fst values between individuals from different populations. 
 
 # Methodology and Results
 
@@ -398,7 +402,7 @@ The allele frequency columns were retained by executing the **250324_combined_ly
 <img width="475" alt="AF_spectrum_arenosa_lyrata" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b85b800f-6df0-47b7-ac73-ab0e6d46c6a0">
 
 
-Next, we plotted the **allele frequency differences** per chromosome scaffold as a **Manhattan** plot using ggplot2 within the **250324_common_SNPs.R script**, using an arbritary allele frequency difference **threshold of 0.85** for SNPs expected to be **"fixed"** in one species relative to the other. The **orange dots** above the dashed red line represent **"fixed" allele frequency differences**, suggesting that these SNPs are **private to one species**. These plots can be seen **below**.
+Next, we plotted the **allele frequency differences** per scaffold as **Manhattan** plots using ggplot2 within the **250324_common_SNPs.R script**, using an arbritary allele frequency difference **threshold of 0.85** for SNPs expected to be **"fixed"** in one species relative to the other. The **orange dots** above the dashed red line represent **"fixed" allele frequency differences**, suggesting that these SNPs are **private to one species**. These plots can be seen **below**.
 
 ## Allele Frequency Differences: Chromosomes 1-4
 
@@ -423,7 +427,7 @@ Subsequently, the [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_
 
 **190424_polyploid_Fst.R** can be used to load the .fst output files produced by the **190424_poly_fst.sh** script into R, and to generate **Manhattan plots** of the **Fst** scores along chromosome **scaffold 1** for various **pairwise population contrasts** using ggplot2. 
 
-Links to some of the output files can be found here: 
+Links to the **output** multipanel Fst **Manhattan plots** can be found **below**: 
 
 [BZD_Fst_scans](https://github.com/pmyla1/Project3_Group6/blob/main/BZD_Fst_scans.png) 
 
