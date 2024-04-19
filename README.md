@@ -294,7 +294,7 @@ Next, the genome wide allele frequency distributions are plotted for *A. arenosa
 
 Next, the allele frequency differences between *A. arenosa* and *A. lyrata* are calculated, and then plotted per scaffold (**CHROM**) as a Manhattan plot using ggplot2.  
 
-Subsequently, the top 1% outlier allele frequency differences are calculated by using `dplyr::arrange(desc(AF_difference))` and then taking the top 1% rows.
+Subsequently, the top 1% outlier allele frequency differences are calculated by using `dplyr::arrange(desc(AF_difference))` and then taking the top 1% rows. This was performed with an aim of visualizing the "fixed" allele frequency differences between *A. arenosa* and *A. lyrata* at common SNPs. 
 
 # Methodology and Results
 
