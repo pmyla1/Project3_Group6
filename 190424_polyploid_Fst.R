@@ -3,23 +3,16 @@
 
 ##set working directory 
 
-setwd("/Users/lukearcher/Desktop/LEVI_project/190424_poly_fst_output/")
+setwd("<path/to/.fst/files/produced/by/190324_poly_fst.sh>")
 
 ###############
 ##load appropriate libraries
 options(warn=1)
 
-library(adegenet)
-library(adegraphics) #not strictly necessary for all of this (hombrew r installs will interfere)
-library(vcfR)
-library(pegas)
-library(StAMPP)
-library(ade4)
-library(MASS)
 library(tidyverse)
 library(ggplot2)
-library(dplyr)
-library(gridExtra)
+library(dplyr) ##for manipulation of dataframes
+library(gridExtra) ##for multipanel plotting 
 ###############
 
 ###############
