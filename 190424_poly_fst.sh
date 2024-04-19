@@ -1,6 +1,7 @@
 #################
-##This script is for the compilation of poly_fst.c to calculate Fst and Dxy on mixed
-##ploidy vcfs, written by Tuomas Hamala (2023), source https://github.com/thamala/polySV/blob/main/poly_fst.c
+##This script was written by Luke Archer (2024) and can be used to compile the poly_fst.c script.
+##This script can  be used to calculate pairwise population Fst from polyploid data by using the 
+##poly_fst.c written by Tuomas Hamala (2023), source https://github.com/thamala/polySV/blob/main/poly_fst.c
 ##############
 
 #############
@@ -41,7 +42,6 @@ bcftools query -l ./290324_tetraploids_only.vcf.gz | grep "FRE" > ./190424_Fst_p
 bcftools query -l ./290324_tetraploids_only.vcf.gz | grep "HAB" > ./190424_Fst_populations/HAB_pop.txt
 ############
 
-
 ############
 ##compile the poly_fst.c script
 gcc ../scripts/poly_fst.c -o ./poly_fst -lm
@@ -79,7 +79,6 @@ gcc ../scripts/poly_fst.c -o ./poly_fst -lm
 ##BZD vs LOI
 ./poly_fst -vcf ./290324_tetraploids_only_copy.vcf -pop1 ./190424_Fst_populations/BZD_pop.txt -pop2 ./190424_Fst_populations/LOI_pop.txt -mis 0.8 > ./190424_Fst_output/BZD_LOI_Fst_output.fst
 ##########
-
 
 conda deactivate
 
