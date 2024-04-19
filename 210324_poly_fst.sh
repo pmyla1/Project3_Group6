@@ -1,6 +1,5 @@
 ########################
-##This script is written by Luke Archer (2024) and uses Tuomas Hämälä (2023) scripts to compile poly_fst.c and 
-##calculate Fst on a mixed ploidy vcf
+##This script is written by Luke Archer (2024) and uses Tuomas Hämälä's (2023) script to compile poly_fst.c and calculate Fst on a mixed ploidy vcf
 ##source of the poly_fst script https://github.com/thamala/polySV/blob/main/poly_fst.c
 ##############
 
@@ -14,7 +13,7 @@ conda activate /shared/conda/shared/
 ############################
 
 #############################
-#use grep and bcftools to obtain the individuals from each population for the fst scans 
+##uses grep and bcftools to obtain the individuals from each population for the fst scans 
 bcftools query -l ./200324_tets_only_VCFs/200324_cleaned_lyrata_tets_only.vcf.gz | grep "BZD" > ./BZD_pop.txt 
 
 bcftools query -l ./200324_tets_only_VCFs/200324_cleaned_lyrata_tets_only.vcf.gz | grep "OCH" > ./OCH_pop.txt
