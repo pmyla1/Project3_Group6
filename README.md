@@ -429,6 +429,6 @@ Links to some of the output files can be found here:
 
 [KEH_Fst_scans](https://github.com/pmyla1/Project3_Group6/blob/main/KEH_Fst_scans.png)
 
-[OCH_Fst_scans]()
+[OCH_Fst_scans](https://github.com/pmyla1/Project3_Group6/blob/main/OCH_Fst_contrasts.png)
 
 
