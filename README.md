@@ -435,7 +435,7 @@ bcftools query -l ./290324_tetraploids_only.vcf.gz | grep "BZD" > ./190424_Fst_p
 
 Subsequently, the [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_fst.c) script is compiled and then used to **calculate** various **pairwise population Fst** contrasts, e.g. **KEH vs BZD**.
 
-`
+` 
 #poly_fst.c script compilation
 gcc ../scripts/poly_fst.c -lm ./poly_fst
 
