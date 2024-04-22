@@ -259,6 +259,14 @@ To **install samtools** using **conda** you can use the **following commands**:
    conda install -c bioconda samtools
    ```
 
+# To install bcftools using conda 
+
+To install bcftools using conda, use the following command
+```
+conda install -c bioconda bcftools
+```
+
+
 # Scripts
 
 ## GATK_select_variants_initial.sh
@@ -299,7 +307,11 @@ The fastSTRUCTURE script **structure.py** is used to infer the admixture proport
 
 The converted input files are then merged using an inner join for the intersection of based on the **CHROM** and **POS** columns using **`pd.merge(how='inner',on=['CHROM','POS'])`** to only include sites that are **shared** between the input files. 
 
-The script then **renames** the **AF_x** & **AF_y** columns as **AF_arenosa** & **AF_lyrata**, respectively, and drops the allele count, allele number, reference, and  alternative columns from the output file to **retain the allele frequencies only** using `output=output.drop(['AC_x','AC_y','AN_x','AN_y','ALT_x','ALT_y','REF_x','REF_y'],axis=1)`.
+The script then **renames** the **AF_x** & **AF_y** columns as **AF_arenosa** & **AF_lyrata**, respectively, and drops the allele count, allele number, reference, and  alternative columns from the output file to **retain the allele frequencies only** using 
+
+```
+output=output.drop(['AC_x','AC_y','AN_x','AN_y','ALT_x','ALT_y','REF_x','REF_y'],axis=1)
+```
 
 ## 250324_common_SNPs.R
 
@@ -317,7 +329,7 @@ Subsequently, the top 1% outlier allele frequency differences are calculated by 
 
 ## 190424_poly_fst.sh
 
-**190324_poly_fst.sh** can be used to calculate pairwise Fst values between individuals from different populations. 
+**190324_poly_fst.sh** can be used to calculate pairwise Fst values between individuals from different populations. **Scroll down** to see more **details** on **190424_poly_fst.sh**
 
 # Methodology and Results
 
