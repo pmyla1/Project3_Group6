@@ -259,7 +259,7 @@ To **install samtools** using **conda** you can use the **following commands**:
    conda install -c bioconda samtools
    ```
 
-# To install bcftools using conda 
+## To install bcftools using conda 
 
 To install bcftools using conda, use the following command
 ```
