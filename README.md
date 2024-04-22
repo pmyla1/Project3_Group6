@@ -395,12 +395,9 @@ The structure of the **final output file** used to calculate the **allele freque
 
 We obtained only the **common/shared SNPs** between **both species** by running the **250324_combined_lyrata_arenosa.py** script, which uses the **pandas package** to **merge** the arenosa_672.txt and the lyrata_272_with_some_hybrids.txt files based on **common/shared SNPs**. 
 
-The allele frequency columns were retained by executing the **250324_combined_lyrata_arenosa.py** script. The **allele frequency differences** between *A. arenosa* and *A. lyrata* at these common sites were calculated in the **250324_common_SNPs.R** script. Plots of the **site frequency spectra** per species can be seen below. 
+The allele frequency columns were retained by executing the **250324_combined_lyrata_arenosa.py** script. The **allele frequency differences** between *A. arenosa* and *A. lyrata* at these common sites were calculated in the **250324_common_SNPs.R** script.
 
-<img width="475" alt="AF_spectrum_arenosa_lyrata" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b85b800f-6df0-47b7-ac73-ab0e6d46c6a0">
-
-
-Next, we plotted the **allele frequency differences** per scaffold as **Manhattan** plots using ggplot2 within the **250324_common_SNPs.R script**, using an arbritary allele frequency difference **threshold of 0.85** for SNPs expected to be **"fixed"** in one species relative to the other. The **orange dots** above the dashed red line represent **"fixed" allele frequency differences**, suggesting that these SNPs are **private to one species**. These plots can be seen **below**.
+Next, we used the **250324_common_SNPs.R** script to plott the **allele frequency differences** per scaffold as **Manhattan** plots using ggplot2, and an arbritary allele frequency difference **threshold of 0.85** for SNPs expected to be **"fixed"** in one species relative to the other. The **orange dots** above the dashed red line represent **"fixed" allele frequency differences**, suggesting that these SNPs are **private to one species**. These plots can be seen **below**.
 
 ## Allele Frequency Differences: Chromosomes 1-4
 
@@ -419,7 +416,7 @@ The script first utilises **`bcftools query -l | grep "<3-letter population code
 
 Subsequently, the [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_fst.c) script is compiled and then used to **calculate** various **pairwise population Fst** contrasts, e.g. **KEH vs BZD**.
 
-# Visualizing polyploid Fst scans as Manhattan ploys
+# Visualizing polyploid Fst scans as Manhattan plots
 
 ## 190424_polyploid_Fst.R
 
