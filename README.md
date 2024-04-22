@@ -277,7 +277,7 @@ Finally, `gatk SelectVariants` with the `-sn` flag is used to **select specific 
 
 `gatk SelectVariants` with the `-sn` flag is used to select only the tetraploid populations of interest (either pure *A. lyrata*, pure *A. arenosa*, or expected to be hybrids) and creates a new filtered vcf called 220324_filtered_pops.vcf.gz.
 
-The **site-frequency spectra** and the **allele frequencies** are calculated for the 220324_filtered_pops.vcf.gz* using Tuomas Hämälä's (2023) [**`poly_sfs.c`**](https://github.com/thamala/polySV/blob/main/poly_sfs.c) and [**`poly_freq.c`**](https://github.com/thamala/polySV/blob/main/poly_freq.c) scripts, respectively.
+The **site-frequency spectra** and the **allele frequencies** are calculated using the unzipped 220324_filtered_pops.vcf and Tuomas Hämälä's (2023) [**`poly_sfs.c`**](https://github.com/thamala/polySV/blob/main/poly_sfs.c) and [**`poly_freq.c`**](https://github.com/thamala/polySV/blob/main/poly_freq.c) scripts, respectively.
 
 Next, the polyploid VCF is prepared for **fastSTRUCTURE** using Yant et al (2023) **`Cochlearia_create_structure_file.py`** script for polyploid data, using the **'-s true'** flag to subsample the data to make a pseudo-diploid structure output. The populations are then rearranged into alphabetical order for plotting purposes. 
 
@@ -297,9 +297,9 @@ The fastSTRUCTURE script **structure.py** is used to infer the admixture proport
 
 **250324_combined_lyrata_arenosa.py** is a python script which utilises the [pandas](https://pandas.pydata.org/docs/user_guide/index.html) python package to convert the input **arenosa_672.txt** and **lyrata_272_with_some_hybrids.txt** files into pandas dataframes with the `pd.dataframe()` command. 
 
-The converted input files are then merged based on the **CHROM** and **POS** columns using **`pd.merge()`** to only include sites that are **shared** between the input files. 
+The converted input files are then merged using an inner join for the intersection of based on the **CHROM** and **POS** columns using **`pd.merge(how='inner',on=['CHROM','POS'])`** to only include sites that are **shared** between the input files. 
 
-The script then **renames** the **AF_x** & **AF_y** columns as **AF_arenosa** & **AF_lyrata**, respectively, and drops the allele count, allele number, reference, and  alternative columns from the output file to **retain the allele frequencies only**.
+The script then **renames** the **AF_x** & **AF_y** columns as **AF_arenosa** & **AF_lyrata**, respectively, and drops the allele count, allele number, reference, and  alternative columns from the output file to **retain the allele frequencies only** using `output=output.drop(['AC_x','AC_y','AN_x','AN_y','ALT_x','ALT_y','REF_x','REF_y'],axis=1)`.
 
 ## 250324_common_SNPs.R
 
@@ -308,6 +308,8 @@ The script then **renames** the **AF_x** & **AF_y** columns as **AF_arenosa** & 
 Firstly, the data is subsetted using `dplyr::select()` into each chromosome scaffold. 
 
 Next, the genome wide allele frequency distributions are plotted for *A. arenosa* and *A. lyrata*, and subsequently, the allele frequency distributions per scaffold are plotted using ggplot2. 
+
+The ggplot theme was **theme_bw()**, and the colour palette used was **Set2**.
 
 Next, the allele frequency differences between *A. arenosa* and *A. lyrata* are calculated, and then plotted per scaffold (**CHROM**) as a Manhattan plot using ggplot2.  
 
