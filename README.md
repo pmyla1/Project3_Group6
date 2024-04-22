@@ -440,7 +440,7 @@ Subsequently, the [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_
 gcc ../scripts/poly_fst.c -lm ./poly_fst
 
 ##example pairwise tetraploid population Fst scan
-./poly_fst -vcf 
+./poly_fst -vcf ./290324_tetraploids_only_copy.vcf -pop1 ./190424_Fst_populations/BZD_pop.txt -pop2 ./190424_Fst_populations/OCH_pop.txt -mis 0.8 > ./190424_Fst_output/BZD_OCH_Fst_output.fst
 `
 
 # Visualizing polyploid Fst scans as Manhattan plots
