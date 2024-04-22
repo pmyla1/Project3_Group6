@@ -17,7 +17,7 @@ The **rationale** for this project was the discovery of **bidirectional gene flo
 
 ![Photos Library](https://github.com/pmyla1/Project3_Group6/assets/151543531/8d790b15-4ef6-4d63-8d67-cc21833b179a)
 
-Source: [Schmickl, R. & Yant, L. (2021). Adaptive introgression: how polyploidy reshapes gene flow landscapes. *New Phytologist* 230(2), 457-461.] (https://doi.org/10.1111/nph.17204)
+Source: [Schmickl, R. & Yant, L. (2021). Adaptive introgression: how polyploidy reshapes gene flow landscapes. *New Phytologist* 230(2), 457-461.](https://doi.org/10.1111/nph.17204)
 
 
 The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** contains samples from **diploid** and **tetraploid** *A. arenosa* and *A. lyrata* populations sampled **throughout Europe** including lineages from the **Austrian Forealps** and others from the **Wachau hybrid zone**. The **population map** can be accessed via the following link [Population Map](https://www.google.com/maps/d/viewer?mid=1HAhM5y-bYMJbXCtMSZaubk1qe0wX6JI&ll=48.09350708234271%2C15.809612499999968&z=9).
