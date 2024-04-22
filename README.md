@@ -15,7 +15,7 @@ There are **two main types** of polyploids: **autopolyploids** (where all subgen
 
 The **rationale** for this project was the discovery of **bidirectional gene flow** between **autotetraploid** lineages of *A. arenosa* and *A. lyrata* which may have **facilitated** the **stabilisation of polyploidy** post WGD (Marburger et al., 2019). In this project, we selected specific **tetraploid populations** of *A. arenosa* and *A. lyrata* from the **Austrian Forealps** and the **Wachau hybrid zone** suspected to be hybrids and assessed the degree of **genetic admixture** using **fastSTRUCTURE**. We aimed to discover whether **hybridisation** between *A. arenosa* and *A. lyrata* has created any **allopolyploid populations** in the **Wachau hybrid zone** consisting of approximately **50:50 admixture**. A graphical summary of the process of speciation, followed by subsequent hybridisation/gene flow between *A. arenosa* & *A. lyrata* can be seen below.
 
-![Picture](https://github.com/pmyla1/Project3_Group6/assets/151543531/a31dda75-edc3-48a0-811d-7c89a7ee19f4)
+<img width="946" alt="Screenshot 2024-04-22 at 13 35 32" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/1de2717b-bf10-4f01-aa79-4655cd3c401e">
 
 
 Source: [Schmickl, R. & Yant, L. (2021). Adaptive introgression: how polyploidy reshapes gene flow landscapes. *New Phytologist* 230(2), 457-461.](https://doi.org/10.1111/nph.17204)
