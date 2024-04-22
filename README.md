@@ -426,7 +426,22 @@ Next, we used the **250324_common_SNPs.R** script to plott the **allele frequenc
 
 The script first utilises **`bcftools query -l | grep "<3-letter population code>"`** to extract individuals from the desired population, for example **`| grep "BZD"`**. 
 
+Example:
+
+`
+#use grep and bcftools to obtain the individuals from each population for the fst scans 
+bcftools query -l ./290324_tetraploids_only.vcf.gz | grep "BZD" > ./190424_Fst_populations/BZD_pop.txt
+`
+
 Subsequently, the [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_fst.c) script is compiled and then used to **calculate** various **pairwise population Fst** contrasts, e.g. **KEH vs BZD**.
+
+`
+##poly_fst.c script compilation
+gcc ../scripts/poly_fst.c -lm ./poly_fst
+
+##example pairwise tetraploid population Fst scan
+./poly_fst -vcf 
+`
 
 # Visualizing polyploid Fst scans as Manhattan plots
 
