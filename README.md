@@ -451,9 +451,30 @@ arenosa<-ggplot(cleaned_arenosa_lyrata_AFs,aes(AF_arenosa))+
         panel.grid.minor.x=element_blank())
 ```
 
-Next, the **allele frequency differences** between *A. arenosa* and *A. lyrata* are calculated, and then plotted per scaffold (**CHROM**) as a Manhattan plot using **ggplot2**.  
+Next, the scaffolds are filtered for minor allele frequencies >0.025, and the **allele frequency differences** between *A. arenosa* and *A. lyrata* are calculated, and then plotted per scaffold (**CHROM**) as a Manhattan plot using **ggplot2**.  
 
-Subsequently, the top 1% outlier allele frequency differences are calculated by using `dplyr::arrange(desc(AF_difference))` and then taking the top 1% rows. This was performed with an aim of visualizing the "fixed" allele frequency differences between *A. arenosa* and *A. lyrata* at common SNPs.
+```
+##This command calculates allele frequency differences between arenosa/lyrata
+arenosa_lyrata_MAF2.5$AF_difference<-arenosa_lyrata_MAF2.5$AF_arenosa-arenosa_lyrata_MAF2.5$AF_lyrata
+
+##choose a threshold for plotting outliers/extreme allele frequency differences
+chrom1$threshold<-chrom1$AF_difference>0.85
+
+##Plot allele frequency differences along chromosome 1
+chrom1_AF_diff<-ggplot(chrom1,aes(x=POS,y=AF_difference,colour=threshold))+
+  geom_point(alpha=0.4)+
+  geom_hline(yintercept=c(0,0.85),linetype=2,colour=2)+
+  scale_colour_brewer(palette="Set2")+
+  theme_bw()+
+  labs(title="Chromosome 1 AF differences\nat 4-fold neutral sites",
+       x='Chromosome 1 position',y='AF difference')+
+  theme(title=element_text(face='bold',size=11),
+        panel.grid.minor=element_blank(),
+        legend.position='none')
+
+```
+
+Subsequently, the **top 1% outlier** allele frequency differences are calculated by using **`dplyr::arrange(desc(AF_difference))`** and then taking the **top 1% rows**. This was performed with an aim of visualizing the **"fixed" allele frequency differences** between *A. arenosa* and *A. lyrata* at common SNPs.
 
 ## 190424_poly_fst.sh
 
