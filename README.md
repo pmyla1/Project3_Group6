@@ -423,7 +423,15 @@ arenosa_lyrata_AFs<-as_tibble(arenosa_lyrata_AFs)
 cleaned_arenosa_lyrata_AFs<-dplyr::select(arenosa_lyrata_AFs,-c(...1,`Unnamed: 0`))
 ```
 
-Firstly, the data is subsetted using `dplyr::select()` into each chromosome scaffold. 
+Firstly, the data is subsetted into each chromosome scaffold using `subset()`. **Chromosome 1 subsetting shown only**.
+
+```
+##subset the data per chromosome/scaffold 
+chrom1<-subset(cleaned_arenosa_lyrata_AFs,CHROM=='scaffold_1')
+#compute mean AFs per site
+arenosa_mean1<-mean(chrom1$AF_arenosa)
+lyrata_mean1<-mean(chrom1$AF_lyrata)
+```
 
 Next, the genome wide allele frequency distributions are plotted for *A. arenosa* and *A. lyrata*, and subsequently, the allele frequency distributions per scaffold are plotted using ggplot2. 
 
