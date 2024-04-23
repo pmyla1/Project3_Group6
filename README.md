@@ -318,14 +318,14 @@ The populations are then **rearranged** into **alphabetical order** for plotting
 grep "BZD" ./220324_whole_pipeline_VCFs/220324_first_last_removed.StructureInputDiploidized.str > ./220324_whole_pipeline_VCFs/BZD.str
 ```
 
-Next, the **`structure.py`** script from **fastSTRUCTURE** is used to assess population genetic structure with varying K-values (k=2-9).
+Next, the **`structure.py`** script from **fastSTRUCTURE** is used to assess population genetic structure with varying K-values (k=2-9). **Only K=2 command shown**.
 
 ```
 ##Run structure.py with K=2 
 python /shared/conda/faststructure/bin/structure.py -K 2 --input=./220324_whole_pipeline_VCFs/220324_reordered_structure --output=./220324_whole_pipeline_VCFs/220324_K2_out --format=str --full
 ```
 
-Finally, a slightly **modified `distruct.py`** script called **`new_distruct.py`** is used to produce fastSTRUCTURE **admixture plots** for varying K-values (k=2-9).
+Finally, a slightly **modified `distruct.py`** script called **`new_distruct.py`** is used to produce fastSTRUCTURE **admixture plots** for varying K-values (k=2-9). **Only K=2 command shown**.
 
 ```
 ##Run new_distruct.py to create admixture plots, using the output from structure.py as input
@@ -361,7 +361,7 @@ The VCF is subsequently prepared for **fastSTRUCTURE** using Yant et al (2023) *
 python3 ./scripts/Cochlearia_create_structure_file.py -v ./290324_whole_pipeline_VCFs/ -o 290324_structure_files -s true 
 ```
 
-The fastSTRUCTURE script **structure.py** is used to infer the admixture proportions of the individual samples in **290324_filtered_pops.vcf.gz** with K-values ranging from 2-7. Subsequently, a modified **distruct.py** script called **new_distruct.py** is used to produce fastSTRUCTURE plots for K-values ranging from 2-7. 
+The fastSTRUCTURE script **structure.py** is used to infer the admixture proportions of the individual samples in **290324_filtered_pops.vcf.gz** with K-values ranging from 2-7. Subsequently, a modified **distruct.py** script called **new_distruct.py** is used to produce fastSTRUCTURE plots for K-values ranging from 2-7. **Only K=2 command shown**.
 
 ```
 ##Run structure.py when K=2
@@ -407,7 +407,7 @@ output=output.rename(columns={'AF_x':'AF_arenosa','AF_y':'AF_lyrata'})
 output=output.drop(['AC_x','AC_y','AN_x','AN_y','REF_x','REF_y','ALT_x','ALT_y'],axis=1)
 
 ##write the output to_csv
-output.to_csv('CommonSNPs_lyrata_arenosa.tsv',sep='\t',index=True)
+output.to_csv('Common_SNPs.tsv',sep='\t',index=True)
 ```
 
 ## 250324_common_SNPs.R
