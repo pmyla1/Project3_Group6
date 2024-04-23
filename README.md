@@ -532,56 +532,9 @@ chrom1_1PCT_diff<-ggplot(top_1PCT_AF_outliers_chrom1,aes(x=POS,y=AF_difference,c
 
 This script can be used to perfom exploratory genetic analysis by loading the **290324_tetraploids_only.vcf.gz** created by **290324_whole_pipe.sh** into RStudio and performing principal component analysis **(PCA)**, discriminant analysis of principal components **(DAPC)**, and calculating **Nei's genetic distances**. 
 
-Nei's genetic distance files can subsequently be loaded into **SplitsTree** and used to create phylogenetic networks, both of the individual samples and the populations.
+Briefly, after converting the **290324_tetraploids_only.vcf.gz** into a genlight object using the modified **`vcf2genlight.tetra`** function provided by Levi Yant (2023), a modified PCA function called **`glpcafast`** can be used to **perform PCA** on the data. **Nei's genetic distance** files can subsequently be loaded into **SplitsTree** and used to **create phylogenetic networks**, both of the **individual** samples and the **populations**.
 
 ```
-##This code block is a function that converts tetraploid VCF files into a genlight object
-vcfR2genlight.tetra <- function (x, n.cores = 1) 
-{
-  bi <- is.biallelic(x)
-  if (sum(!bi) > 0) {
-    msg <- paste("Found", sum(!bi), "loci with more than two alleles.")
-    msg <- c(msg, "\n", paste("Objects of class genlight only support loci with two alleles."))
-    msg <- c(msg, "\n", paste(sum(!bi), "loci will be omitted from the genlight object."))
-    warning(msg)
-    x <- x[bi, ]
-  }
-  x <- addID(x)
-  CHROM <- x@fix[, "CHROM"]
-  POS <- x@fix[, "POS"]
-  ID <- x@fix[, "ID"]
-  x <- extract.gt(x)
-  x[x == "0|0"] <- 0
-  x[x == "0|1"] <- 1
-  x[x == "1|0"] <- 1
-  x[x == "1|1"] <- 2
-  x[x == "0/0"] <- 0
-  x[x == "0/1"] <- 1
-  x[x == "1/0"] <- 1
-  x[x == "1/1"] <- 2
-  x[x == "1/1/1/1"] <- 4
-  x[x == "0/1/1/1"] <- 3
-  x[x == "0/0/1/1"] <- 2
-  x[x == "0/0/0/1"] <- 1
-  x[x == "0/0/0/0"] <- 0
-  x[x == "0/0/0/0/0/0"] <- 0
-  x[x == "0/0/0/0/0/1"] <- 1
-  x[x == "0/0/0/0/1/1"] <- 2
-  x[x == "0/0/0/1/1/1"] <- 3
-  x[x == "0/0/1/1/1/1"] <- 4
-  x[x == "0/1/1/1/1/1"] <- 5
-  x[x == "1/1/1/1/1/1"] <- 6
-  if (requireNamespace("adegenet")) {
-    x <- new("genlight", t(x), n.cores = n.cores)
-  }
-  else {
-    warning("adegenet not installed")
-  }
-  adegenet::chromosome(x) <- CHROM
-  adegenet::position(x) <- POS
-  adegenet::locNames(x) <- ID
-  return(x)
-}
 
 ```
 
