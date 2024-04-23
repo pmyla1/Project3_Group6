@@ -500,14 +500,23 @@ chrom1_1PCT_diff<-ggplot(top_1PCT_AF_outliers_chrom1,aes(x=POS,y=AF_difference,c
 
 ## 190424_poly_fst.sh
 
-**190324_poly_fst.sh** can be used to calculate **pairwise Fst** values between individuals from different populations. Firstly, **grep & bcftools** are used to **create text files** for each population. Subsequently, the **[poly_fst.c]()** script from Tuomas Hämälä (2023) is **compiled** and **executed** to calculate pairwise polyploid  Fst scores. 
+**190324_poly_fst.sh** can be used to calculate **pairwise Fst** values between individuals from different populations. Firstly, **grep & bcftools** are used to **create text files** for each population. Subsequently, the **[poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_fst.c)** script from Tuomas Hämälä (2023) is **compiled** and **executed** to calculate pairwise polyploid  Fst scores. **Fst calculations for the BZD-OCH pairwise population contrast are shown below**.
 
 ```
 #use grep and bcftools to obtain the individuals from each population for the fst scans 
 bcftools query -l ./290324_tetraploids_only.vcf.gz | grep "BZD" > ./190424_Fst_populations/BZD_pop.txt
+
+bcftools query -l ./290324_tetraploids_only.vcf.gz | grep "OCH" > ./190424_Fst_populations/OCH_pop.txt
+
+##compile the poly_fst.c script
+gcc ../scripts/poly_fst.c -o ./poly_fst -lm
+
+##run poly_fst on the 290324_tets_only_filtered_vcf and BZD vs OCH population contrast
+./poly_fst -vcf ./290324_tetraploids_only_copy.vcf -pop1 ./190424_Fst_populations/BZD_pop.txt -pop2 ./190424_Fst_populations/OCH_pop.txt -mis 0.8 > ./190424_Fst_output/BZD_OCH_Fst_output.fst
+
 ```
 
-# Methodology and Results
+# Information on the VCF file
 
 
 ## *A. arenosa* and *A. lyrata* designated populations and ploidy levels
@@ -529,8 +538,6 @@ We performed **exploratory population genetic analyses** using two different PCA
 
 <img width="475" alt="Alt_PCA_tets_only_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/c2ae0068-0773-4919-a283-7bc49135b286">
 
-## Example output using Adegenet
-
 
 # Exploratory genetic analyses with discriminant analysis of principal components (DAPC)
 
@@ -543,28 +550,15 @@ Next, we looked at the **relationships** between the individuals and populations
 
 Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight** object using the **vcf2genlight** function from the **290324_populations.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into SplitsTree. Both the **individual** and the **population** data can be used to produce **phylogenetic networks** in SplitsTree, and an example of an individual phylogenetic network can be visualized below.
 
-## Example Phylogenetic network - Relationship between Individuals
-
-<img width="475" alt="Phylo_tree_inds_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/76d26c5d-2d06-49e5-b9da-1e492e65974f">
-
-***Figure 3*** *Phylogenetic network showing relationships between individuals. Most individuals **group with** samples from the **same population**, (e.g. MOD forms a single cluster) however, there are **some sample mixups** with **KEH** individuals forming **three separate clusters**. Furthermore, some OCH samples cluster with individuals from different populations.*
-
 
 # Population structure analysis
 
-## Example Structure plot of the tetraploid lineages with K = 2 
 
-![K2_structure_plot](https://github.com/pmyla1/Project3_Group6/assets/151543531/cc49ac45-9aaa-494e-a258-691b162e312e)
-
-This image was produced using the GUI [Omicsspeaks Structure Plot V2.0](http://omicsspeaks.com/strplot2/). 
+Alternative population structure figures were created image using the GUI **[Omicsspeaks Structure Plot V2.0](http://omicsspeaks.com/strplot2/).** 
 
 The **input file** is a comma separated value **(CSV)** file containing the **individual name** from the VCF (e.g BZD-01tl), followed by the **population** in the VCF (e.g. BZD), followed by the **fastSTRUCTURE output** (two floating numbers) for the genetic admixture proportions when **K=2** (e.g 0.95,0.05).
 
-The link to the input file can be accessed here [OmicsSpeaks input](https://github.com/pmyla1/Project3_Group6/files/14791197/K2_omics_speaks_input.csv)
-
-*Key:* *A. arenosa* (**Orange** bars);*A. lyrata* (**Green** bars).
-
-Contrary to our expectations, when K = 2, **FRE** was inferred to be **pure *A. lyrata*** as opposed to a 50:50 hybrid.
+The link to the input file when K=2 can be accessed here [OmicsSpeaks input](https://github.com/pmyla1/Project3_Group6/files/14791197/K2_omics_speaks_input.csv)
 
 ## Allele frequency differences on a larger cohort of *A. arenosa* and *A. lyrata* samples
 
@@ -593,18 +587,10 @@ The structure of the **final output file** used to calculate the **allele freque
 
 *Key: CHROM, chromosome; POS, position; AF_arenosa, allele frequency in A. arenosa; AF_lyrata, allele frequency in A. lyrata* 
 
-We obtained only the **common/shared SNPs** between **both species** by running the **250324_combined_lyrata_arenosa.py** script, which uses the **pandas package** to **merge** the arenosa_672.txt and the lyrata_272_with_some_hybrids.txt files based on **common/shared SNPs**. 
 
 The allele frequency columns were retained by executing the **250324_combined_lyrata_arenosa.py** script. The **allele frequency differences** between *A. arenosa* and *A. lyrata* at these common sites were calculated in the **250324_common_SNPs.R** script.
 
-Next, we used the **250324_common_SNPs.R** script to plott the **allele frequency differences** per scaffold as **Manhattan** plots using ggplot2, and an arbritary allele frequency difference **threshold of 0.85** for SNPs expected to be **"fixed"** in one species relative to the other. The **orange dots** above the dashed red line represent **"fixed" allele frequency differences**, suggesting that these SNPs are **private to one species**. These plots can be seen **below**.
-
-## Allele Frequency Differences: Chromosomes 1-4
-
-<img width="475" alt="Chrom_1_4_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/d47d2218-269c-4948-b2fd-4a03af4d8f4e">
-
-## Allele Frequency Differences: Chromosomes 5-8
-<img width="475" alt="Chrom_5_8_AF_differences" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/b39061d5-245c-460d-b4ff-fbfc7ca751dd">
+Next, we used the **250324_common_SNPs.R** script to plott the **allele frequency differences** per scaffold as **Manhattan** plots using ggplot2, and an arbritary allele frequency difference **threshold of 0.85** for SNPs expected to be **"fixed"** in one species relative to the other.
 
 # Calculating Polyploid Fst 
 
