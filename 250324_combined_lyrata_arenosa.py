@@ -39,7 +39,7 @@ output=output.rename(columns={'AF_x':'AF_arenosa','AF_y':'AF_lyrata'})
 output=output.drop(['AC_x','AC_y','AN_x','AN_y','REF_x','REF_y','ALT_x','ALT_y'],axis=1)
 
 ##write the output to_csv
-output.to_csv('CommonSNPs_lyrata_arenosa.tsv',sep='\t',index=True)
+output.to_csv('Common_SNPs.tsv',sep='\t',index=True)
 
 ##check by printing the output to screen
 print(output)
