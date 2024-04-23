@@ -1,7 +1,7 @@
-## Load vcf, run PCA, calculate K-means clustering, calculate matrix of geneic distances, run AMOVA
-## Filip Kolar 2017, further edits by Sian Bray 2018 and Levi Yant 2022,3
+## Load vcf, run PCA, calculate Nei's Genetic Distance
+## Filip Kolar 2017, further edits by Sian Bray 2018, Levi Yant 2022, Ana 2023
 
-setwd("/Users/lukearcher/Desktop/LEVI_PROJECT/160424_whole_pipeline/")
+setwd("<path/to/your/filtered/vcf/file>")
 
 options(warn=1)
 
@@ -182,13 +182,11 @@ glPcaFast <- function(x,
 
 # ---------------------------------------------------------
 #############################
-# IMPORT SNP data from VCF
-#import the SNP data for lyrata VCF
+##IMPORT SNP data from VCF
 lyrata_vcf <- read.vcfR("290324_tetraploids_only.vcf.gz")
 
-###convert the lyrata VCF to genlight object
-#convert to genlight 	
-aa.genlight <- vcfR2genlight.tetra(lyrata_vcf)                           ## use the modified function vcfR2genlight.tetra at the end of the file
+##convert the lyrata VCF to genlight object 	
+aa.genlight <- vcfR2genlight.tetra(lyrata_vcf)                          
 locNames(aa.genlight) <- paste(lyrata_vcf@fix[,1],lyrata_vcf@fix[,2],sep="_")   # add real SNP.names
 pop(aa.genlight)<-substr(indNames(aa.genlight),1,3)
 
@@ -196,12 +194,12 @@ pop(aa.genlight)<-substr(indNames(aa.genlight),1,3)
 aa.genlight
 indNames(aa.genlight)
 ploidy(aa.genlight)
-####################################
+#####################
 
-################################
-#   PCA 
-##################################
-# run a PCA
+##############
+#PCA 
+#############
+##run a PCA
 pca.1 <- glPcaFast(aa.genlight, nf=40) # use the modified function glPcaFast at the end of the file
 
 glPcaFast <- function(x,
@@ -329,16 +327,13 @@ s.class(pca.1$scores, pop(aa.genlight), xax=1, yax=2, col=transp(col,.6),
         ellipseSize=0, starSize=0, ppoints.cex=4, paxes.draw=T, pgrid.draw =F)
 
 
-###############################
-
 ########Discriminant analysis of principal components (DAPC)###########
 ##conduct discriminant analysis of principal components (DAPC)
 dapc1 <- dapc(aa.genlight,n.pca=30,n.da=6)
-dapc1
 scatter(dapc1, posi.da="bottomleft",bg="white",pch=20)
 
-##customise the scatterplot of the dapc#########
-##custom colour palette#########
+##customise the scatterplot of the dapc
+##custom colour palette
 my_palette<-funky(10)
 
 #plot the dapc1 data using the custom colour palette
@@ -352,7 +347,7 @@ summary(dapc1)
 assignplot(dapc1)
 #composition plot shows admixture proportions
 compoplot(dapc1,posi="bottom",xlab="Individuals",col=funky(10))
-###############################
+##############
 
 
 ##plot the first 2 principal components; colour by population
@@ -365,17 +360,15 @@ legend("topright",
        legend=unique(aa.genlight$pop), 
        pch=20, 
        col=aa.genlight$pop)
-###########################
+#############
 
-########Phylogenetic tree building with Ape######################
+########Phylogenetic tree building with Ape
 ##make a phylogenetic tree of the data to see how the samples group together
 tree1<-nj(dist(as.matrix(aa.genlight)))
-tree1
-##################################
 ##plot an unrooted phylogenetic tree with colours
 plot(tree1, typ="radial", show.tip=TRUE,cex=0.8)
 tiplabels(pch=20, col=myCol, cex=4)
-###################################
+###########
 
 ##make a colorplot
 myCol <- colorplot(pca.1$scores,pca.1$scores, transp=TRUE, cex=4)
@@ -383,7 +376,7 @@ abline(h=0,v=0, col="grey")
 add.scatter.eig(PCA1$eig[1:30],2,1,2, posi="topright", inset=.05, ratio=.3)
 
 
-#do another dapc
+
 my_palette<-funky(10)
 scatter(dapc1,scree.da=TRUE,bg="white",posi.pca="topright",legend=TRUE,
         txt.leg=unique(aa.genlight$pop),col=my_palette)
@@ -400,14 +393,12 @@ colorplot(pca.1$scores,pca.1$scores,transp=TRUE,cex=3,
 abline(v=0,h=0,col="grey", lty=2)
 #############################
 
-######SplitsTREE phylogenetics###############
-################################################################################
+######SplitsTREE phylogenetics
 #===============================================================================
 #  distance-based analyses     -------------------------------------------------
 
 # Calculate Nei's distances between individuals/pops
 #Ana# Note here raw data is used, not the corrected for NAs
-# ---
 
 aa.D.ind<-stamppNeisD(aa.genlight,pop=FALSE) # Nei's 1972 distance between indivs
 # export matrix - for SplitsTree
@@ -436,7 +427,6 @@ aa.D.ind # individuals
 aa.D.pop # populations
 Dgen_ind<-aa.D.ind.dist
 Dgen_pop<-aa.D.pop.dist
-######################
 
 
 
