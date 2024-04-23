@@ -412,7 +412,16 @@ output.to_csv('Common_SNPs.tsv',sep='\t',index=True)
 
 ## 250324_common_SNPs.R
 
-**250324_common_SNPs.R** is a large R script which uses ggplot2 to produce a range of different plots from the output of **250324_combined_lyrata_arenosa.py**. 
+**250324_common_SNPs.R** is a large R script which uses ggplot2 to produce a range of different plots from the output of **250324_combined_lyrata_arenosa.py**. After setting your **working directory** to the filepath where your **Common_SNPs.tsv output** file is and **loading** the appropriate **libraries** specified in the script,the data is **read** into R and **converted** into a **tibble**. 
+
+```
+##Read Common_SNPs.tsv into R
+arenosa_lyrata_AFs<-read_tsv('Common_SNPs.tsv')
+##convert to a tibble for easier data extraction
+arenosa_lyrata_AFs<-as_tibble(arenosa_lyrata_AFs)
+##drop ...1 and. `Unnamed: 0` columns from the df using dplyr::select 
+cleaned_arenosa_lyrata_AFs<-dplyr::select(arenosa_lyrata_AFs,-c(...1,`Unnamed: 0`))
+```
 
 Firstly, the data is subsetted using `dplyr::select()` into each chromosome scaffold. 
 
