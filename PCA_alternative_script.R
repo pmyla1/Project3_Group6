@@ -2,7 +2,7 @@
 #Tuomas Hämälä, April 2023
 
 ##set working directory
-setwd("/Users/lukearcher/Desktop/LEVI_PROJECT/160424_whole_pipeline/")
+setwd("<path/to/290324_tetraploids_only.vcf.gz")
 
 library(vcfR)
 library(ggplot2)
