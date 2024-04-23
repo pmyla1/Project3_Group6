@@ -381,7 +381,21 @@ python ./scripts/new_distruct.py -K 2 --input=./290324_whole_pipeline_VCFs/29032
 
 ## 250324_combined_lyrata_arenosa.py 
 
-**250324_combined_lyrata_arenosa.py** is a python script which utilises the [pandas](https://pandas.pydata.org/docs/user_guide/index.html) python package to convert the input **arenosa_672.txt** and **lyrata_272_with_some_hybrids.txt** files into pandas dataframes with the `pd.dataframe()` command. The script specifies user input and asks for the *A. arenosa* and the *A. lyrata* text files in that order.
+To determine whether **hybridisation** betweeen *A. arenosa* and *A. lyrata* had produced an **allotetraploid** lineage (2 subgenomes: one from *A. arenosa*, the other from *A. lyrata*), we leveraged allele frequency information from **text files** containing **4-fold degenerate SNP** data from a **larger number of samples** from both species.
+
+**250324_combined_lyrata_arenosa.py** is a python script which utilises the [pandas](https://pandas.pydata.org/docs/user_guide/index.html) python package to convert the input **arenosa_632.txt** and **lyrata_272_with_some_hybrids.txt** files into pandas dataframes with the `pd.dataframe()` command. The script specifies user input and asks for the *A. arenosa* and the *A. lyrata* text files in that order.
+
+## Input Text File Structure
+
+ | **CHROM** | **POS** | **REF** | **ALT** | **AF** | **AC** | **AN** |
+ | :-------: | :-----: | :-----: | :-----: | :----: | :----: | :----: |
+ | scaffold_1 | 32 | C | A | 0.00053 | 1 | 1886 | 
+ | scaffold_1 | 38 | A | T | 0.558 | 977 | 1750 |
+ | scaffold_1 | 160 | C | A | 0.00974 | 18 | 1848 |
+
+*Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number*
+
+ The structure of the **final output file** used to calculate the **allele frequency differences** between species can be visualised **below**.
 
 The converted input files are then merged using an inner join for the intersection of based on the **CHROM** and **POS** columns using **`pd.merge(how='inner',on=['CHROM','POS'])`** to only include sites that are **shared** between the input files. 
 
@@ -417,6 +431,14 @@ output=output.drop(['AC_x','AC_y','AN_x','AN_y','REF_x','REF_y','ALT_x','ALT_y']
 ##write the output to_csv
 output.to_csv('Common_SNPs.tsv',sep='\t',index=True)
 ```
+## Final Output File Structure
+
+ | **CHROM** | **POS** | **AF_arenosa** | **AF_lyrata** | 
+ | :-------: | :-----: | :------------: | :-----------: |
+ | scaffold_1 | 32 | 0.154 | 0.00053 |
+ | scaffold_1 | 160 | 0.232 | 0.558 |
+
+*Key: CHROM, chromosome; POS, position; AF_arenosa, allele frequency in A. arenosa; AF_lyrata, allele frequency in A. lyrata* 
 
 ## 250324_common_SNPs.R
 
@@ -506,6 +528,20 @@ chrom1_1PCT_diff<-ggplot(top_1PCT_AF_outliers_chrom1,aes(x=POS,y=AF_difference,c
         legend.position='none')
 ```
 
+## 170424_pop_genetics.R
+
+This script can be used to perfom exploratory genetic analysis by loading the **290324_tetraploids_only.vcf.gz** created by **290324_whole_pipe.sh** into RStudio and performing principal component analysis **(PCA)**, discriminant analysis of principal components **(DAPC)**, and calculating **Nei's genetic distances**. 
+
+Nei's genetic distance files can subsequently be loaded into **SplitsTree** and used to create phylogenetic networks, both of the individual samples and the populations.
+
+```
+
+```
+
+# Exploratory genetic analyses with PCA 
+
+We performed **exploratory population genetic analyses** using two different PCA techniques, (1) **Adegenet**, and (2) using Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) adapted PCA script and using our filtered vcf.gz as the input file for the PCA. 
+
 ## 190424_poly_fst.sh
 
 **190324_poly_fst.sh** can be used to calculate **pairwise Fst** values between individuals from different populations. Firstly, **grep & bcftools** are used to **create text files** for each population. Subsequently, the **[poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_fst.c)** script from Tuomas Hämälä (2023) is **compiled** and **executed** to calculate pairwise polyploid  Fst scores. **Fst calculations for the BZD-OCH pairwise population contrast are shown below**.
@@ -551,20 +587,13 @@ BZD_OCH_plot<-ggplot(BZD_OCH_Fst,aes(x=Position,y=Fst,colour=threshold))+
         legend.position='none')
 ###############
 ```
+Links to the multipanel **Fst Manhattan plots** can be found **below**: 
 
-# Exploratory genetic analyses with PCA 
+[BZD_Fst_scans](https://github.com/pmyla1/Project3_Group6/blob/main/BZD_Fst_scans.png) 
 
-We performed **exploratory population genetic analyses** using two different PCA techniques, (1) **Adegenet**, and (2) using Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) adapted PCA script and using our filtered vcf.gz as the input file for the PCA. 
+[KEH_Fst_scans](https://github.com/pmyla1/Project3_Group6/blob/main/KEH_Fst_scans.png)
 
-
-## Example output using est_adapt_pca.R
-
-<img width="475" alt="Alt_PCA_tets_only_with_BZD" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/c2ae0068-0773-4919-a283-7bc49135b286">
-
-
-# Exploratory genetic analyses with discriminant analysis of principal components (DAPC)
-
-We subsequently performed a **discrimininant analysis of principal components** (DAPC) on individuals in the filtered VCF in order to determine the **number of population clusters** and to discern if there were any sample **mix ups**. Our cluster analysis suggested that there were only **3 population clusters** (K = 3).
+[OCH_Fst_scans](https://github.com/pmyla1/Project3_Group6/blob/main/OCH_Fst_contrasts.png)
 
 
 # Phylogenetic analyses with SplitsTree
@@ -573,85 +602,12 @@ Next, we looked at the **relationships** between the individuals and populations
 
 Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight** object using the **vcf2genlight** function from the **290324_populations.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into SplitsTree. Both the **individual** and the **population** data can be used to produce **phylogenetic networks** in SplitsTree, and an example of an individual phylogenetic network can be visualized below.
 
-
 # Population structure analysis
-
 
 Alternative population structure figures were created image using the GUI **[Omicsspeaks Structure Plot V2.0](http://omicsspeaks.com/strplot2/).** 
 
 The **input file** is a comma separated value **(CSV)** file containing the **individual name** from the VCF (e.g BZD-01tl), followed by the **population** in the VCF (e.g. BZD), followed by the **fastSTRUCTURE output** (two floating numbers) for the genetic admixture proportions when **K=2** (e.g 0.95,0.05).
 
 The link to the input file when K=2 can be accessed here [OmicsSpeaks input](https://github.com/pmyla1/Project3_Group6/files/14791197/K2_omics_speaks_input.csv)
-
-## Allele frequency differences on a larger cohort of *A. arenosa* and *A. lyrata* samples
-
-To determine whether **hybridisation** betweeen *A. arenosa* and *A. lyrata* has produced an **allotetraploid** lineage (2 subgenomes: one from *A. arenosa*, the other from *A. lyrata*), we leveraged allele frequency information from **text files** containing **4-fold degenerate** single nucleotide polymorphism (SNP) data from a **larger number of samples** from both species. The **structure** of the input files can be seen **below**.
-
-## Input Text File Structure
-
- | **CHROM** | **POS** | **REF** | **ALT** | **AF** | **AC** | **AN** |
- | :-------: | :-----: | :-----: | :-----: | :----: | :----: | :----: |
- | scaffold_1 | 32 | C | A | 0.00053 | 1 | 1886 | 
- | scaffold_1 | 38 | A | T | 0.558 | 977 | 1750 |
- | scaffold_1 | 160 | C | A | 0.00974 | 18 | 1848 |
-
-*Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number*
-
-Firstly, the **250324_combined_lyrata_arenosa.py** file uses the [pandas](https://pandas.pydata.org/docs/getting_started/install.html) package in python to merge the input files based on common SNPs (merges on **CHROM** and **POS** columns in the input files). The **250324_combined_lyrata_arenosa.py** script also uses **pandas** to drop the **REF**, **ALT**, **AC**, and **AN** columns from the output created by the **250324_combined_lyrata_arenosa.py** script. 
-
-The structure of the **final output file** used to calculate the **allele frequency differences** between species can be visualised **below**.
-
-## Final Output File Structure
-
- | **CHROM** | **POS** | **AF_arenosa** | **AF_lyrata** | 
- | :-------: | :-----: | :------------: | :-----------: |
- | scaffold_1 | 32 | 0.154 | 0.00053 |
- | scaffold_1 | 160 | 0.232 | 0.558 |
-
-*Key: CHROM, chromosome; POS, position; AF_arenosa, allele frequency in A. arenosa; AF_lyrata, allele frequency in A. lyrata* 
-
-
-The allele frequency columns were retained by executing the **250324_combined_lyrata_arenosa.py** script. The **allele frequency differences** between *A. arenosa* and *A. lyrata* at these common sites were calculated in the **250324_common_SNPs.R** script.
-
-Next, we used the **250324_common_SNPs.R** script to plott the **allele frequency differences** per scaffold as **Manhattan** plots using ggplot2, and an arbritary allele frequency difference **threshold of 0.85** for SNPs expected to be **"fixed"** in one species relative to the other.
-
-# Calculating Polyploid Fst 
-
-## 190424_poly_fst.sh 
-
-**190424_poly_fst.sh** can be used to calculate polyploid Fst between various population contrasts, and uses Tuomas Hämälä's (2023) [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_fst.c) script to calculate pairwise tetraploid Fst. 
-
-The script first utilises **`bcftools query -l | grep "<3-letter population code>"`** to extract individuals from the desired population, for example **`| grep "BZD"`**. 
-
-Example:
-
-`
-#use grep and bcftools to obtain the individuals from each population for the fst scans 
-bcftools query -l ./290324_tetraploids_only.vcf.gz | grep "BZD" > ./190424_Fst_populations/BZD_pop.txt
-`
-
-Subsequently, the [poly_fst.c](https://github.com/thamala/polySV/blob/main/poly_fst.c) script is compiled and then used to **calculate** various **pairwise population Fst** contrasts, e.g. **KEH vs BZD**.
-
-```
-#poly_fst.c script compilation
-gcc ../scripts/poly_fst.c -lm ./poly_fst
-
-#example pairwise tetraploid population Fst scan
-./poly_fst -vcf ./290324_tetraploids_only_copy.vcf -pop1 ./190424_Fst_populations/BZD_pop.txt -pop2 ./190424_Fst_populations/OCH_pop.txt -mis 0.8 > ./190424_Fst_output/BZD_OCH_Fst_output.fst 
-```
-
-# Visualizing polyploid Fst scans as Manhattan plots
-
-## 190424_polyploid_Fst.R
-
-**190424_polyploid_Fst.R** can be used to load the .fst output files produced by the **190424_poly_fst.sh** script into R, and to generate **Manhattan plots** of the **Fst** scores along chromosome **scaffold 1** for various **pairwise population contrasts** using ggplot2. 
-
-Links to the **output** multipanel Fst **Manhattan plots** can be found **below**: 
-
-[BZD_Fst_scans](https://github.com/pmyla1/Project3_Group6/blob/main/BZD_Fst_scans.png) 
-
-[KEH_Fst_scans](https://github.com/pmyla1/Project3_Group6/blob/main/KEH_Fst_scans.png)
-
-[OCH_Fst_scans](https://github.com/pmyla1/Project3_Group6/blob/main/OCH_Fst_contrasts.png)
 
 
