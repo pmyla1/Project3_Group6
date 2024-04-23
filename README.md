@@ -305,6 +305,14 @@ gatk SelectVariants -V Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_prune
 
 The **site-frequency spectra** and the **allele frequencies** are calculated using the unzipped 220324_filtered_pops.vcf and Tuomas Hämälä's (2023) [**`poly_sfs.c`**](https://github.com/thamala/polySV/blob/main/poly_sfs.c) and [**`poly_freq.c`**](https://github.com/thamala/polySV/blob/main/poly_freq.c) scripts, respectively.
 
+```
+##RUN POLY_SFS TO GET SITE FREQUENCY SPECTRA FOR ALL TETRAPLOIDS
+./filtered_VCFs_for_faststructure/poly_sfs -vcf ./220324_whole_pipeline_VCFs/220324_tetraploids_only_copy.vcf -inds ./220324_whole_pipeline_VCFs/individuals.txt -mis 0.8 > ./220324_whole_pipeline_VCFs/220324_SFS_output.sfs
+
+##RUN POLY_FREQ SCRIPT FROM TUOMAS HÄMÄLÄ (2023) TO ESTIMATE ALLELE FREQUENCIES FROM MIXED PLOIDY VCF FILE
+./filtered_VCFs_for_faststructure/poly_freq -vcf ./220324_whole_pipeline_VCFs/220324_tetraploids_only_copy.vcf -pops ./220324_whole_pipeline_VCFs/populations.txt -mis 0.8 -maf 0.02 -out 0 > ./220324_whole_pipeline_VCFs/220324_poly_freq_output
+```
+
 Next, the polyploid VCF is prepared for **fastSTRUCTURE** using Yant et al (2023) **`Cochlearia_create_structure_file.py`** script for polyploid data, using the **'-s true'** flag to subsample the data to make a pseudo-diploid structure output. The populations are then rearranged into alphabetical order for plotting purposes. 
 
 ## 290324_whole_pipe.sh
