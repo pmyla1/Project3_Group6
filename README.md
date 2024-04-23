@@ -364,9 +364,11 @@ python3 ./scripts/Cochlearia_create_structure_file.py -v ./290324_whole_pipeline
 The fastSTRUCTURE script **structure.py** is used to infer the admixture proportions of the individual samples in **290324_filtered_pops.vcf.gz** with K-values ranging from 2-7. Subsequently, a modified **distruct.py** script called **new_distruct.py** is used to produce fastSTRUCTURE plots for K-values ranging from 2-7. 
 
 ```
+##Run structure.py when K=2
+python /shared/conda/faststructure/bin/structure.py -K 2 --input=./290324_whole_pipeline_VCFs/290324_reordered_structure --output=./290324_whole_pipeline_VCFs/290324_K2_out --format=str --full
 
-
-
+##Run new_distruct.py when K=2
+python ./scripts/new_distruct.py -K 2 --input=./290324_whole_pipeline_VCFs/290324_K2_out --output=./290324_whole_pipeline_VCFs/290324_K2_plot --popfile=./290324_whole_pipeline_VCFs/populations_final.txt --title="Arabidopsis lyrata admixture: K=2"
 ```
 
 ## 250324_combined_lyrata_arenosa.py 
