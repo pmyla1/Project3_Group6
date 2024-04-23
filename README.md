@@ -327,13 +327,14 @@ The populations are then rearranged into alphabetical order for plotting purpose
 grep "BZD" ./220324_whole_pipeline_VCFs/220324_first_last_removed.StructureInputDiploidized.str > ./220324_whole_pipeline_VCFs/BZD.str
 ```
 
-Next, the `structure.py` script from fastSTRUCTURE is used to assess population genetic structure with varying K-values (k=2-7).
+Next, the `structure.py` script from fastSTRUCTURE is used to assess population genetic structure with varying K-values (k=2-9).
 
 ```
-
+##Run structure.py with K=2 
+python /shared/conda/faststructure/bin/structure.py -K 2 --input=./220324_whole_pipeline_VCFs/220324_reordered_structure --output=./220324_whole_pipeline_VCFs/220324_K2_out --format=str --full
 ```
 
-Finally, a slightly modified `distruct.py` script called `new_distruct.py` is used to produce fastSTRUCTURE admixture plots for varying K-values (k=2-7).
+Finally, a slightly modified `distruct.py` script called `new_distruct.py` is used to produce fastSTRUCTURE admixture plots for varying K-values (k=2-9).
 
 ```
 
