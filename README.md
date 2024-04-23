@@ -451,7 +451,7 @@ arenosa<-ggplot(cleaned_arenosa_lyrata_AFs,aes(AF_arenosa))+
         panel.grid.minor.x=element_blank())
 ```
 
-Next, the scaffolds are filtered for minor allele frequencies >0.025, and the **allele frequency differences** between *A. arenosa* and *A. lyrata* are calculated, and then plotted per scaffold (**CHROM**) as a Manhattan plot using **ggplot2**.  
+Next, the scaffolds are filtered for minor allele frequencies >0.025, and the **allele frequency differences** between *A. arenosa* and *A. lyrata* are calculated, and then plotted per scaffold (**CHROM**) as a Manhattan plot using **ggplot2**. **Chromosome 1 plotting shown only**.
 
 ```
 ##This command calculates allele frequency differences between arenosa/lyrata
@@ -474,7 +474,17 @@ chrom1_AF_diff<-ggplot(chrom1,aes(x=POS,y=AF_difference,colour=threshold))+
 
 ```
 
-Subsequently, the **top 1% outlier** allele frequency differences are calculated by using **`dplyr::arrange(desc(AF_difference))`** and then taking the **top 1% rows**. This was performed with an aim of visualizing the **"fixed" allele frequency differences** between *A. arenosa* and *A. lyrata* at common SNPs.
+Subsequently, the **top 1% outlier** allele frequency differences are calculated by using **`dplyr::arrange(desc(AF_difference))`** and then taking the **top 1% rows**. This was performed with an aim of visualizing the **"fixed" allele frequency differences** between *A. arenosa* and *A. lyrata* at common SNPs. **Calculations for Chromosome 1 shown only**.
+
+```
+##CALCULATING SITES WITH THE TOP 1% OUTLIERS IN TERMS OF AF DIFFERENCES
+##find the sites with the highest maximum AF differences per scaffold
+top_AF_diff_chrom1<-chrom1%>%arrange(desc(chrom1$AF_difference))
+##calculate the top 1% of rows 
+top_1PCT_rows_chrom1<-round(0.01*nrow(top_AF_diff_chrom1)) ##289
+##use this to calculate the top outliers
+top_1PCT_AF_outliers_chrom1<-top_AF_diff_chrom1%>%top_n(289,AF_difference)
+```
 
 ## 190424_poly_fst.sh
 
