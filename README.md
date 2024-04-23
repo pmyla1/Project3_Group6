@@ -474,16 +474,28 @@ chrom1_AF_diff<-ggplot(chrom1,aes(x=POS,y=AF_difference,colour=threshold))+
 
 ```
 
-Subsequently, the **top 1% outlier** allele frequency differences are calculated by using **`dplyr::arrange(desc(AF_difference))`** and then taking the **top 1% rows**. This was performed with an aim of visualizing the **"fixed" allele frequency differences** between *A. arenosa* and *A. lyrata* at common SNPs. **Calculations for Chromosome 1 shown only**.
+Subsequently, the **top 1% outlier** allele frequency differences are calculated by using **`dplyr::arrange(desc(AF_difference))`** and then taking the **top 1% rows**. This was performed with an aim of visualizing the **"fixed" allele frequency differences** between *A. arenosa* and *A. lyrata* at common SNPs. **Calculations and plotting for Chromosome 1 shown only**.
 
 ```
 ##CALCULATING SITES WITH THE TOP 1% OUTLIERS IN TERMS OF AF DIFFERENCES
-##find the sites with the highest maximum AF differences per scaffold
 top_AF_diff_chrom1<-chrom1%>%arrange(desc(chrom1$AF_difference))
 ##calculate the top 1% of rows 
 top_1PCT_rows_chrom1<-round(0.01*nrow(top_AF_diff_chrom1)) ##289
 ##use this to calculate the top outliers
 top_1PCT_AF_outliers_chrom1<-top_AF_diff_chrom1%>%top_n(289,AF_difference)
+
+##PLOTTING THE TOP 1% ALLELE FREQUENCY DIFFERENCES
+chrom1_1PCT_diff<-ggplot(top_1PCT_AF_outliers_chrom1,aes(x=POS,y=AF_difference,colour=threshold))+
+  geom_point(alpha=0.8)+
+  geom_hline(yintercept=c(0,0.85),linetype=2,colour=2)+
+  scale_y_continuous(limits=c(0.7,1))+
+  scale_colour_brewer(palette="Set2")+
+  theme_bw()+
+  labs(title="Chromosome 1 top 1% AF\ndifferences at 4-fold sites",
+       x='Chromosome 1 position',y='AF difference')+
+  theme(title=element_text(face='bold',size=11),
+        panel.grid.minor=element_blank(),
+        legend.position='none')
 ```
 
 ## 190424_poly_fst.sh
