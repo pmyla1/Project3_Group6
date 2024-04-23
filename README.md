@@ -534,6 +534,8 @@ This script can be used to perfom exploratory genetic analysis by loading the **
 
 Briefly, after converting the **290324_tetraploids_only.vcf.gz** into a genlight object using the modified **`vcf2genlight.tetra`** function provided by Levi Yant (2023), a modified PCA function called **`glpcafast`** can be used to **perform PCA** on the data. **Nei's genetic distance** files can subsequently be loaded into **SplitsTree** and used to **create phylogenetic networks**, both of the **individual** samples and the **populations**.
 
+The following code block was provided by Ana (2023)
+
 ```
 ## Calculate Nei's distances between individuals/pops
 aa.D.ind<-stamppNeisD(aa.genlight,pop=FALSE) # Nei's 1972 distance between indivs
