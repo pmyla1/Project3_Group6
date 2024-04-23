@@ -516,8 +516,33 @@ gcc ../scripts/poly_fst.c -o ./poly_fst -lm
 
 ```
 
-## 190424_polyploid_fst.R
+## 190424_polyploid_Fst.R
 
+This script takes the output .fst files from **190424_poly_fst.sh** as input and **creates Manhattan plots** of the Fst scores along **Chromosome 1** for various pairwise population contrasts. **Fst scores** along Chromosome 1 for the **BZD-OCH** population contrast **shown only.**
+
+```
+####BZD vs OCH contrast
+BZD_OCH_Fst<-read_tsv("BZD_OCH_Fst_output.fst")
+##rename columns for easier plotting
+BZD_OCH_Fst<-BZD_OCH_Fst %>% rename(Chromosome=NW_003302555.1) %>% 
+  rename(Position=`1317`) %>% 
+  rename(Fst=`0.260870`) 
+##make a threshold for colouring points
+BZD_OCH_Fst$threshold<-BZD_OCH_Fst$Fst>=0.6
+##calculate the mean Fst value
+BZD_OCH_Fst$mean_Fst<-mean(BZD_OCH_Fst$Fst)
+##plot
+BZD_OCH_plot<-ggplot(BZD_OCH_Fst,aes(x=Position,y=Fst,colour=threshold))+
+  geom_point(alpha=0.5)+
+  scale_colour_brewer(palette='Set2')+
+  theme_bw()+
+  labs(title="BZD vs OCH Fst scan",x="Position",y="Fst",
+       colour=element_blank())+
+  theme(title=element_text(face='bold',size=11),
+        panel.grid.minor = element_blank(),
+        legend.position='none')
+###############
+```
 
 
 # Information on the VCF file
