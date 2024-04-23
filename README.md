@@ -294,7 +294,7 @@ Finally, `gatk SelectVariants` with the `-sn` flag is used to **select specific 
 
 ## 220324_whole_pipeline_gatk.sh 
 
-**220324_whole_pipeline_gatk.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/` and a shared gatk environment `/shared/apps/conda/bio2/`.
+**220324_whole_pipeline_gatk.sh** was executed on the **HPC** using a **shared conda environment** `/shared/conda/shared/` and a **shared gatk environment** `/shared/apps/conda/bio2/`.
 
 `gatk SelectVariants` with the `-sn` flag is used to select only the tetraploid populations of interest (either pure *A. lyrata*, pure *A. arenosa*, or expected to be hybrids) and creates a new filtered vcf called 220324_filtered_pops.vcf.gz.
 
@@ -320,25 +320,25 @@ Next, the polyploid VCF is prepared for **fastSTRUCTURE** using Yant et al (2023
 python3 ./scripts/Cochlearia_create_structure_file.py -v ./220324_whole_pipeline_VCFs/ -o 220324_structure_files -s true
 ```
 
-The populations are then rearranged into alphabetical order for plotting purposes. 
+The populations are then **rearranged** into **alphabetical order** for plotting purposes. 
 
 ```
 ##example code to move all BZD individuals into a single .str file
 grep "BZD" ./220324_whole_pipeline_VCFs/220324_first_last_removed.StructureInputDiploidized.str > ./220324_whole_pipeline_VCFs/BZD.str
 ```
 
-Next, the `structure.py` script from fastSTRUCTURE is used to assess population genetic structure with varying K-values (k=2-9).
+Next, the **`structure.py`** script from **fastSTRUCTURE** is used to assess population genetic structure with varying K-values (k=2-9).
 
 ```
 ##Run structure.py with K=2 
 python /shared/conda/faststructure/bin/structure.py -K 2 --input=./220324_whole_pipeline_VCFs/220324_reordered_structure --output=./220324_whole_pipeline_VCFs/220324_K2_out --format=str --full
 ```
 
-Finally, a slightly modified `distruct.py` script called `new_distruct.py` is used to produce fastSTRUCTURE admixture plots for varying K-values (k=2-9).
+Finally, a slightly **modified `distruct.py`** script called **`new_distruct.py`** is used to produce fastSTRUCTURE **admixture plots** for varying K-values (k=2-9).
 
 ```
-
-
+##Run new_distruct.py to create admixture plots, using the output from structure.py as input
+python ./scripts/new_distruct.py -K 2 --input=./220324_whole_pipeline_VCFs/220324_K2_out --output=./220324_whole_pipeline_VCFs/220324_K2_plot --popfile=./220324_whole_pipeline_VCFs/populations.txt --title="Arabidopsis lyrata admixture: K=2"
 ```
 ## 290324_whole_pipe.sh
 
