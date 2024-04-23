@@ -375,6 +375,10 @@ python ./scripts/new_distruct.py -K 2 --input=./290324_whole_pipeline_VCFs/29032
 
 **250324_combined_lyrata_arenosa.py** is a python script which utilises the [pandas](https://pandas.pydata.org/docs/user_guide/index.html) python package to convert the input **arenosa_672.txt** and **lyrata_272_with_some_hybrids.txt** files into pandas dataframes with the `pd.dataframe()` command. The script specifies user input and asks for the *A. arenosa* and the *A. lyrata* text files in that order.
 
+The converted input files are then merged using an inner join for the intersection of based on the **CHROM** and **POS** columns using **`pd.merge(how='inner',on=['CHROM','POS'])`** to only include sites that are **shared** between the input files. 
+
+The script then **renames** the **AF_x** & **AF_y** columns as **AF_arenosa** & **AF_lyrata**, respectively, and drops the allele count, allele number, reference, and  alternative columns from the output file to **retain the allele frequencies only**. 
+
 ```
 import pandas as pd
 
@@ -404,14 +408,6 @@ output=output.drop(['AC_x','AC_y','AN_x','AN_y','REF_x','REF_y','ALT_x','ALT_y']
 
 ##write the output to_csv
 output.to_csv('CommonSNPs_lyrata_arenosa.tsv',sep='\t',index=True)
-```
-
-The converted input files are then merged using an inner join for the intersection of based on the **CHROM** and **POS** columns using **`pd.merge(how='inner',on=['CHROM','POS'])`** to only include sites that are **shared** between the input files. 
-
-The script then **renames** the **AF_x** & **AF_y** columns as **AF_arenosa** & **AF_lyrata**, respectively, and drops the allele count, allele number, reference, and  alternative columns from the output file to **retain the allele frequencies only** using 
-
-```
-output=output.drop(['AC_x','AC_y','AN_x','AN_y','ALT_x','ALT_y','REF_x','REF_y'],axis=1)
 ```
 
 ## 250324_common_SNPs.R
