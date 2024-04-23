@@ -275,7 +275,20 @@ conda install -c bioconda bcftools
 
 The `gatk IndexFeatureFile -I`  command is used to create an **indexed fasta** file from the **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**.
 
+```
+##make an indexed VCF file using gatk IndexFeatureFile
+gatk IndexFeatureFile -I Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz
+```
+
 Subsequently, a **sequence dictionary** is created using `gatk CreateSequenceDictionary`, and then `samtools faidx` is used to index the previously created fasta file. 
+
+```
+##create a sequence dictionary
+gatk CreateSequenceDictionary -R lyrata.fasta
+
+##index lyrata.fasta with samtools faidx
+samtools faidx lyrata.fasta
+```
 
 Finally, `gatk SelectVariants` with the `-sn` flag is used to **select specific individuals** from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** and to make a new .vcf.gz with only these individuals called **new_pops_filtered.vcf.gz**.
 
