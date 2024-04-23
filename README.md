@@ -500,7 +500,12 @@ chrom1_1PCT_diff<-ggplot(top_1PCT_AF_outliers_chrom1,aes(x=POS,y=AF_difference,c
 
 ## 190424_poly_fst.sh
 
-**190324_poly_fst.sh** can be used to calculate pairwise Fst values between individuals from different populations. **Scroll down** to see more **details** on **190424_poly_fst.sh**
+**190324_poly_fst.sh** can be used to calculate **pairwise Fst** values between individuals from different populations. Firstly, **grep & bcftools** are used to **create text files** for each population. Subsequently, the **[poly_fst.c]()** script from Tuomas Hämälä (2023) is **compiled** and **executed** to calculate pairwise polyploid  Fst scores. 
+
+```
+#use grep and bcftools to obtain the individuals from each population for the fst scans 
+bcftools query -l ./290324_tetraploids_only.vcf.gz | grep "BZD" > ./190424_Fst_populations/BZD_pop.txt
+```
 
 # Methodology and Results
 
