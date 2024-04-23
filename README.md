@@ -373,7 +373,38 @@ python ./scripts/new_distruct.py -K 2 --input=./290324_whole_pipeline_VCFs/29032
 
 ## 250324_combined_lyrata_arenosa.py 
 
-**250324_combined_lyrata_arenosa.py** is a python script which utilises the [pandas](https://pandas.pydata.org/docs/user_guide/index.html) python package to convert the input **arenosa_672.txt** and **lyrata_272_with_some_hybrids.txt** files into pandas dataframes with the `pd.dataframe()` command. 
+**250324_combined_lyrata_arenosa.py** is a python script which utilises the [pandas](https://pandas.pydata.org/docs/user_guide/index.html) python package to convert the input **arenosa_672.txt** and **lyrata_272_with_some_hybrids.txt** files into pandas dataframes with the `pd.dataframe()` command. The script specifies user input and asks for the *A. arenosa* and the *A. lyrata* text files in that order.
+
+```
+import pandas as pd
+
+#define input and output files
+in1=input("Please enter the filename of your A. arenosa file: ")
+in2=input("Please enter the filename of your A. lyrata file: ")
+
+#create an empty output file 
+output=[]
+
+##read the input files with pd.read_csv()
+input1=pd.read_csv(in1,sep="\t")
+input2=pd.read_csv(in2,sep="\t")
+
+##convert input files to a pandas dataframe for the pd.merge() to work
+input1=pd.DataFrame(input1)
+input2=pd.DataFrame(input2)
+
+##use pd.merge with an inner join for the intersection/common values of CHROM and POS
+output=pd.merge(input1,input2,how='inner',on=['CHROM','POS'],sort=True)
+
+##rename the AF columns to AF_arenosa and AF_lyrata
+output=output.rename(columns={'AF_x':'AF_arenosa','AF_y':'AF_lyrata'})
+
+##drop AC, AN, REF, and ALT columns from output to retain allele frequencies only
+output=output.drop(['AC_x','AC_y','AN_x','AN_y','REF_x','REF_y','ALT_x','ALT_y'],axis=1)
+
+##write the output to_csv
+output.to_csv('CommonSNPs_lyrata_arenosa.tsv',sep='\t',index=True)
+```
 
 The converted input files are then merged using an inner join for the intersection of based on the **CHROM** and **POS** columns using **`pd.merge(how='inner',on=['CHROM','POS'])`** to only include sites that are **shared** between the input files. 
 
