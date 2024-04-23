@@ -535,7 +535,28 @@ This script can be used to perfom exploratory genetic analysis by loading the **
 Briefly, after converting the **290324_tetraploids_only.vcf.gz** into a genlight object using the modified **`vcf2genlight.tetra`** function provided by Levi Yant (2023), a modified PCA function called **`glpcafast`** can be used to **perform PCA** on the data. **Nei's genetic distance** files can subsequently be loaded into **SplitsTree** and used to **create phylogenetic networks**, both of the **individual** samples and the **populations**.
 
 ```
+## Calculate Nei's distances between individuals/pops
+aa.D.ind<-stamppNeisD(aa.genlight,pop=FALSE) # Nei's 1972 distance between indivs
+# export matrix - for SplitsTree
+stamppPhylip(aa.D.ind,file="290324_individuals.phy.dst")
 
+aa.D.pop<-stamppNeisD(aa.genlight,pop=TRUE)   # Nei's 1972 distance between pops
+# export matrix - for SplitsTree
+stamppPhylip(aa.D.pop,file="290324_populations.phy.dst") 
+
+### create the dist objects
+colnames(aa.D.ind)<-rownames(aa.D.ind)
+aa.D.ind.dist<-as.dist(aa.D.ind,diag=T)
+attr(aa.D.ind.dist,"Labels")<-rownames(aa.D.ind)   # name the rows of a matrix  
+
+colnames(aa.D.pop)<-rownames(aa.D.pop) 
+aa.D.pop.dist<-as.dist(aa.D.pop,diag=T)
+attr(aa.D.pop.dist,"Labels")<-rownames(aa.D.pop)   # name the rows of a matrix  
+
+aa.D.ind # individuals
+aa.D.pop # populations
+Dgen_ind<-aa.D.ind.dist
+Dgen_pop<-aa.D.pop.dist
 ```
 
 # Exploratory genetic analyses with PCA 
