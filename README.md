@@ -323,9 +323,22 @@ python3 ./scripts/Cochlearia_create_structure_file.py -v ./220324_whole_pipeline
 The populations are then rearranged into alphabetical order for plotting purposes. 
 
 ```
+##example code to move all BZD individuals into a single .str file
+grep "BZD" ./220324_whole_pipeline_VCFs/220324_first_last_removed.StructureInputDiploidized.str > ./220324_whole_pipeline_VCFs/BZD.str
+```
+
+Next, the `structure.py` script from fastSTRUCTURE is used to assess population genetic structure with varying K-values (k=2-7).
 
 ```
 
+```
+
+Finally, a slightly modified `distruct.py` script called `new_distruct.py` is used to produce fastSTRUCTURE admixture plots for varying K-values (k=2-7).
+
+```
+
+
+```
 ## 290324_whole_pipe.sh
 
 The **290324_whole_pipe.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/` and a shared GATK environment `/shared/apps/conda/bio2/`.
