@@ -333,15 +333,34 @@ python ./scripts/new_distruct.py -K 2 --input=./220324_whole_pipeline_VCFs/22032
 ```
 ## 290324_whole_pipe.sh
 
-The **290324_whole_pipe.sh** was executed on the HPC using a shared conda environment `/shared/conda/shared/` and a shared GATK environment `/shared/apps/conda/bio2/`.
+The **290324_whole_pipe.sh** was executed on the **HPC** using a **shared conda environment** `/shared/conda/shared/` and a **shared GATK environment** `/shared/apps/conda/bio2/`.
 
 Similarly to the **220324_whole_pipeline_gatk.sh**, `gatk SelectVariants -sn <sample in vcf>` was used to select tetraploid only individuals from **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz**. 
 
+```
+##GATK select variants to include tetraploids only 
+gatk SelectVariants -V Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz -sn BZD-01tl ...
+```
+
 Site-frequency spectra and allele frequencies are calculated using Tuomas Hämälä's (2023) [**`poly_sfs.c`**](https://github.com/thamala/polySV/blob/main/poly_sfs.c) and [**`poly_freq.c`**](https://github.com/thamala/polySV/blob/main/poly_freq.c) scripts, respectively.
+
+```
+
+```
 
 The VCF is subsequently prepared for **fastSTRUCTURE** using Yant et al (2023) **Cochlearia_create_structure_file.py** python script for polyploids, using the **`-s true`** flag to subsample the data to make a pseudo-diploid output structure file. The structure files are arranged according to populations. 
 
+```
+
+```
+
 The fastSTRUCTURE script **structure.py** is used to infer the admixture proportions of the individual samples in **290324_filtered_pops.vcf.gz** with K-values ranging from 2-7. Subsequently, a modified **distruct.py** script called **new_distruct.py** is used to produce fastSTRUCTURE plots for K-values ranging from 2-7. 
+
+```
+
+
+
+```
 
 ## 250324_combined_lyrata_arenosa.py 
 
