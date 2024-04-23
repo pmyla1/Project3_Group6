@@ -1,4 +1,5 @@
-# Project3_Group6
+# Gene Flow & Hybridisation Between *Arabidopsis arenosa* & *Arabidopsis lyrata* in the Austrian Forealps
+
 This Github page offers an introduction into manipulating **mixed ploidy VCF files** and how to calculate various population genetics metrics from polyploid VCFs such as **site frequency spectra**, and **Fst**.
 
 # Introduction
@@ -561,9 +562,11 @@ Dgen_ind<-aa.D.ind.dist
 Dgen_pop<-aa.D.pop.dist
 ```
 
-# Exploratory genetic analyses with PCA 
+## PCA_alternative_script.R 
 
-We performed **exploratory population genetic analyses** using two different PCA techniques, (1) **Adegenet**, and (2) using Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) adapted PCA script and using our filtered vcf.gz as the input file for the PCA. 
+This script was used to peform an **alternative PCA** utilising Tuomas Hämälä's (2023) [est_adapt_pca.R](https://github.com/thamala/polySV/blob/main/est_adapt_dist.r) adapted PCA script. 
+
+The input file is the **290324_tetraploids_only.vcf.gz** created by the **290324_whole_pipe.sh** script.
 
 ## 190424_poly_fst.sh
 
@@ -623,11 +626,11 @@ Links to the multipanel **Fst Manhattan plots** can be found **below**:
 
 Next, we looked at the **relationships** between the individuals and populations with **SplitsTree**, following the correct **download instructions** for your **specific device** on the **University of Tübingen** website in the following link [SplitsTree](https://software-ab.cs.uni-tuebingen.de/download/splitstree4/welcome.html). 
 
-Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight** object using the **vcf2genlight** function from the **290324_populations.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into SplitsTree. Both the **individual** and the **population** data can be used to produce **phylogenetic networks** in SplitsTree, and an example of an individual phylogenetic network can be visualized below.
+Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight** object using the **vcf2genlight** function from the **170424_pop_genetics.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into **SplitsTree**. Both the **individual** and the **population** data can be used to produce **phylogenetic networks** in SplitsTree.
 
 # Population structure analysis
 
-Alternative population structure figures were created image using the GUI **[Omicsspeaks Structure Plot V2.0](http://omicsspeaks.com/strplot2/).** 
+Alternative population structure figures were created using the GUI **[Omicsspeaks Structure Plot V2.0](http://omicsspeaks.com/strplot2/).** 
 
 The **input file** is a comma separated value **(CSV)** file containing the **individual name** from the VCF (e.g BZD-01tl), followed by the **population** in the VCF (e.g. BZD), followed by the **fastSTRUCTURE output** (two floating numbers) for the genetic admixture proportions when **K=2** (e.g 0.95,0.05).
 
