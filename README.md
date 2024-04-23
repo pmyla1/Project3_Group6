@@ -433,11 +433,25 @@ arenosa_mean1<-mean(chrom1$AF_arenosa)
 lyrata_mean1<-mean(chrom1$AF_lyrata)
 ```
 
-Next, the genome wide allele frequency distributions are plotted for *A. arenosa* and *A. lyrata*, and subsequently, the allele frequency distributions per scaffold are plotted using ggplot2. 
+Next, the genome wide allele frequency distributions are plotted for *A. arenosa* and *A. lyrata*, and subsequently, the allele frequency distributions per scaffold are plotted using ggplot2. **Genome-wide plots for *A. arenosa* shown only.**
 
-The ggplot theme was **theme_bw()**, and the colour palette used was **Set2**.
+```
+###################
+##PLOTS OF THE GENOME WIDE INFORMATION
+mean_arenosa<-mean(cleaned_arenosa_lyrata_AFs$AF_arenosa)
 
-Next, the allele frequency differences between *A. arenosa* and *A. lyrata* are calculated, and then plotted per scaffold (**CHROM**) as a Manhattan plot using ggplot2.  
+##GENOME WIDE PLOTS
+arenosa<-ggplot(cleaned_arenosa_lyrata_AFs,aes(AF_arenosa))+
+  geom_histogram(fill='orange',colour='black',bins=100)+
+  geom_vline(xintercept=mean_arenosa,linetype=2,colour=2)+
+  theme_bw()+
+  labs(title="Genome wide Allele frequency\ndistribution for A. arenosa SNPs",
+       x="A. arenosa AF",y='Count')+
+  theme(title=element_text(face='bold',size=11),
+        panel.grid.minor.x=element_blank())
+```
+
+Next, the **allele frequency differences** between *A. arenosa* and *A. lyrata* are calculated, and then plotted per scaffold (**CHROM**) as a Manhattan plot using **ggplot2**.  
 
 Subsequently, the top 1% outlier allele frequency differences are calculated by using `dplyr::arrange(desc(AF_difference))` and then taking the top 1% rows. This was performed with an aim of visualizing the "fixed" allele frequency differences between *A. arenosa* and *A. lyrata* at common SNPs.
 
