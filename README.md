@@ -516,6 +516,10 @@ gcc ../scripts/poly_fst.c -o ./poly_fst -lm
 
 ```
 
+## 190424_polyploid_fst.R
+
+
+
 # Information on the VCF file
 
 
