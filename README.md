@@ -22,8 +22,16 @@ The **rationale** for this project was the discovery of **bidirectional gene flo
 Source: [Schmickl, R. & Yant, L. (2021). Adaptive introgression: how polyploidy reshapes gene flow landscapes. *New Phytologist* 230(2), 457-461.](https://doi.org/10.1111/nph.17204)
 
 
-The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** contains samples from **diploid** and **tetraploid** *A. arenosa* and *A. lyrata* populations sampled **throughout Europe** including lineages from the **Austrian Forealps** and others from the **Wachau hybrid zone**. The **population map** can be accessed via the following link [Population Map](https://www.google.com/maps/d/viewer?mid=1HAhM5y-bYMJbXCtMSZaubk1qe0wX6JI&ll=48.09350708234271%2C15.809612499999968&z=9).
+The original VCF file **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** contains samples from **diploid** and **tetraploid** *A. arenosa* and *A. lyrata* populations sampled **throughout Europe** including lineages from the **Austrian Forealps** and others from the **Wachau hybrid zone**. The **Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz** was filtered by Levi Yant (2024) and includes **57,613** single nucleotide polymorphisms **(SNPs)** on **Chromosome 1 only**. The **population map** can be accessed via the following link [Population Map](https://www.google.com/maps/d/viewer?mid=1HAhM5y-bYMJbXCtMSZaubk1qe0wX6JI&ll=48.09350708234271%2C15.809612499999968&z=9).
 
+## Some of the Populations in the VCF
+
+ | Species        | Ploidy           | 3-letter pop code(s) |
+ | ------------- | :-------------: | -----:|
+ | pure *A. arenosa* | 4x | KEH, BZD |
+ | pure *A. lyrata* | 4x | KAG, LIC, MOD, MAU |
+ | pure *A. lyrata* | 2x | PIZ, PLE |
+ | hybrid *A. arenosa* x *A. lyrata* | 4x | FRE, HAB, OCH |  
 
 
 # **Software Used**
@@ -543,20 +551,6 @@ BZD_OCH_plot<-ggplot(BZD_OCH_Fst,aes(x=Position,y=Fst,colour=threshold))+
         legend.position='none')
 ###############
 ```
-
-
-# Information on the VCF file
-
-
-## *A. arenosa* and *A. lyrata* designated populations and ploidy levels
-
- | Species        | Ploidy           | 3-letter pop code(s) |
- | ------------- | :-------------: | -----:|
- | pure *A. arenosa* | 4x | KEH, BZD |
- | pure *A. lyrata* | 4x | KAG, LIC, MOD, MAU |
- | pure *A. lyrata* | 2x | PIZ, PLE |
- | hybrid *A. arenosa* x *A. lyrata* | 4x | FRE, HAB, OCH |  
-
 
 # Exploratory genetic analyses with PCA 
 
