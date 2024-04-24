@@ -303,7 +303,7 @@ Finally, `gatk SelectVariants` with the `-sn` flag is used to **select specific 
 gatk SelectVariants -V Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz -sn BZD-01tl -sn ...
 ```
 
-The **site-frequency spectra** and the **allele frequencies** are calculated using the unzipped 220324_filtered_pops.vcf and Tuomas Hämälä's (2023) [**`poly_sfs.c`**](https://github.com/thamala/polySV/blob/main/poly_sfs.c) and [**`poly_freq.c`**](https://github.com/thamala/polySV/blob/main/poly_freq.c) scripts, respectively.
+The **site-frequency spectra** and the **allele frequencies** are calculated using the unzipped 220324_filtered_pops.vcf and Tuomas Hämälä's (2023) [**poly_sfs.c**](https://github.com/thamala/polySV/blob/main/poly_sfs.c) and [**poly_freq.c**](https://github.com/thamala/polySV/blob/main/poly_freq.c) scripts, respectively.
 
 ```
 ##Run poly_sfs to get site frequency spectra for all tetraploids
@@ -334,7 +334,7 @@ Next, the **structure.py** script from **fastSTRUCTURE** is used to assess popul
 python /shared/conda/faststructure/bin/structure.py -K 2 --input=./220324_whole_pipeline_VCFs/220324_reordered_structure --output=./220324_whole_pipeline_VCFs/220324_K2_out --format=str --full
 ```
 
-Finally, a slightly **modified `distruct.py`** script called **new_distruct.py** is used to produce fastSTRUCTURE **admixture plots** for varying K-values (k=2-9). **Only K=2 command shown**.
+Finally, a slightly **modified `distruct.py`** script called [**new_distruct.py**](https://github.com/pmyla1/Project3_Group6/blob/main/new_distruct.py) is used to produce fastSTRUCTURE **admixture plots** for varying K-values (k=2-9). **Only K=2 command shown**.
 
 ```
 ##Run new_distruct.py to create admixture plots, using the output from structure.py as input
