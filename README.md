@@ -611,7 +611,6 @@ BZD_OCH_plot<-ggplot(BZD_OCH_Fst,aes(x=Position,y=Fst,colour=threshold))+
   theme(title=element_text(face='bold',size=11),
         panel.grid.minor = element_blank(),
         legend.position='none')
-###############
 ```
 Links to the multipanel **Fst Manhattan plots** can be found **below**: 
 
@@ -628,6 +627,12 @@ Next, we looked at the **relationships** between the individuals and populations
 
 Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight** object using the **vcf2genlight** function from the **170424_pop_genetics.R script**, the genlight object can be converted into **Nei's genetic distance** data and subsequently converted into a **phylogentic distance file** (.phy.dst) before being loaded into **SplitsTree**. Both the **individual** and the **population** data can be used to produce **phylogenetic networks** in SplitsTree.
 
+## How to produce phylogenetic networks in SplitsTree
+
+1) After successfully downloading SplitsTree, **open the application** and select **`File` >> `Open`** on the **toolbar**.
+2) Navigate to your **.phy.dst** files created in the **170424_pop_genetics.R** script, and select **Open**.
+3) Your phylogenetic network should now be loaded into **SplitsTree** and can be saved by selecting **`File` >> `Export Image`**, then selecting **`Format: PNG(*.png)`**, and finally ticking the **`Save visible region`** option.
+
 # Population structure analysis
 
 Alternative population structure figures were created using the GUI **[Omicsspeaks Structure Plot V2.0](http://omicsspeaks.com/strplot2/).** 
@@ -636,7 +641,7 @@ The **input file** is a comma separated value **(CSV)** file containing the **in
 
 ## Omics Speaks Structure Input File
 
-  
+ |           |         |                |               |
  | :-------: | :-----: | :------------: | :-----------: |
  | BZD-01tl | BZD | 0.95 | 0.05 |
  | BZD-02tl | BZD | 0.97 | 0.03 |
