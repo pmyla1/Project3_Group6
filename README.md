@@ -313,7 +313,7 @@ The **site-frequency spectra** and the **allele frequencies** are calculated usi
 ./filtered_VCFs_for_faststructure/poly_freq -vcf ./220324_whole_pipeline_VCFs/220324_tetraploids_only_copy.vcf -pops ./220324_whole_pipeline_VCFs/populations.txt -mis 0.8 -maf 0.02 -out 0 > ./220324_whole_pipeline_VCFs/220324_poly_freq_output
 ```
 
-Next, the polyploid VCF is prepared for **fastSTRUCTURE** using Yant et al (2023) **`Cochlearia_create_structure_file.py`** script for polyploid data, using the **'-s true'** flag to subsample the data to make a pseudo-diploid structure output. 
+Next, the polyploid VCF is prepared for **fastSTRUCTURE** using Yant et al (2023) [**Cochlearia_create_structure_file.py**](https://github.com/pmyla1/Project3_Group6/blob/main/Cochlearia_create_structure_file.py) script for polyploid data, using the **'-s true'** flag to subsample the data to make a pseudo-diploid structure output. 
 
 ```
 ##run cochlearia_create_structure_file.py to create faststructure appropriate files
@@ -327,14 +327,14 @@ The populations are then **rearranged** into **alphabetical order** for plotting
 grep "BZD" ./220324_whole_pipeline_VCFs/220324_first_last_removed.StructureInputDiploidized.str > ./220324_whole_pipeline_VCFs/BZD.str
 ```
 
-Next, the **`structure.py`** script from **fastSTRUCTURE** is used to assess population genetic structure with varying K-values (k=2-9). **Only K=2 command shown**.
+Next, the **structure.py** script from **fastSTRUCTURE** is used to assess population genetic structure with varying K-values (k=2-9). **Only K=2 command shown**.
 
 ```
 ##Run structure.py with K=2 
 python /shared/conda/faststructure/bin/structure.py -K 2 --input=./220324_whole_pipeline_VCFs/220324_reordered_structure --output=./220324_whole_pipeline_VCFs/220324_K2_out --format=str --full
 ```
 
-Finally, a slightly **modified `distruct.py`** script called **`new_distruct.py`** is used to produce fastSTRUCTURE **admixture plots** for varying K-values (k=2-9). **Only K=2 command shown**.
+Finally, a slightly **modified `distruct.py`** script called **new_distruct.py** is used to produce fastSTRUCTURE **admixture plots** for varying K-values (k=2-9). **Only K=2 command shown**.
 
 ```
 ##Run new_distruct.py to create admixture plots, using the output from structure.py as input
@@ -363,7 +363,7 @@ Site-frequency spectra and allele frequencies are calculated using Tuomas Hämä
 ./filtered_VCFs_for_faststructure/poly_freq -vcf ./290324_whole_pipeline_VCFs/290324_tetraploids_only_copy.vcf -pops ./290324_whole_pipeline_VCFs/populations_final.txt -mis 0.8 -maf 0.02 -out 0 > ./290324_whole_pipeline_VCFs/290324_poly_freq_output
 ```
 
-The VCF is subsequently prepared for **fastSTRUCTURE** using Yant et al (2023) [**Cochlearia_create_structure_file.py**]() python script for polyploids, using the **`-s true`** flag to subsample the data to make a pseudo-diploid output structure file. The structure files are arranged according to populations. 
+The VCF is subsequently prepared for **fastSTRUCTURE** using Yant et al (2023) [**Cochlearia_create_structure_file.py**](https://github.com/pmyla1/Project3_Group6/blob/main/Cochlearia_create_structure_file.py) python script for polyploids, using the **`-s true`** flag to subsample the data to make a pseudo-diploid output structure file. The structure files are arranged according to populations. 
 
 ```
 ##Cochlearia_create_structure.py to create faststructure appropriate files .str
