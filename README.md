@@ -15,7 +15,7 @@ There are **two main types** of polyploids: **autopolyploids** (where all subgen
 ## Arabidopsis arenosa & Arabidopsis lyrata
 ***Arabdopsis arenosa*** is a biennial **outcrossing plant** which produces distinct **diploid** and **tetraploid** lineages throughout **Central Europe** and is closely related to the **model species** ***Arabidopsis thaliana*** (Margburger et al., 2019). Similarly, the sister species ***Arabidopsis lyrata*** also forms distinct **diploid** and **tetraploid** lineages across its **distribution** range, and there have been reports of **gene flow** between the **tetraploid** lineages of ***A. arenosa*** and ***A. lyrata*** where these species have **overlapping ranges** (Jørgensen et al., 2011 [BMC Ecology & Evolution](https://bmcecolevol.biomedcentral.com/articles/10.1186/1471-2148-11-346). 
 
-The **rationale** for this project was the discovery of **bidirectional gene flow** between **autotetraploid** lineages of *A. arenosa* and *A. lyrata* which may have **facilitated** the **stabilisation of polyploidy** post WGD (Marburger et al., 2019). In this project, we selected specific **tetraploid populations** of *A. arenosa* and *A. lyrata* from the **Austrian Forealps** and the **Wachau hybrid zone** suspected to be hybrids and assessed the degree of **genetic admixture** using **fastSTRUCTURE**. We aimed to discover whether **hybridisation** between *A. arenosa* and *A. lyrata* has created any **allopolyploid populations** in the **Wachau hybrid zone** consisting of approximately **50:50 admixture**. A graphical summary of the process of speciation, followed by subsequent hybridisation and adaptive gene flow/introgression between *A. arenosa* & *A. lyrata* can be seen below.
+The **rationale** for this project was the discovery of **bidirectional gene flow** between **autotetraploid** lineages of *A. arenosa* and *A. lyrata* which may have **facilitated** the **stabilisation of polyploidy** post WGD (Marburger et al., 2019). In this project, we selected specific **tetraploid populations** of *A. arenosa* and *A. lyrata* from the **Austrian Forealps** and the **Wachau hybrid zone** suspected to be hybrids and assessed the degree of **genetic admixture** using **fastSTRUCTURE**. We aimed to discover whether **hybridisation** between *A. arenosa* and *A. lyrata* has created any **allopolyploid populations** in the **Wachau hybrid zone** consisting of approximately **50:50 admixture**. A **graphical summary** of the process of **speciation**, followed by subsequent **hybridisation** and **adaptive introgression** between *A. arenosa* & *A. lyrata* can be seen **below**.
 
 <img width="946" alt="Screenshot 2024-04-22 at 13 35 32" src="https://github.com/pmyla1/Project3_Group6/assets/151543531/1de2717b-bf10-4f01-aa79-4655cd3c401e">
 
@@ -334,7 +334,7 @@ Next, the [**structure.py**](https://github.com/rajanil/fastStructure/blob/maste
 python /shared/conda/faststructure/bin/structure.py -K 2 --input=./220324_whole_pipeline_VCFs/220324_reordered_structure --output=./220324_whole_pipeline_VCFs/220324_K2_out --format=str --full
 ```
 
-Finally, a slightly **modified distruct.py** script called [**new_distruct.py**](https://github.com/pmyla1/Project3_Group6/blob/main/new_distruct.py) is used to produce fastSTRUCTURE **admixture plots** for varying K-values (k=2-9). **Only K=2 command shown**.
+Finally, a slightly **modified distruct.py** script called [**new_distruct.py**](https://github.com/pmyla1/Project3_Group6/blob/main/new_distruct.py) is used to produce fastSTRUCTURE **admixture plots** for varying K-values (k=2-9). **Only K=2 shown**.
 
 ```
 ##Run new_distruct.py to create admixture plots, using the output from structure.py as input
@@ -370,7 +370,7 @@ The VCF is subsequently prepared for **fastSTRUCTURE** using Yant et al (2023) [
 python3 ./scripts/Cochlearia_create_structure_file.py -v ./290324_whole_pipeline_VCFs/ -o 290324_structure_files -s true 
 ```
 
-The fastSTRUCTURE script [**structure.py**](https://github.com/rajanil/fastStructure/blob/master/structure.py) is used to infer the admixture proportions of the individual samples in **290324_filtered_pops.vcf.gz** with K-values ranging from 2-7. Subsequently, a modified **distruct.py** script called [**new_distruct.py**](https://github.com/pmyla1/Project3_Group6/blob/main/new_distruct.py) is used to produce fastSTRUCTURE plots for K-values ranging from 2-7. **Only K=2 command shown**.
+The fastSTRUCTURE script [**structure.py**](https://github.com/rajanil/fastStructure/blob/master/structure.py) is used to infer the admixture proportions of the individual samples in **290324_filtered_pops.vcf.gz** with K-values ranging from 2-7. Subsequently, a modified **distruct.py** script called [**new_distruct.py**](https://github.com/pmyla1/Project3_Group6/blob/main/new_distruct.py) is used to produce fastSTRUCTURE plots for K-values ranging from 2-7. **Only K=2 shown**.
 
 ```
 ##Run structure.py when K=2
@@ -382,9 +382,9 @@ python ./scripts/new_distruct.py -K 2 --input=./290324_whole_pipeline_VCFs/29032
 
 ## 250324_combined_lyrata_arenosa.py 
 
-To determine whether **hybridisation** betweeen *A. arenosa* and *A. lyrata* had produced an **allotetraploid** lineage (2 subgenomes: one from *A. arenosa*, the other from *A. lyrata*), we leveraged allele frequency information from **text files** containing **4-fold degenerate SNP** data from a **larger number of samples** from both species.
+To determine whether **hybridisation** betweeen *A. arenosa* and *A. lyrata* had produced an **allotetraploid** lineage, we leveraged allele frequency information from **text files** containing **4-fold degenerate SNP** data from a **larger number of samples** from both species.
 
-**250324_combined_lyrata_arenosa.py** is a python script which utilises the [pandas](https://pandas.pydata.org/docs/user_guide/index.html) python package to convert the input **arenosa_632.txt** and **lyrata_272_with_some_hybrids.txt** files into pandas dataframes with the `pd.dataframe()` command. The script specifies user input and asks for the *A. arenosa* and the *A. lyrata* text files in that order.
+**250324_combined_lyrata_arenosa.py** is a python script which utilises the [pandas](https://pandas.pydata.org/docs/user_guide/index.html) python package to convert the input **arenosa_632.txt** and **lyrata_272_with_some_hybrids.txt** files into pandas dataframes with the `pd.dataframe()` command. The script requires **user input** and asks for the *A. arenosa* and *A. lyrata* text files in that order.
 
 ## Input Text File Structure
 
@@ -396,9 +396,9 @@ To determine whether **hybridisation** betweeen *A. arenosa* and *A. lyrata* had
 
 *Key: CHROM, chromosome; POS, position; REF, reference allele; ALT, alternative allele; AF, allele frequency; AC, allele count; AN, allele  number*
 
- The structure of the **final output file** used to calculate the **allele frequency differences** between species can be visualised **below**.
+The structure of the **final output file** used to calculate the **allele frequency differences** between species can be visualised **below**.
 
-The converted input files are then merged using an inner join for the intersection of based on the **CHROM** and **POS** columns using **`pd.merge(how='inner',on=['CHROM','POS'])`** to only include sites that are **shared** between the input files. 
+The converted input files are then merged using an **inner join** for the **intersection** between 2 files, based on the **CHROM** and **POS** columns using **`pd.merge(how='inner',on=['CHROM','POS'])`** to only include sites that are **shared**. 
 
 The script then **renames** the **AF_x** & **AF_y** columns as **AF_arenosa** & **AF_lyrata**, respectively, and drops the allele count, allele number, reference, and  alternative columns from the output file to **retain the allele frequencies only**. 
 
@@ -443,7 +443,7 @@ output.to_csv('Common_SNPs.tsv',sep='\t',index=True)
 
 ## 250324_common_SNPs.R
 
-**250324_common_SNPs.R** is a large R script which uses ggplot2 to produce a range of different plots from the output of **250324_combined_lyrata_arenosa.py**. After setting your **working directory** to the filepath where your **Common_SNPs.tsv output** file is and **loading** the appropriate **libraries** specified in the script,the data is **read** into R and **converted** into a **tibble**. 
+**250324_common_SNPs.R** was **executed locally** and is an R script that uses ggplot2 to produce a range of different plots from the output of **250324_combined_lyrata_arenosa.py**. After setting your **working directory** to the filepath where your **Common_SNPs.tsv output** file is and **loading** the appropriate **libraries** specified in the script,the data is **read** into R and **converted** into a **tibble**. 
 
 ```
 ##Read Common_SNPs.tsv into R
@@ -464,7 +464,7 @@ arenosa_mean1<-mean(chrom1$AF_arenosa)
 lyrata_mean1<-mean(chrom1$AF_lyrata)
 ```
 
-Next, the genome wide allele frequency distributions are plotted for *A. arenosa* and *A. lyrata*, and subsequently, the allele frequency distributions per scaffold are plotted using ggplot2. **Genome-wide plots for *A. arenosa* shown only.**
+Next, the **genome-wide** allele frequency distributions are plotted for *A. arenosa* and *A. lyrata*, and subsequently, the allele frequency distributions **per scaffold** are plotted using ggplot2. **Genome-wide plots for *A. arenosa* shown only.**
 
 ```
 ###################
@@ -531,9 +531,9 @@ chrom1_1PCT_diff<-ggplot(top_1PCT_AF_outliers_chrom1,aes(x=POS,y=AF_difference,c
 
 ## 170424_pop_genetics.R
 
-This script can be used to perfom exploratory genetic analysis by loading the **290324_tetraploids_only.vcf.gz** created by **290324_whole_pipe.sh** into RStudio and performing principal component analysis **(PCA)**, discriminant analysis of principal components **(DAPC)**, and calculating **Nei's genetic distances**. 
+This script was executed locally and can be used to perfom exploratory genetic analysis. Firstly, the **290324_tetraploids_only.vcf.gz** created by **290324_whole_pipe.sh** is loaded into RStudio and converted into a genlight object by the **vcf2genlight.tetra** function. Subsequently, principal component analysis **(PCA)** is performed on the genlight object utilising the **glPcaFast** function. Next, discriminant analysis of principal components **(DAPC)** is performed on the genlight object. Finally, **Nei's genetic distances** are calculated for both the **individuals** and **populations** in the genlight object. 
 
-Briefly, after converting the **290324_tetraploids_only.vcf.gz** into a genlight object using the modified **`vcf2genlight.tetra`** function provided by Levi Yant (2023), a modified PCA function called **`glpcafast`** can be used to **perform PCA** on the data. **Nei's genetic distance** files can subsequently be loaded into **SplitsTree** and used to **create phylogenetic networks**, both of the **individual** samples and the **populations**.
+Subsequently, the **Nei's genetic distance** files can be loaded into **SplitsTree** and used to **create phylogenetic networks**, both of the **individual** samples and the **populations**.
 
 The following code block was provided by Ana (2023)
 
@@ -633,6 +633,15 @@ Briefly, after converting **290324_tetraploids_only.vcf.gz** into a **genlight**
 Alternative population structure figures were created using the GUI **[Omicsspeaks Structure Plot V2.0](http://omicsspeaks.com/strplot2/).** 
 
 The **input file** is a comma separated value **(CSV)** file containing the **individual name** from the VCF (e.g BZD-01tl), followed by the **population** in the VCF (e.g. BZD), followed by the **fastSTRUCTURE output** (two floating numbers) for the genetic admixture proportions when **K=2** (e.g 0.95,0.05).
+
+## Omics Speaks Structure Input File
+
+  
+ | :-------: | :-----: | :------------: | :-----------: |
+ | BZD-01tl | BZD | 0.95 | 0.05 |
+ | BZD-02tl | BZD | 0.97 | 0.03 |
+ | BZD-03tl | BZD | 0.98 | 0.02 |
+ | BZD-04tl | BZD | 0.96 | 0.04 |
 
 The link to the input file when K=2 can be accessed here [OmicsSpeaks input](https://github.com/pmyla1/Project3_Group6/files/14791197/K2_omics_speaks_input.csv)
 
