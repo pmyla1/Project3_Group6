@@ -645,4 +645,13 @@ The **input file** is a comma separated value **(CSV)** file containing the **in
 
 The link to the input file when K=2 can be accessed here [OmicsSpeaks input](https://github.com/pmyla1/Project3_Group6/files/14791197/K2_omics_speaks_input.csv)
 
+## Steps taken to produce OmicsSpeaks Structure Plot
+
+1) Click on the following link for [OmicsSpeaks](http://omicsspeaks.com/) and select the **Structure Plot V2.0** button.
+2) **Scroll down** and select the green **Take me to the application** button.
+3) Click on the blue **Select input file** near the **top left** of the page.
+4) Select your **input .csv** file with the correct structure as shown above, keep the **default options** for now, and click the green **Submit** button.
+5) You can **customise the colour** palette if you wish.
+6) Once you are happy with the colour palette, select the green **Preview & Download** button, select **png**, and then click on the green **Download** button to download the figure as a png.
+
 
