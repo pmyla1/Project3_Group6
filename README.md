@@ -327,14 +327,14 @@ The populations are then **rearranged** into **alphabetical order** for plotting
 grep "BZD" ./220324_whole_pipeline_VCFs/220324_first_last_removed.StructureInputDiploidized.str > ./220324_whole_pipeline_VCFs/BZD.str
 ```
 
-Next, the **structure.py** script from **fastSTRUCTURE** is used to assess population genetic structure with varying K-values (k=2-9). **Only K=2 command shown**.
+Next, the [**structure.py**](https://github.com/rajanil/fastStructure/blob/master/structure.py) script from **fastSTRUCTURE** is used to assess population genetic structure with varying K-values (k=2-9). **Only K=2 command shown**.
 
 ```
 ##Run structure.py with K=2 
 python /shared/conda/faststructure/bin/structure.py -K 2 --input=./220324_whole_pipeline_VCFs/220324_reordered_structure --output=./220324_whole_pipeline_VCFs/220324_K2_out --format=str --full
 ```
 
-Finally, a slightly **modified `distruct.py`** script called [**new_distruct.py**](https://github.com/pmyla1/Project3_Group6/blob/main/new_distruct.py) is used to produce fastSTRUCTURE **admixture plots** for varying K-values (k=2-9). **Only K=2 command shown**.
+Finally, a slightly **modified distruct.py** script called [**new_distruct.py**](https://github.com/pmyla1/Project3_Group6/blob/main/new_distruct.py) is used to produce fastSTRUCTURE **admixture plots** for varying K-values (k=2-9). **Only K=2 command shown**.
 
 ```
 ##Run new_distruct.py to create admixture plots, using the output from structure.py as input
@@ -351,7 +351,7 @@ Similarly to the **220324_whole_pipeline_gatk.sh**, `gatk SelectVariants -sn <sa
 gatk SelectVariants -V Chrom_1_noSnakemake.lyrata.bipassed.dp.m.bt.1pct.ld_pruned.vcf.gz -sn BZD-01tl ...
 ```
 
-Site-frequency spectra and allele frequencies are calculated using Tuomas Hämälä's (2023) [**`poly_sfs.c`**](https://github.com/thamala/polySV/blob/main/poly_sfs.c) and [**`poly_freq.c`**](https://github.com/thamala/polySV/blob/main/poly_freq.c) scripts, respectively.
+Site-frequency spectra and allele frequencies are calculated using Tuomas Hämälä's (2023) [**poly_sfs.c**](https://github.com/thamala/polySV/blob/main/poly_sfs.c) and [**poly_freq.c**](https://github.com/thamala/polySV/blob/main/poly_freq.c) scripts, respectively.
 
 ```
 ##################
@@ -370,7 +370,7 @@ The VCF is subsequently prepared for **fastSTRUCTURE** using Yant et al (2023) [
 python3 ./scripts/Cochlearia_create_structure_file.py -v ./290324_whole_pipeline_VCFs/ -o 290324_structure_files -s true 
 ```
 
-The fastSTRUCTURE script **structure.py** is used to infer the admixture proportions of the individual samples in **290324_filtered_pops.vcf.gz** with K-values ranging from 2-7. Subsequently, a modified **distruct.py** script called [**new_distruct.py**](https://github.com/pmyla1/Project3_Group6/blob/main/new_distruct.py) is used to produce fastSTRUCTURE plots for K-values ranging from 2-7. **Only K=2 command shown**.
+The fastSTRUCTURE script [**structure.py**](https://github.com/rajanil/fastStructure/blob/master/structure.py) is used to infer the admixture proportions of the individual samples in **290324_filtered_pops.vcf.gz** with K-values ranging from 2-7. Subsequently, a modified **distruct.py** script called [**new_distruct.py**](https://github.com/pmyla1/Project3_Group6/blob/main/new_distruct.py) is used to produce fastSTRUCTURE plots for K-values ranging from 2-7. **Only K=2 command shown**.
 
 ```
 ##Run structure.py when K=2
