@@ -124,7 +124,7 @@ You require **`JAVA 17`** to run or build GATK.
    ## then to install the Eclipse Foundation's OpenJDK 17 run 
    brew install --cask temurin17
    ```
-Furthermore, you must have a **`Python`** version greater than or equal to **`Python 2.6`**, and an **`R version of at least 3.2.5`**
+Furthermore, you must have a **Python** version greater than or equal to **Python 2.6**, and an **R version of at least 3.2.5**
 
 To **build GATK** you must have [git-lfs](https://git-lfs.com/) of **1.1.0 or greater**. This is required to download the large files that are used to build GATK, including the test files. 
 After downloading git-lfs, run the following command 
@@ -136,24 +136,24 @@ You also **require Gradle 5.6** - you can use the `./gradlew` script which will 
 ## Installation of `GATK v4.2.2.0`
 
 ## Python dependencies
-GATK uses **Conda** as a **package manager** to establish and manage the Python environment and dependencies required by GATK tools that require Python.
-Firstly, if you have any **previous GATK versions** installed on your device, please **uninstall** using the following commands:
+GATK uses **Conda** to establish and manage the Python environment and dependencies required by the GATK tools that use Python.
+Firstly, please **uninstall any previous GATK versions** installed on your device using the following commands:
 ```
 source deactivate
 ## assuming you called your GATK environment gatk
 conda env remove -n gatk
 ```
 
-Next, **update your conda** package manager to the **latest version** for your base environment
+Next, **update conda** to the **latest version** for your base environment
 ```
 conda update -n base conda
 ```
 
 To install the **GATK v4** package
 
-You must first **create** and then **activate** a `Conda` environment for `GATK` using either **`Miniconda`** or **`Conda`**.
+First **create** and then **activate** a Conda environment for GATK using either **Miniconda** or **Conda**.
 
-If you are running from a **zip** or **tar** distribution, then navigate to the **directory** where you have **stored your GATK jars** and the **gatk wrapper** script, ensure the **`gatkcondaenv.yml`** is present, and run the following command:
+If you are running from a **zip** or **tar** distribution, then navigate to the **directory** where you have **stored your GATK jars** and the **gatk wrapper** script, ensure the **gatkcondaenv.yml** is present, and run the following command:
 ```
 conda env create -n gatk -f gatkcondaenv.yml
 
@@ -170,7 +170,7 @@ To check if your GATK environment is **properly installed** run:
 ```
 conda list
 ```
-Which should return a list of packages you have installed, **`gatkpythonpackages`** should be one of these.
+Which should return a list of packages you have installed, **gatkpythonpackages** should be one of these.
 
 ## **3) R and RStudio - R version 4.3.1 (2023-06-16)**
 
